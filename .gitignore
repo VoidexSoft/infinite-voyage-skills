@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Skill workspaces (generated during eval/improve)
+*-workspace/
+
+# Simulation outputs (regeneratable)
+*.png
+!assets/**/*.png
+
+# Temporary files
+*.tmp
+*.bak
