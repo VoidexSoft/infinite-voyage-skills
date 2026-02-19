@@ -81,7 +81,7 @@ skills/
 ## Requirements
 
 - Claude Code or Cowork with skill support
-- Python 3.8+ with numpy (for balancer scripts)
+- Python 3.8+ (for balancer and utility scripts)
 - GitHub CLI (`gh`) for github-gamedev skill
 - matplotlib (optional, for chart generation)
 

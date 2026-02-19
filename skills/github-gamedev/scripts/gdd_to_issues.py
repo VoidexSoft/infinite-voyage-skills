@@ -40,8 +40,24 @@ class GDDParser:
         r'DOCUMENT:\s*(.+?)(?:\n|$)': 'documentation',
     }
 
-    def __init__(self, gdd_path: str):
-        """Initialize parser with GDD file path."""
+    # Standard disciplines for feature decomposition
+    DECOMPOSITION_DISCIPLINES = [
+        {'name': 'Design', 'label': 'design', 'prefix': '[Design]',
+         'desc': 'Design specification and requirements for'},
+        {'name': 'Code', 'label': 'implement', 'prefix': '[Code]',
+         'desc': 'Implementation of'},
+        {'name': 'Art', 'label': 'art', 'prefix': '[Art]',
+         'desc': 'Art assets and visual design for'},
+        {'name': 'Audio', 'label': 'audio', 'prefix': '[Audio]',
+         'desc': 'Sound effects and music for'},
+        {'name': 'QA', 'label': 'test', 'prefix': '[QA]',
+         'desc': 'Testing and quality assurance for'},
+        {'name': 'Balance', 'label': 'balance', 'prefix': '[Balance]',
+         'desc': 'Numerical balance and tuning for'},
+    ]
+
+    def __init__(self, gdd_path: str, feature: Optional[str] = None):
+        """Initialize parser with GDD file path and optional feature filter."""
         self.gdd_path = Path(gdd_path)
         if not self.gdd_path.exists():
             raise ValueError(f"GDD file not found: {gdd_path}")
@@ -49,6 +65,7 @@ class GDDParser:
         with open(self.gdd_path, 'r', encoding='utf-8') as f:
             self.content = f.read()
 
+        self.feature = feature
         self.tasks: List[GDDTask] = []
 
     def _extract_section(self, match) -> str:
@@ -87,8 +104,90 @@ class GDDParser:
         else:
             return 'gameplay'
 
+    def _extract_sections_with_content(self) -> List[Tuple[str, str, int]]:
+        """Extract all sections with their content and heading level."""
+        sections = []
+        header_pattern = re.compile(r'^(#{1,6})\s+(.+)$', re.MULTILINE)
+        matches = list(header_pattern.finditer(self.content))
+
+        for i, match in enumerate(matches):
+            level = len(match.group(1))
+            title = match.group(2).strip()
+            start = match.end()
+            end = matches[i + 1].start() if i + 1 < len(matches) else len(self.content)
+            content = self.content[start:end].strip()
+            sections.append((title, content, level))
+
+        return sections
+
+    def _decompose_feature(self, feature_name: str, section_title: str, section_content: str) -> List[GDDTask]:
+        """Decompose a feature section into discipline-based tasks."""
+        tasks = []
+        for discipline in self.DECOMPOSITION_DISCIPLINES:
+            title = f"{discipline['prefix']} {feature_name}"[:60]
+            body = (
+                f"## {discipline['name']} — {feature_name}\n\n"
+                f"{discipline['desc']} **{feature_name}**.\n\n"
+                f"### GDD Context\n\n"
+                f"From section: **{section_title}**\n\n"
+                f"{section_content[:500]}\n\n"
+                f"### Acceptance Criteria\n\n"
+                f"- [ ] {discipline['name']} work completed for {feature_name}\n"
+                f"- [ ] Reviewed by team lead\n"
+                f"- [ ] Integrated with related systems\n"
+            )
+
+            task = GDDTask(
+                title=title,
+                description=f"{discipline['desc']} {feature_name}",
+                section=section_title,
+                task_type=discipline['label'].upper(),
+                labels=[discipline['label'], 'from-gdd', 'feature-decomposition'],
+                body=body,
+            )
+            tasks.append(task)
+
+        return tasks
+
     def parse(self) -> List[GDDTask]:
-        """Parse GDD and extract all tasks."""
+        """Parse GDD and extract all tasks.
+
+        If self.feature is set, performs structured feature decomposition
+        on matching sections. Otherwise, scans for explicit task markers.
+        """
+        if self.feature:
+            return self._parse_feature_decomposition()
+        return self._parse_task_markers()
+
+    def _parse_feature_decomposition(self) -> List[GDDTask]:
+        """Parse GDD using feature decomposition mode."""
+        sections = self._extract_sections_with_content()
+        feature_lower = self.feature.lower()
+
+        matched = False
+        for title, content, level in sections:
+            if feature_lower in title.lower():
+                matched = True
+                self.tasks.extend(
+                    self._decompose_feature(self.feature, title, content)
+                )
+
+        if not matched:
+            # Fallback: treat the feature name as the section
+            # and use the entire GDD content as context
+            print(f"Warning: No section matching '{self.feature}' found. "
+                  f"Generating generic decomposition.")
+            self.tasks.extend(
+                self._decompose_feature(self.feature, 'GDD', self.content[:500])
+            )
+
+        # Also pick up any explicit task markers in the matched sections
+        self._parse_task_markers()
+
+        return self.tasks
+
+    def _parse_task_markers(self) -> List[GDDTask]:
+        """Parse GDD and extract tasks from explicit markers."""
         # Find all task markers
         for pattern, task_type in self.TASK_PATTERNS.items():
             for match in re.finditer(pattern, self.content):
@@ -247,6 +346,10 @@ def main():
         help='Path to GDD markdown file'
     )
     parser.add_argument(
+        '-f', '--feature',
+        help='Feature name for structured decomposition (generates design/code/art/audio/QA/balance issues)'
+    )
+    parser.add_argument(
         '-o', '--output',
         help='Output shell script path (default: creates issues directly)'
     )
@@ -268,7 +371,7 @@ def main():
     args = parser.parse_args()
 
     # Parse GDD
-    gdd_parser = GDDParser(args.gdd_file)
+    gdd_parser = GDDParser(args.gdd_file, feature=args.feature)
     gdd_parser.parse()
 
     # Print summary if requested

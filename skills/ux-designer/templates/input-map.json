@@ -1,0 +1,393 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "game": "Infinite Voyage",
+    "version": "1.0.0",
+    "description": "Input mapping configuration for all supported input devices. Each action defines bindings for keyboard, gamepad, and touch, along with behavioral flags.",
+    "context": "global",
+    "notes": [
+      "All actions are rebindable unless 'rebindable' is false.",
+      "Hold/toggle mode can be overridden per-action in player settings.",
+      "Gamepad bindings use Xbox naming convention; remap to platform-specific labels at runtime.",
+      "Touch gestures use a virtual control vocabulary; positions are configurable by the player."
+    ]
+  },
+  "inputActions": [
+    {
+      "action": "move_forward",
+      "category": "movement",
+      "keyboard": { "primary": "W", "secondary": "ArrowUp" },
+      "gamepad": { "primary": "LeftStickUp", "secondary": null },
+      "touch": { "gesture": "virtual_joystick_up", "zone": "left" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": false,
+      "description": "Move the character forward"
+    },
+    {
+      "action": "move_backward",
+      "category": "movement",
+      "keyboard": { "primary": "S", "secondary": "ArrowDown" },
+      "gamepad": { "primary": "LeftStickDown", "secondary": null },
+      "touch": { "gesture": "virtual_joystick_down", "zone": "left" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": false,
+      "description": "Move the character backward"
+    },
+    {
+      "action": "move_left",
+      "category": "movement",
+      "keyboard": { "primary": "A", "secondary": "ArrowLeft" },
+      "gamepad": { "primary": "LeftStickLeft", "secondary": null },
+      "touch": { "gesture": "virtual_joystick_left", "zone": "left" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": false,
+      "description": "Move the character left (strafe)"
+    },
+    {
+      "action": "move_right",
+      "category": "movement",
+      "keyboard": { "primary": "D", "secondary": "ArrowRight" },
+      "gamepad": { "primary": "LeftStickRight", "secondary": null },
+      "touch": { "gesture": "virtual_joystick_right", "zone": "left" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": false,
+      "description": "Move the character right (strafe)"
+    },
+    {
+      "action": "sprint",
+      "category": "movement",
+      "keyboard": { "primary": "ShiftLeft", "secondary": null },
+      "gamepad": { "primary": "LeftStickClick", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "left_bottom" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": true,
+      "description": "Sprint (consumes stamina)"
+    },
+    {
+      "action": "jump",
+      "category": "movement",
+      "keyboard": { "primary": "Space", "secondary": null },
+      "gamepad": { "primary": "A", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_bottom" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Jump; tap for normal jump"
+    },
+    {
+      "action": "crouch",
+      "category": "movement",
+      "keyboard": { "primary": "ControlLeft", "secondary": "C" },
+      "gamepad": { "primary": "B", "secondary": null },
+      "touch": { "gesture": "swipe_down", "zone": "right" },
+      "rebindable": true,
+      "holdMode": "toggle",
+      "toggleAllowed": true,
+      "description": "Crouch or stealth; toggle by default"
+    },
+    {
+      "action": "dodge",
+      "category": "combat",
+      "keyboard": { "primary": "Space", "secondary": null },
+      "gamepad": { "primary": "B", "secondary": null },
+      "touch": { "gesture": "double_tap", "zone": "right" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "contextOverride": "combat_only",
+      "description": "Dodge roll in the current movement direction (combat context)"
+    },
+    {
+      "action": "attack_light",
+      "category": "combat",
+      "keyboard": { "primary": "MouseLeft", "secondary": null },
+      "gamepad": { "primary": "RB", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_center" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Light attack with equipped weapon"
+    },
+    {
+      "action": "attack_heavy",
+      "category": "combat",
+      "keyboard": { "primary": "MouseLeft", "secondary": null },
+      "gamepad": { "primary": "RT", "secondary": null },
+      "touch": { "gesture": "long_press_button", "zone": "right_center" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": false,
+      "description": "Heavy attack; hold to charge for increased damage"
+    },
+    {
+      "action": "block",
+      "category": "combat",
+      "keyboard": { "primary": "MouseRight", "secondary": "ShiftLeft" },
+      "gamepad": { "primary": "LT", "secondary": null },
+      "touch": { "gesture": "two_finger_tap", "zone": "right" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": true,
+      "description": "Block incoming attacks; reduces damage while held"
+    },
+    {
+      "action": "ability_1",
+      "category": "combat",
+      "keyboard": { "primary": "Q", "secondary": null },
+      "gamepad": { "primary": "X", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_ability_1" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Activate ability in slot 1"
+    },
+    {
+      "action": "ability_2",
+      "category": "combat",
+      "keyboard": { "primary": "E", "secondary": null },
+      "gamepad": { "primary": "Y", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_ability_2" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Activate ability in slot 2"
+    },
+    {
+      "action": "ability_3",
+      "category": "combat",
+      "keyboard": { "primary": "R", "secondary": null },
+      "gamepad": { "primary": "LB", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_ability_3" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Activate ability in slot 3"
+    },
+    {
+      "action": "ability_4",
+      "category": "combat",
+      "keyboard": { "primary": "F", "secondary": null },
+      "gamepad": { "primary": "LB", "secondary": "DPadUp" },
+      "touch": { "gesture": "tap_button", "zone": "right_ability_4" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Activate ability in slot 4"
+    },
+    {
+      "action": "lock_on_target",
+      "category": "combat",
+      "keyboard": { "primary": "MouseMiddle", "secondary": "Tab" },
+      "gamepad": { "primary": "RightStickClick", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_top" },
+      "rebindable": true,
+      "holdMode": "toggle",
+      "toggleAllowed": true,
+      "description": "Lock camera and attacks onto nearest enemy; press again to release"
+    },
+    {
+      "action": "use_item",
+      "category": "combat",
+      "keyboard": { "primary": "G", "secondary": null },
+      "gamepad": { "primary": "DPadDown", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "right_item" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Use the item assigned to the active quick slot"
+    },
+    {
+      "action": "switch_weapon_next",
+      "category": "equipment",
+      "keyboard": { "primary": "ScrollUp", "secondary": "1" },
+      "gamepad": { "primary": "DPadRight", "secondary": null },
+      "touch": { "gesture": "swipe_right", "zone": "left_top" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Switch to the next weapon in the loadout"
+    },
+    {
+      "action": "switch_weapon_prev",
+      "category": "equipment",
+      "keyboard": { "primary": "ScrollDown", "secondary": "2" },
+      "gamepad": { "primary": "DPadLeft", "secondary": null },
+      "touch": { "gesture": "swipe_left", "zone": "left_top" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Switch to the previous weapon in the loadout"
+    },
+    {
+      "action": "interact",
+      "category": "interaction",
+      "keyboard": { "primary": "E", "secondary": null },
+      "gamepad": { "primary": "A", "secondary": null },
+      "touch": { "gesture": "tap", "zone": "context_prompt" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "contextOverride": "exploration_only",
+      "description": "Interact with objects, NPCs, doors, and loot in the world"
+    },
+    {
+      "action": "open_inventory",
+      "category": "menu",
+      "keyboard": { "primary": "I", "secondary": null },
+      "gamepad": { "primary": "Select", "secondary": null },
+      "touch": { "gesture": "edge_swipe_left", "zone": "screen_left_edge" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Open the inventory screen"
+    },
+    {
+      "action": "open_map",
+      "category": "menu",
+      "keyboard": { "primary": "M", "secondary": null },
+      "gamepad": { "primary": "TouchpadPress", "secondary": "Select" },
+      "touch": { "gesture": "tap_button", "zone": "top_right" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Open the world map"
+    },
+    {
+      "action": "open_journal",
+      "category": "menu",
+      "keyboard": { "primary": "J", "secondary": null },
+      "gamepad": { "primary": "DPadUp", "secondary": null },
+      "touch": { "gesture": "edge_swipe_right", "zone": "screen_right_edge" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Open the quest journal"
+    },
+    {
+      "action": "open_character",
+      "category": "menu",
+      "keyboard": { "primary": "C", "secondary": null },
+      "gamepad": { "primary": "DPadUp", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "top_left" },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Open the character stats and equipment screen"
+    },
+    {
+      "action": "pause",
+      "category": "system",
+      "keyboard": { "primary": "Escape", "secondary": "P" },
+      "gamepad": { "primary": "Start", "secondary": null },
+      "touch": { "gesture": "tap_button", "zone": "top_center" },
+      "rebindable": false,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Pause the game and open the pause menu (not rebindable)"
+    },
+    {
+      "action": "quick_save",
+      "category": "system",
+      "keyboard": { "primary": "F5", "secondary": null },
+      "gamepad": { "primary": null, "secondary": null },
+      "touch": { "gesture": null, "zone": null },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Quick save the current game state"
+    },
+    {
+      "action": "quick_load",
+      "category": "system",
+      "keyboard": { "primary": "F9", "secondary": null },
+      "gamepad": { "primary": null, "secondary": null },
+      "touch": { "gesture": null, "zone": null },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Load the most recent quick save"
+    },
+    {
+      "action": "camera_look",
+      "category": "camera",
+      "keyboard": { "primary": "MouseMove", "secondary": null },
+      "gamepad": { "primary": "RightStick", "secondary": null },
+      "touch": { "gesture": "drag", "zone": "right" },
+      "rebindable": false,
+      "holdMode": "continuous",
+      "toggleAllowed": false,
+      "sensitivity": 1.0,
+      "invertY": false,
+      "description": "Control the camera direction"
+    },
+    {
+      "action": "quick_select_wheel",
+      "category": "combat",
+      "keyboard": { "primary": "Tab", "secondary": null },
+      "gamepad": { "primary": "DPadHold", "secondary": null },
+      "touch": { "gesture": "long_press", "zone": "center" },
+      "rebindable": true,
+      "holdMode": "hold",
+      "toggleAllowed": false,
+      "description": "Open the quick-select radial wheel for items and abilities"
+    },
+    {
+      "action": "toggle_hud",
+      "category": "system",
+      "keyboard": { "primary": "H", "secondary": null },
+      "gamepad": { "primary": null, "secondary": null },
+      "touch": { "gesture": null, "zone": null },
+      "rebindable": true,
+      "holdMode": "press",
+      "toggleAllowed": false,
+      "description": "Toggle HUD visibility between minimal and full"
+    }
+  ],
+  "categories": {
+    "movement": { "label": "Movement", "order": 1 },
+    "combat": { "label": "Combat", "order": 2 },
+    "equipment": { "label": "Equipment", "order": 3 },
+    "interaction": { "label": "Interaction", "order": 4 },
+    "menu": { "label": "Menus", "order": 5 },
+    "camera": { "label": "Camera", "order": 6 },
+    "system": { "label": "System", "order": 7 }
+  },
+  "holdModes": {
+    "press": "Single press triggers the action once",
+    "hold": "Action persists while the input is held; releases on release",
+    "toggle": "First press activates; second press deactivates",
+    "continuous": "Analog input mapped continuously (sticks, mouse movement)"
+  },
+  "touchZones": {
+    "left": "Left half of the screen (movement controls)",
+    "right": "Right half of the screen (camera and action controls)",
+    "left_bottom": "Bottom-left area (sprint, crouch buttons)",
+    "left_top": "Top-left area (weapon switch)",
+    "right_center": "Center-right area (attack buttons)",
+    "right_bottom": "Bottom-right area (jump, dodge)",
+    "right_top": "Top-right area (lock-on, minimap)",
+    "right_ability_1": "Right side ability slot 1",
+    "right_ability_2": "Right side ability slot 2",
+    "right_ability_3": "Right side ability slot 3",
+    "right_ability_4": "Right side ability slot 4",
+    "right_item": "Right side quick item slot",
+    "top_left": "Top-left corner (character, menu)",
+    "top_center": "Top-center (pause button)",
+    "top_right": "Top-right corner (map, settings)",
+    "center": "Screen center (radial menu activation)",
+    "context_prompt": "Near the context prompt position (dynamic)",
+    "screen_left_edge": "Left edge of screen (edge swipe zone)",
+    "screen_right_edge": "Right edge of screen (edge swipe zone)"
+  },
+  "conflictRules": {
+    "sameContextConflict": "warn",
+    "differentContextAllowed": true,
+    "systemKeysProtected": ["pause"],
+    "maxBindingsPerAction": 2
+  }
+}

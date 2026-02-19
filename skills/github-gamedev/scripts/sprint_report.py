@@ -8,6 +8,7 @@ calculates velocity, groups by category, and generates markdown report.
 
 import subprocess
 import json
+import re
 import argparse
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -249,6 +250,67 @@ class SprintReporter:
         print(report)
 
 
+def _convert_format(report_md: str, fmt: str, reporter: SprintReporter) -> str:
+    """Convert markdown report to the requested format."""
+    if fmt == 'markdown':
+        return report_md
+
+    if fmt == 'html':
+        # Simple markdown-to-HTML conversion
+        html = report_md
+        html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
+        html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
+        html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
+        html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
+        html = re.sub(r'^- (.+)$', r'<li>\1</li>', html, flags=re.MULTILINE)
+        html = re.sub(r'\|(.+)\|', r'<td>\1</td>', html)
+        lines = html.split('\n')
+        result = ['<html><body>']
+        for line in lines:
+            if line.strip().startswith('<'):
+                result.append(line)
+            elif line.strip():
+                result.append(f'<p>{line}</p>')
+        result.append('</body></html>')
+        return '\n'.join(result)
+
+    if fmt == 'json':
+        all_issues = reporter._get_issues('all')
+        velocity = reporter.calculate_velocity(all_issues)
+        by_label = reporter.group_by_label(all_issues)
+        by_assignee = reporter.group_by_assignee(all_issues)
+        return json.dumps({
+            'generated': datetime.now().isoformat(),
+            'milestone': reporter.milestone,
+            'velocity': velocity,
+            'by_label': {k: len(v) for k, v in by_label.items()},
+            'by_assignee': {k: len(v) for k, v in by_assignee.items()},
+            'issues': all_issues,
+        }, indent=2, default=str)
+
+    if fmt == 'slack':
+        # Slack-friendly formatting (mrkdwn)
+        slack = report_md
+        slack = re.sub(r'^# (.+)$', r'*\1*', slack, flags=re.MULTILINE)
+        slack = re.sub(r'^## (.+)$', r'*\1*', slack, flags=re.MULTILINE)
+        slack = re.sub(r'^### (.+)$', r'*\1*', slack, flags=re.MULTILINE)
+        # Convert markdown tables to simple text
+        slack = re.sub(r'\|[-|]+\|', '', slack)
+        return slack
+
+    if fmt == 'csv':
+        all_issues = reporter._get_issues('all')
+        lines = ['number,title,state,labels,assignees']
+        for issue in all_issues:
+            labels = ';'.join(l.get('name', '') for l in issue.get('labels', []))
+            assignees = ';'.join(a.get('login', '') for a in issue.get('assignees', []))
+            title = issue.get('title', '').replace(',', ';')
+            lines.append(f"{issue.get('number', '')},{title},{issue.get('state', '')},{labels},{assignees}")
+        return '\n'.join(lines)
+
+    return report_md
+
+
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
@@ -268,23 +330,45 @@ def main():
         help='Filter by project ID'
     )
     parser.add_argument(
+        '-s', '--sprint',
+        help='Sprint identifier (e.g. "Sprint 5"). If provided, used as milestone filter and report title.'
+    )
+    parser.add_argument(
+        '-f', '--format',
+        choices=['markdown', 'html', 'json', 'slack', 'csv'],
+        default='markdown',
+        help='Output format (default: markdown)'
+    )
+    parser.add_argument(
         '-o', '--output',
         help='Output file path (default: stdout)'
     )
 
     args = parser.parse_args()
 
+    # Sprint flag overrides milestone
+    milestone = args.sprint or args.milestone
+
     # Generate report
     reporter = SprintReporter(
         repo=args.repo,
-        milestone=args.milestone,
+        milestone=milestone,
         project=args.project
     )
 
+    report_md = reporter.generate_report()
+
+    # Convert format
+    output = _convert_format(report_md, args.format, reporter)
+
     if args.output:
-        reporter.save_report(args.output)
+        output_file = Path(args.output)
+        output_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(output_file, 'w', encoding='utf-8') as f:
+            f.write(output)
+        print(f"Report saved to {args.output}")
     else:
-        reporter.print_report()
+        print(output)
 
 
 if __name__ == '__main__':

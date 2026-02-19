@@ -1,0 +1,348 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Infinite Voyage Game Data Export Schema",
+  "description": "Defines the structure for exporting game data from spreadsheets into engine-consumable JSON. Used by the data-modeler skill to validate exports before they reach the game engine.",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["meta", "characters", "items", "abilities"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Export metadata for versioning and traceability.",
+      "required": ["export_version", "exported_at", "game", "source_file"],
+      "properties": {
+        "export_version": {
+          "type": "string",
+          "description": "Semantic version of this export (e.g., '1.2.0').",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "exported_at": {
+          "type": "string",
+          "description": "ISO 8601 timestamp of when the export was generated.",
+          "format": "date-time"
+        },
+        "game": {
+          "type": "string",
+          "description": "Game project name.",
+          "const": "Infinite Voyage"
+        },
+        "source_file": {
+          "type": "string",
+          "description": "Filename of the source spreadsheet."
+        },
+        "exported_by": {
+          "type": "string",
+          "description": "Name of the designer who triggered the export."
+        }
+      }
+    },
+    "characters": {
+      "type": "array",
+      "description": "Array of playable character definitions.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "class", "level", "hp", "mp", "stats", "combat"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique character identifier (immutable).",
+            "pattern": "^char_\\d{3,}$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name of the character.",
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "class": {
+            "type": "string",
+            "description": "Character archetype.",
+            "enum": ["Warrior", "Mage", "Rogue", "Cleric", "Ranger", "Bard", "Paladin"]
+          },
+          "level": {
+            "type": "integer",
+            "description": "Character level.",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "hp": {
+            "type": "integer",
+            "description": "Hit points (health).",
+            "minimum": 1,
+            "maximum": 9999
+          },
+          "mp": {
+            "type": "integer",
+            "description": "Mana / magic points.",
+            "minimum": 0,
+            "maximum": 9999
+          },
+          "stats": {
+            "type": "object",
+            "description": "Core attribute scores.",
+            "required": ["str", "dex", "int", "wis", "con", "cha"],
+            "properties": {
+              "str": {
+                "type": "integer",
+                "description": "Strength.",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "dex": {
+                "type": "integer",
+                "description": "Dexterity.",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "int": {
+                "type": "integer",
+                "description": "Intelligence.",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "wis": {
+                "type": "integer",
+                "description": "Wisdom.",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "con": {
+                "type": "integer",
+                "description": "Constitution.",
+                "minimum": 1,
+                "maximum": 30
+              },
+              "cha": {
+                "type": "integer",
+                "description": "Charisma.",
+                "minimum": 1,
+                "maximum": 30
+              }
+            }
+          },
+          "combat": {
+            "type": "object",
+            "description": "Derived combat values.",
+            "required": ["attack", "defense", "speed"],
+            "properties": {
+              "attack": {
+                "type": "integer",
+                "description": "Attack rating.",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "defense": {
+                "type": "integer",
+                "description": "Defense rating.",
+                "minimum": 0,
+                "maximum": 999
+              },
+              "speed": {
+                "type": "integer",
+                "description": "Speed / initiative rating.",
+                "minimum": 0,
+                "maximum": 999
+              }
+            }
+          },
+          "xp_required": {
+            "type": "integer",
+            "description": "XP needed to reach next level.",
+            "minimum": 0
+          },
+          "abilities": {
+            "type": "array",
+            "description": "List of ability IDs this character can use.",
+            "items": {
+              "type": "string",
+              "pattern": "^ability_[a-z_]+$"
+            }
+          }
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "description": "Array of item definitions.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "rarity", "level_req", "value"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique item identifier.",
+            "pattern": "^item_[a-z_]+_\\d{3,}$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.",
+            "minLength": 1,
+            "maxLength": 60
+          },
+          "type": {
+            "type": "string",
+            "description": "Item category.",
+            "enum": ["Weapon", "Armor", "Accessory", "Consumable", "Material", "Quest", "Misc"]
+          },
+          "rarity": {
+            "type": "string",
+            "description": "Rarity tier.",
+            "enum": ["Common", "Uncommon", "Rare", "Epic", "Legendary"]
+          },
+          "level_req": {
+            "type": "integer",
+            "description": "Minimum player level to equip or use.",
+            "minimum": 0,
+            "maximum": 50
+          },
+          "stat_bonus": {
+            "type": "string",
+            "description": "Human-readable stat bonus description (e.g., '+5 ATK, +3 DEX')."
+          },
+          "value": {
+            "type": "integer",
+            "description": "Base gold value.",
+            "minimum": 0
+          },
+          "drop_rate": {
+            "type": "number",
+            "description": "Drop probability as a percentage (0.0 - 100.0).",
+            "minimum": 0.0,
+            "maximum": 100.0
+          },
+          "source": {
+            "type": "string",
+            "description": "Where the item can be obtained (e.g., 'Bandit Drop', 'Chest (Ruins)')."
+          },
+          "stackable": {
+            "type": "boolean",
+            "description": "Whether this item can stack in inventory.",
+            "default": false
+          },
+          "max_stack": {
+            "type": "integer",
+            "description": "Maximum stack size if stackable.",
+            "minimum": 1,
+            "default": 1
+          }
+        }
+      }
+    },
+    "abilities": {
+      "type": "array",
+      "description": "Array of ability / skill definitions.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "class", "damage", "cost", "cooldown", "level_unlock"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique ability identifier.",
+            "pattern": "^ability_[a-z_]+$"
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name.",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "class": {
+            "type": "string",
+            "description": "Which character class can use this ability."
+          },
+          "damage": {
+            "type": "number",
+            "description": "Base damage or healing value (negative for heals).",
+            "minimum": -9999,
+            "maximum": 9999
+          },
+          "cost": {
+            "type": "object",
+            "description": "Resource cost to use the ability.",
+            "properties": {
+              "type": {
+                "type": "string",
+                "description": "Resource type consumed.",
+                "enum": ["MP", "HP", "Stamina", "None"]
+              },
+              "amount": {
+                "type": "integer",
+                "description": "Amount consumed per use.",
+                "minimum": 0
+              }
+            },
+            "required": ["type", "amount"]
+          },
+          "cooldown": {
+            "type": "number",
+            "description": "Cooldown in seconds before the ability can be used again.",
+            "minimum": 0.0
+          },
+          "range": {
+            "type": "number",
+            "description": "Effective range in game tiles.",
+            "minimum": 0.0
+          },
+          "aoe_radius": {
+            "type": "number",
+            "description": "Area-of-effect radius in game tiles (0 for single target).",
+            "minimum": 0.0
+          },
+          "level_unlock": {
+            "type": "integer",
+            "description": "Minimum character level to learn this ability.",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "tags": {
+            "type": "array",
+            "description": "Classification tags for filtering and AI behavior.",
+            "items": {
+              "type": "string",
+              "enum": ["damage", "heal", "buff", "debuff", "aoe", "single_target", "dot", "crowd_control"]
+            }
+          }
+        }
+      }
+    },
+    "validation_rules": {
+      "type": "object",
+      "description": "Global validation constraints the engine uses to sanity-check imported data.",
+      "properties": {
+        "character_hp": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" }
+          }
+        },
+        "character_stat": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" }
+          }
+        },
+        "item_value": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" }
+          }
+        },
+        "ability_damage": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "integer" },
+            "max": { "type": "integer" }
+          }
+        },
+        "drop_rate_total_per_enemy": {
+          "type": "number",
+          "description": "Maximum combined drop rate percentage for a single enemy.",
+          "maximum": 100.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "$schema": "encounter-definition-v1",
+  "metadata": {
+    "name": "Corrupted Grove Ambush",
+    "id": "enc_corrupted_grove_001",
+    "version": "1.0.0",
+    "zone": "whispering_woods",
+    "zone_id": "zone_whispering_woods_02",
+    "author": "level-designer",
+    "created": "2026-01-15",
+    "last_modified": "2026-02-10",
+    "status": "review",
+    "tags": ["combat", "ambush", "mid-game", "environmental", "corruption"]
+  },
+
+  "identity": {
+    "type": "combat",
+    "subtype": "ambush",
+    "narrative_context": "The player enters a seemingly peaceful grove, but corruption has twisted the local wildlife. The ambush teaches the player that corrupted zones are never safe, even when they appear calm.",
+    "level_role": "mid-zone escalation",
+    "estimated_playtime_seconds": {
+      "min": 180,
+      "max": 300,
+      "target": 240
+    },
+    "position_in_zone": {
+      "sequence_index": 4,
+      "total_encounters_in_zone": 8,
+      "is_mandatory": true,
+      "is_boss": false,
+      "is_miniboss": false
+    }
+  },
+
+  "difficulty": {
+    "tier": "normal",
+    "intensity_rating": 7,
+    "recommended_player_level": {
+      "min": 14,
+      "max": 18,
+      "target": 16
+    },
+    "assumed_player_state": {
+      "gear_quality": "uncommon",
+      "expected_abilities": ["basic_attack", "dodge_roll", "heavy_strike", "corruption_cleanse"],
+      "assumed_consumables": {
+        "health_potions": 3,
+        "antidote": 1
+      },
+      "expected_hp": 450,
+      "expected_dps": 85
+    },
+    "success_rate_targets": {
+      "skilled_player": {
+        "attempts": 1,
+        "description": "Should succeed on first attempt with efficient play"
+      },
+      "average_player": {
+        "attempts": 2,
+        "description": "First attempt learns enemy positions; second attempt wins"
+      },
+      "struggling_player": {
+        "attempts": 4,
+        "description": "May need to retreat and return with better consumables"
+      }
+    },
+    "threat_assessment": {
+      "total_enemy_dps": 165,
+      "player_time_to_death_seconds": 2.7,
+      "mechanic_complexity": "moderate",
+      "simultaneous_threats": 3,
+      "punish_factor": "medium"
+    },
+    "adaptive_difficulty": {
+      "enabled": true,
+      "modifier_range": {
+        "min": 0.85,
+        "max": 1.15
+      }
+    }
+  },
+
+  "enemy_composition": [
+    {
+      "enemy_id": "corrupted_wolf",
+      "name": "Corrupted Wolf",
+      "count": 3,
+      "level": 15,
+      "role": "dps",
+      "behavior": "aggressive",
+      "stats": {
+        "hp": 180,
+        "damage": 35,
+        "armor": 10,
+        "speed": 1.3
+      },
+      "abilities": [
+        {
+          "name": "Lunge",
+          "damage": 45,
+          "cooldown_seconds": 6,
+          "telegraph_seconds": 0.8,
+          "description": "Leaps at the player from medium range"
+        },
+        {
+          "name": "Pack Howl",
+          "damage": 0,
+          "cooldown_seconds": 20,
+          "telegraph_seconds": 1.5,
+          "description": "Buffs nearby corrupted allies with 20% attack speed for 10 seconds"
+        }
+      ],
+      "spawn_delay_seconds": 0,
+      "spawn_location": "grove_treeline_north",
+      "notes": "Wolves circle the player and attack from multiple angles. Prioritize reducing their count quickly."
+    },
+    {
+      "enemy_id": "corrupted_treant",
+      "name": "Corrupted Treant",
+      "count": 1,
+      "level": 16,
+      "role": "tank",
+      "behavior": "defensive",
+      "stats": {
+        "hp": 600,
+        "damage": 55,
+        "armor": 35,
+        "speed": 0.6
+      },
+      "abilities": [
+        {
+          "name": "Root Slam",
+          "damage": 70,
+          "cooldown_seconds": 10,
+          "telegraph_seconds": 1.5,
+          "description": "Slams roots into the ground in a frontal cone. Applies slow debuff for 3 seconds."
+        },
+        {
+          "name": "Corruption Spores",
+          "damage": 15,
+          "cooldown_seconds": 15,
+          "telegraph_seconds": 2.0,
+          "description": "Releases a cloud of corruption spores in a radius. Deals 15 damage per second for 5 seconds. Can be cleansed."
+        }
+      ],
+      "spawn_delay_seconds": 5,
+      "spawn_location": "grove_center",
+      "notes": "Treant awakens 5 seconds after wolves engage. It anchors the center of the grove and controls space with AoE."
+    },
+    {
+      "enemy_id": "corruption_sprite",
+      "name": "Corruption Sprite",
+      "count": 2,
+      "level": 14,
+      "role": "support",
+      "behavior": "evasive",
+      "stats": {
+        "hp": 80,
+        "damage": 20,
+        "armor": 0,
+        "speed": 1.5
+      },
+      "abilities": [
+        {
+          "name": "Corruption Bolt",
+          "damage": 25,
+          "cooldown_seconds": 4,
+          "telegraph_seconds": 0.6,
+          "description": "Ranged corruption projectile. Applies corruption stack (3 stacks = damage-over-time debuff)."
+        },
+        {
+          "name": "Mend Corruption",
+          "damage": 0,
+          "cooldown_seconds": 12,
+          "telegraph_seconds": 1.0,
+          "description": "Heals a corrupted ally for 50 HP. Prioritizes the Treant."
+        }
+      ],
+      "spawn_delay_seconds": 3,
+      "spawn_location": "grove_treeline_east",
+      "notes": "Sprites stay at range and heal the Treant. Killing them first simplifies the encounter significantly."
+    }
+  ],
+
+  "triggers": {
+    "activation": {
+      "type": "proximity",
+      "condition": "player_enters_grove_center",
+      "radius": 15,
+      "description": "Encounter triggers when the player walks into the center of the grove, past the initial treeline.",
+      "one_shot": true
+    },
+    "escalation": [
+      {
+        "type": "health_threshold",
+        "condition": "corrupted_treant_hp_below_50_percent",
+        "effect": "treant_enrage",
+        "description": "When the Treant drops below 50% HP, its attack speed increases by 30% and Root Slam cooldown is halved."
+      },
+      {
+        "type": "timer",
+        "condition": "elapsed_seconds_120",
+        "effect": "reinforcement_wave",
+        "description": "If the encounter lasts more than 2 minutes, 2 additional Corrupted Wolves spawn from the south treeline."
+      }
+    ],
+    "completion": {
+      "type": "all_enemies_defeated",
+      "condition": "all_encounter_enemies_dead",
+      "description": "Encounter completes when all spawned enemies are defeated."
+    }
+  },
+
+  "environmental_conditions": {
+    "arena": {
+      "name": "Corrupted Grove",
+      "shape": "circular",
+      "radius": 25,
+      "terrain": "forest_clearing",
+      "elevation_changes": false,
+      "exits": [
+        {"direction": "south", "type": "entry_path", "state": "open"},
+        {"direction": "north", "type": "progression_path", "state": "blocked_until_completion"}
+      ]
+    },
+    "hazards": [
+      {
+        "name": "Corruption Pools",
+        "type": "damage_zone",
+        "damage_per_second": 20,
+        "locations": ["grove_northwest", "grove_southeast"],
+        "radius": 3,
+        "avoidable": true,
+        "affects_enemies": false,
+        "visual_indicator": "bubbling_purple_liquid",
+        "audio_indicator": "corruption_hiss"
+      },
+      {
+        "name": "Thorned Undergrowth",
+        "type": "slow_zone",
+        "movement_reduction_percent": 40,
+        "locations": ["grove_perimeter"],
+        "avoidable": true,
+        "affects_enemies": true,
+        "visual_indicator": "dark_twisted_vines",
+        "notes": "Can be used tactically to slow wolves if player kites them through it"
+      }
+    ],
+    "interactive_elements": [
+      {
+        "name": "Ancient Purification Stone",
+        "type": "usable_object",
+        "location": "grove_west",
+        "interaction": "activate",
+        "effect": "Removes all corruption stacks from the player and deals 100 damage to all corrupted enemies within radius 10",
+        "uses": 1,
+        "cooldown_seconds": 0,
+        "telegraph": "Stone glows faintly blue; intensifies when player approaches",
+        "notes": "Optional strategic tool. Rewards players who explore the arena before triggering combat."
+      }
+    ],
+    "weather": "overcast",
+    "time_of_day": "twilight",
+    "lighting": {
+      "ambient": "dim_purple",
+      "accent_sources": ["corruption_glow", "purification_stone_glow"],
+      "narrative_note": "The dim purple light reinforces the corruption theme. The blue purification stone stands out as an anomaly."
+    }
+  },
+
+  "dialogue_triggers": [
+    {
+      "trigger": "encounter_start",
+      "speaker": "player_companion",
+      "line": "Something's wrong here. The trees... they're moving.",
+      "type": "ambient",
+      "interruptible": true
+    },
+    {
+      "trigger": "corrupted_treant_spawn",
+      "speaker": "player_companion",
+      "line": "That Treant has been fully corrupted. Watch out for its spores!",
+      "type": "combat_hint",
+      "interruptible": true
+    },
+    {
+      "trigger": "purification_stone_nearby",
+      "speaker": "player_companion",
+      "line": "That stone... it feels different from the corruption. Pure, somehow.",
+      "type": "exploration_hint",
+      "interruptible": true,
+      "condition": "player_within_radius_5_of_stone"
+    },
+    {
+      "trigger": "encounter_complete",
+      "speaker": "player_companion",
+      "line": "The corruption recedes... but this is just one grove. The whole forest might be infected.",
+      "type": "narrative",
+      "interruptible": false
+    }
+  ],
+
+  "rewards": {
+    "xp": {
+      "base": 450,
+      "bonus_no_damage": 150,
+      "bonus_under_time": {
+        "threshold_seconds": 120,
+        "bonus": 100
+      }
+    },
+    "loot": [
+      {
+        "item_id": "corrupted_heartwood",
+        "name": "Corrupted Heartwood",
+        "drop_chance": 1.0,
+        "quantity": 1,
+        "source": "corrupted_treant",
+        "type": "crafting_material",
+        "notes": "Used in corruption resistance armor crafting"
+      },
+      {
+        "item_id": "wolf_fang",
+        "name": "Corrupted Wolf Fang",
+        "drop_chance": 0.5,
+        "quantity": 1,
+        "source": "corrupted_wolf",
+        "type": "crafting_material",
+        "notes": "Per wolf. Used in weapon enhancement."
+      },
+      {
+        "item_id": "health_potion_minor",
+        "name": "Minor Health Potion",
+        "drop_chance": 0.3,
+        "quantity": 1,
+        "source": "any_enemy",
+        "type": "consumable"
+      },
+      {
+        "item_id": "grove_keeper_ring",
+        "name": "Grove Keeper's Ring",
+        "drop_chance": 0.15,
+        "quantity": 1,
+        "source": "corrupted_treant",
+        "type": "equipment",
+        "rarity": "rare",
+        "stats": {
+          "corruption_resistance": 25,
+          "nature_damage": 10
+        },
+        "notes": "Thematic reward. Ring belonged to the Treant before corruption."
+      }
+    ],
+    "progression": {
+      "unlocks_area": "deep_whispering_woods",
+      "quest_flag": "corrupted_grove_cleared",
+      "teaches_mechanic": "corruption_stack_management",
+      "narrative_flag": "forest_corruption_discovered"
+    }
+  },
+
+  "optional_challenges": [
+    {
+      "name": "Pure Victory",
+      "description": "Complete the encounter without accumulating 3 corruption stacks",
+      "reward_type": "bonus_xp",
+      "reward_value": 200,
+      "tracking": "corruption_stacks_never_reached_3"
+    },
+    {
+      "name": "Swift Purge",
+      "description": "Defeat all enemies within 2 minutes",
+      "reward_type": "bonus_loot",
+      "reward_value": "guaranteed_grove_keeper_ring",
+      "tracking": "encounter_completed_under_120_seconds"
+    },
+    {
+      "name": "Stone Warden",
+      "description": "Use the Purification Stone to finish off the Treant",
+      "reward_type": "achievement",
+      "reward_value": "stone_warden_title",
+      "tracking": "purification_stone_kills_treant"
+    }
+  ],
+
+  "design_notes": {
+    "purpose": "This encounter serves as the mid-zone escalation point for Whispering Woods. It introduces the corruption mechanic in a combat context after the player has seen passive corruption effects earlier in the zone. The multi-role enemy composition (DPS wolves, tank treant, support sprites) teaches target prioritization. The Purification Stone rewards pre-combat exploration and provides a dramatic moment for players who discover it.",
+    "iteration_history": [
+      {
+        "version": "0.1",
+        "change": "Initial design with 5 wolves and no treant",
+        "reason": "Too monotonous; needed role variety"
+      },
+      {
+        "version": "0.5",
+        "change": "Added Treant and Sprites, reduced wolf count to 3",
+        "reason": "Better combat dynamics and target prioritization"
+      },
+      {
+        "version": "0.8",
+        "change": "Added Purification Stone and corruption pools",
+        "reason": "Environmental interaction was missing; added strategic depth"
+      },
+      {
+        "version": "1.0",
+        "change": "Added reinforcement timer and treant enrage",
+        "reason": "Prevent passive/kiting strategies from trivializing the encounter"
+      }
+    ]
+  }
+}
