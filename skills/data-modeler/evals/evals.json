@@ -1,0 +1,41 @@
+[
+  {
+    "id": "data-stat-table",
+    "description": "Create a master stat progression spreadsheet",
+    "input": "Create a stat progression table for the Warrior class from level 1 to 30. Include HP, Attack, Defense, and Speed stats with appropriate scaling curves.",
+    "expected_behavior": "Produces a complete table with level-by-level stats, using appropriate curve types per stat (e.g., HP exponential, Defense diminishing returns). Includes formulas and growth rates. Ready for xlsx export.",
+    "rubric": [
+      "All 30 levels populated",
+      "Different curve types used appropriately per stat",
+      "Formulas are documented and reproducible",
+      "Values are reasonable for the game context",
+      "Format is export-ready (xlsx or CSV)"
+    ]
+  },
+  {
+    "id": "data-economy-model",
+    "description": "Build an economy flow tracking spreadsheet",
+    "input": "Build a spreadsheet that tracks gold sources and sinks for a typical player over 30 days of play. Include quest rewards, mob drops, vendor purchases, crafting costs, and repair fees.",
+    "expected_behavior": "Produces a day-by-day economy model showing cumulative balance, daily income/spending, and running sink-faucet ratio. Highlights days where inflation risk exceeds 5%.",
+    "rubric": [
+      "Day-by-day tracking is complete",
+      "All specified sources and sinks included",
+      "Sink-faucet ratio calculated",
+      "Inflation risk highlighted",
+      "Visual-ready data for chart generation"
+    ]
+  },
+  {
+    "id": "data-loot-distribution",
+    "description": "Create a loot distribution analysis sheet",
+    "input": "Create a spreadsheet analyzing the loot tables for 5 bosses, showing expected drops per kill, expected gold value, and expected runs to complete a full equipment set.",
+    "expected_behavior": "Produces a comparison matrix across all 5 bosses with drop rates, expected value calculations, and set completion estimates. Identifies the most efficient boss to farm.",
+    "rubric": [
+      "All 5 bosses compared side by side",
+      "Expected value calculations are correct",
+      "Set completion probability computed",
+      "Farming efficiency ranked",
+      "Data formatted for team sharing"
+    ]
+  }
+]

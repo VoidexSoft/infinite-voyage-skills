@@ -1,0 +1,41 @@
+[
+  {
+    "id": "level-encounter-design",
+    "description": "Design a combat encounter with terrain and objectives",
+    "input": "Design an encounter for a derelict space station hangar. Players fight waves of corrupted drones while activating 3 power nodes to open the exit. Level range: 15-18.",
+    "expected_behavior": "Produces an encounter spec with enemy composition per wave, terrain layout with cover and hazards, power node placement creating movement decisions, difficulty parameters, estimated clear time, and reward structure.",
+    "rubric": [
+      "Enemy composition scales to level range",
+      "Terrain creates tactical decisions",
+      "Objective creates movement and tension",
+      "Estimated clear time is reasonable",
+      "Reward structure ties to economy system"
+    ]
+  },
+  {
+    "id": "level-difficulty-curve",
+    "description": "Design a difficulty curve for a zone",
+    "input": "Create the difficulty curve for the Crimson Nebula zone (levels 20-30). It should have a tutorial area, escalating challenge, a mid-zone mini-boss, and a final boss.",
+    "expected_behavior": "Produces a difficulty curve with encounter-by-encounter difficulty ratings, pacing (tension/release rhythm), rest points, and a chart showing the curve shape. References appropriate curve pattern from difficulty guide.",
+    "rubric": [
+      "Curve has clear phases (tutorial, escalation, climax)",
+      "Tension/release rhythm is present",
+      "Rest points are placed appropriately",
+      "Mini-boss and boss are difficulty spikes with recovery after",
+      "References curve patterns from references"
+    ]
+  },
+  {
+    "id": "level-zone-spec",
+    "description": "Specify a complete game zone",
+    "input": "Spec out the Starfall Ruins zone — an ancient alien archaeological site that serves as a mid-game exploration area with hidden lore and optional challenges.",
+    "expected_behavior": "Produces a zone spec with layout description, key landmarks, critical path, optional areas, enemy types, environmental hazards, lore hooks, estimated play time, and gating conditions.",
+    "rubric": [
+      "Layout has critical path and optional branches",
+      "Environmental storytelling is present",
+      "Play time estimate is provided",
+      "Lore hooks tie to narrative-designer content",
+      "Gating conditions align with progression system"
+    ]
+  }
+]

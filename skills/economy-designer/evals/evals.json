@@ -1,0 +1,41 @@
+[
+  {
+    "id": "economy-currency-design",
+    "description": "Design a multi-currency economy system",
+    "input": "Design the currency system for Infinite Voyage. We need a primary currency for everyday transactions, a premium currency for cosmetics, and a faction-specific currency for reputation rewards.",
+    "expected_behavior": "Produces currency definitions with sources (faucets), sinks, exchange rules, and earning rates. Includes a sink-faucet flow diagram. Flags any pay-to-win concerns with the premium currency.",
+    "rubric": [
+      "Each currency has defined faucets and sinks",
+      "No currency conversion creates arbitrage loops",
+      "Premium currency is cosmetic-only",
+      "Earning rates target reasonable play sessions",
+      "Includes flow diagram"
+    ]
+  },
+  {
+    "id": "economy-loot-table",
+    "description": "Create a loot table with probability verification",
+    "input": "Create a loot table for the Nebula Drake boss. It should drop crafting materials (common), equipment (uncommon/rare), and a legendary mount (very rare with pity system).",
+    "expected_behavior": "Produces a complete loot table with item names, rarity tiers, drop rates, and a pity system for the legendary drop. Verifies probabilities sum correctly. Calculates expected runs for each rarity tier.",
+    "rubric": [
+      "Drop rates sum to valid probability",
+      "Rarity tiers follow standard distribution",
+      "Pity system prevents extreme bad luck",
+      "Expected runs calculated for each tier",
+      "Items tie to crafting and economy systems"
+    ]
+  },
+  {
+    "id": "economy-inflation-analysis",
+    "description": "Analyze economy health and detect inflation",
+    "input": "After adding a new quest zone, players are earning 40% more gold per hour but spending hasn't changed. What should we do?",
+    "expected_behavior": "Identifies the inflation risk, calculates projected impact, and recommends specific interventions: reducing faucet rates, adding new sinks, or both. Provides a priority-ordered fix list.",
+    "rubric": [
+      "Correctly identifies inflation risk",
+      "Quantifies the projected impact",
+      "Recommends specific parameter changes",
+      "Suggests both immediate and long-term fixes",
+      "References economy-anti-patterns.md principles"
+    ]
+  }
+]

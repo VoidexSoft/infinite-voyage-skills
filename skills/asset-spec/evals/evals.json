@@ -1,0 +1,41 @@
+[
+  {
+    "id": "asset-character-spec",
+    "description": "Create a character art specification",
+    "input": "Create an art spec for the Void Reaver enemy — a corrupted humanoid that phases in and out of existence. It should be unsettling but not gory, fitting our T-rated aesthetic.",
+    "expected_behavior": "Produces a character art spec with silhouette description, color palette, key visual features, animation requirements (phase-in/out effect), polygon budget, texture requirements, and approval criteria.",
+    "rubric": [
+      "Silhouette and proportion guidelines included",
+      "Color palette specified",
+      "Animation requirements for phase effect",
+      "Technical constraints (polygon budget, texture size)",
+      "Approval criteria for art review"
+    ]
+  },
+  {
+    "id": "asset-environment-spec",
+    "description": "Create an environment art specification",
+    "input": "Spec the Crystalline Caverns environment — a bioluminescent underground area with towering crystal formations and underground rivers.",
+    "expected_behavior": "Produces an environment spec with key landmarks, lighting direction, material properties (crystal refraction, water), modular pieces needed, geometry budget, and reference images description.",
+    "rubric": [
+      "Key landmarks defined",
+      "Lighting and material requirements specified",
+      "Modular piece list for environment building",
+      "Geometry budget within platform limits",
+      "Environmental storytelling elements noted"
+    ]
+  },
+  {
+    "id": "asset-audio-spec",
+    "description": "Create an audio specification for a game area",
+    "input": "Create audio specs for the Starfall Ruins zone. Include ambient soundscape, combat music triggers, and interactive SFX for the ancient alien mechanisms the player activates.",
+    "expected_behavior": "Produces an audio spec with ambient layers, music cues with transition rules, SFX list with emotional intent, technical format requirements, and adaptive audio behavior.",
+    "rubric": [
+      "Ambient soundscape layered (base + detail + variation)",
+      "Music transition rules defined",
+      "SFX list with emotional intent per sound",
+      "Technical format specified (sample rate, format, length)",
+      "Adaptive audio behavior documented"
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "pitch-publisher-deck",
+    "description": "Create a publisher pitch deck",
+    "input": "Create a pitch deck for Infinite Voyage targeting indie publishers. We need about 12-15 slides covering the game concept, gameplay, market positioning, team, and funding ask.",
+    "expected_behavior": "Produces a slide-by-slide outline with title, content, speaker notes, and timing. Follows the hook → problem → vision → gameplay → market → team → ask structure. Includes backup slides.",
+    "rubric": [
+      "12-15 slides with clear structure",
+      "Strong opening hook",
+      "Market positioning with competitive analysis",
+      "Clear funding ask with budget breakdown",
+      "Speaker notes with timing included"
+    ]
+  },
+  {
+    "id": "pitch-audience-adaptation",
+    "description": "Adapt a pitch for different audiences",
+    "input": "I need to present Infinite Voyage to both a publisher and our development team. How should the pitch differ?",
+    "expected_behavior": "Explains key differences in focus, language, and emphasis. Publisher pitch focuses on market, revenue, and ROI. Team pitch focuses on vision, technical approach, and milestones. Suggests specific slide changes.",
+    "rubric": [
+      "Clear differentiation between audiences",
+      "Publisher focus: market, revenue, competitive advantage",
+      "Team focus: vision, technical approach, milestones",
+      "Specific slide modifications suggested",
+      "Tone differences explained"
+    ]
+  },
+  {
+    "id": "pitch-competitive-analysis",
+    "description": "Create a competitive analysis slide",
+    "input": "Create a competitive analysis for Infinite Voyage against similar games in the space exploration roguelike genre. Include 3-4 competitors.",
+    "expected_behavior": "Produces a positioning matrix or comparison table showing Infinite Voyage's unique differentiators against 3-4 competitors. Highlights gaps in the market that Infinite Voyage fills.",
+    "rubric": [
+      "3-4 real competitors identified",
+      "Comparison uses relevant dimensions",
+      "Infinite Voyage's differentiators are clear",
+      "Market gap identified",
+      "Visual format suitable for slide presentation"
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "github-gdd-to-issues",
+    "description": "Convert a GDD section into GitHub issues",
+    "input": "Convert the combat mechanics GDD section into GitHub issues. The section covers: melee combat, ranged combat, dodge mechanics, and status effects.",
+    "expected_behavior": "Produces 8-15 issues decomposed by discipline (code, art, audio, design, QA). Each issue has a clear title, description with acceptance criteria, appropriate labels, and milestone assignment.",
+    "rubric": [
+      "Issues decomposed by discipline",
+      "Each issue has clear acceptance criteria",
+      "Labels applied correctly (design, code, art, audio, QA)",
+      "Dependencies between issues noted",
+      "Milestone assigned"
+    ]
+  },
+  {
+    "id": "github-sprint-report",
+    "description": "Generate a sprint progress report",
+    "input": "Generate a sprint report for Sprint 5. We had 20 issues planned, 14 completed, 4 in progress, and 2 blocked.",
+    "expected_behavior": "Produces a formatted sprint report with velocity calculation, completion rate, blocker analysis, carry-over items, and recommendations for the next sprint.",
+    "rubric": [
+      "Velocity calculated correctly",
+      "Completion rate stated clearly",
+      "Blockers analyzed with root causes",
+      "Carry-over items listed",
+      "Next sprint recommendations provided"
+    ]
+  },
+  {
+    "id": "github-board-status",
+    "description": "Summarize project board status",
+    "input": "What's the current state of our project board? Give me a summary of what's in each column.",
+    "expected_behavior": "Fetches board status using scripts/board_status.py. Summarizes items per column (Backlog, Sprint, In Progress, Review, Done). Highlights aging items and blockers.",
+    "rubric": [
+      "All board columns summarized",
+      "Item counts per column",
+      "Aging items flagged",
+      "Blockers highlighted",
+      "Actionable summary provided"
+    ]
+  }
+]

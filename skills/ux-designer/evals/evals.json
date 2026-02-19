@@ -1,0 +1,54 @@
+[
+  {
+    "id": "ux-user-flow",
+    "description": "Design a user flow for a core game interaction",
+    "input": "Design the user flow for the inventory management screen. Players need to view items, equip gear, compare stats, salvage junk, and sort/filter their inventory.",
+    "expected_behavior": "Produces a user flow diagram showing entry points, key actions, state transitions, and exit points. Includes wireframe description, input mapping for controller/keyboard, and accessibility considerations.",
+    "rubric": [
+      "Flow covers all requested actions",
+      "Entry and exit points are clear",
+      "Includes input mapping for multiple devices",
+      "Accessibility considerations are addressed",
+      "Information hierarchy is logical"
+    ]
+  },
+  {
+    "id": "ux-hud-design",
+    "description": "Design a combat HUD layout",
+    "input": "Design the combat HUD for Infinite Voyage. Players need to see: health, shield, stamina, ability cooldowns, minimap, enemy health bars, and damage numbers.",
+    "expected_behavior": "Produces a HUD layout spec with element positioning, priority (what's always visible vs. contextual), sizing, and adaptive behavior. Considers screen real estate and readability at distance.",
+    "rubric": [
+      "All requested elements are placed",
+      "Critical info (health) is most prominent",
+      "Contextual elements appear/hide appropriately",
+      "Layout works for multiple aspect ratios",
+      "Follows game UI best practices"
+    ]
+  },
+  {
+    "id": "ux-onboarding",
+    "description": "Design an onboarding sequence for new players",
+    "input": "Design the first-time player experience for Infinite Voyage. The player needs to learn: movement, combat basics, inventory, and their first quest. Keep it under 10 minutes.",
+    "expected_behavior": "Produces an onboarding sequence with progressive disclosure, clear prompts, gated advancement (can't skip ahead), and integration with the narrative (not a dry tutorial).",
+    "rubric": [
+      "Progressive disclosure (one concept at a time)",
+      "Under 10 minutes total",
+      "Integrated with narrative context",
+      "Each step has clear success criteria",
+      "Covers all four requested systems"
+    ]
+  },
+  {
+    "id": "ux-accessibility-audit",
+    "description": "Audit a design for accessibility compliance",
+    "input": "Review our current dialogue system design for accessibility. We use color-coded response options (green = friendly, red = hostile, blue = neutral).",
+    "expected_behavior": "Identifies color-only information as an accessibility failure. Recommends adding icons, text labels, or patterns in addition to color. References accessibility standards and provides specific fixes.",
+    "rubric": [
+      "Identifies color-only information as a barrier",
+      "Recommends non-color alternatives",
+      "References accessibility standards",
+      "Provides actionable, specific fixes",
+      "Considers multiple disability types"
+    ]
+  }
+]

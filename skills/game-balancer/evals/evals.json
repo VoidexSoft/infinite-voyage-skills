@@ -1,0 +1,54 @@
+[
+  {
+    "id": "balancer-stat-curves",
+    "description": "Generate and evaluate stat scaling curves",
+    "input": "Generate HP scaling curves for the player character from level 1 to 50. Compare linear, exponential, and diminishing returns approaches. Recommend which curve type to use and why.",
+    "expected_behavior": "Produces three curves with values at key levels (1, 10, 25, 50). Compares growth rates, level-to-level feel, and end-game power. Recommends a specific curve with rationale. Uses scripts/stat_curves.py.",
+    "rubric": [
+      "All three curve types computed correctly",
+      "Comparison table at key levels",
+      "Clear recommendation with game design rationale",
+      "Values are reasonable for an action RPG",
+      "References common-formulas.md"
+    ]
+  },
+  {
+    "id": "balancer-combat-sim",
+    "description": "Run a combat balance simulation",
+    "input": "A level 20 warrior with 800 HP, 120 armor, and 45 base damage fights a level 20 elite enemy with 2000 HP, 60 armor, and 35 base damage. Is the TTK reasonable?",
+    "expected_behavior": "Calculates EHP for both sides, DPS with the armor formula, and TTK. Compares against target TTK ranges. If out of range, recommends specific parameter adjustments.",
+    "rubric": [
+      "EHP calculation is correct",
+      "DPS accounts for armor mitigation",
+      "TTK compared against target ranges",
+      "Identifies if balance is off",
+      "Recommends specific parameter changes if needed"
+    ]
+  },
+  {
+    "id": "balancer-loot-verification",
+    "description": "Verify a loot table's drop rate distribution",
+    "input": "Verify this loot table: Common Materials (60%), Uncommon Gear (25%), Rare Gear (10%), Epic Gear (4%), Legendary (1%). How many runs to guarantee a legendary with 95% confidence?",
+    "expected_behavior": "Confirms rates sum to 100%. Calculates expected drops per rarity at various kill counts. Computes runs for 95% confidence on legendary (299 runs). Suggests pity system threshold.",
+    "rubric": [
+      "Probability sum verified",
+      "Expected drops calculated correctly",
+      "95% confidence calculation is accurate",
+      "Pity system recommendation included",
+      "Practical interpretation provided"
+    ]
+  },
+  {
+    "id": "balancer-fairness-check",
+    "description": "Analyze build diversity and fairness across player options",
+    "input": "We have 5 character classes. Their DPS at level 30 is: Warrior 180, Mage 210, Ranger 195, Healer 90, Rogue 200. Is this balanced?",
+    "expected_behavior": "Calculates Gini coefficient, coefficient of variation, and win rate implications. Notes that Healer's low DPS is expected if role is support. Analyzes combat DPS classes separately. Recommends adjustments if spread is too wide.",
+    "rubric": [
+      "Separates DPS roles from support roles",
+      "Calculates variance metrics correctly",
+      "Provides context-aware analysis (healer exception)",
+      "Recommends specific adjustments if needed",
+      "References fairness metrics from metrics-glossary.md"
+    ]
+  }
+]

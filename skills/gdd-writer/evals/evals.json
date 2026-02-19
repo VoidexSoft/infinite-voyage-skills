@@ -1,0 +1,41 @@
+[
+  {
+    "id": "gdd-writer-export",
+    "description": "Export GDD sections to a formatted Word document",
+    "input": "Export the Combat Mechanics and Economy sections of the GDD into a professional Word document with table of contents, version history, and proper formatting.",
+    "expected_behavior": "Produces a .docx file with cover page, auto-generated TOC, properly styled headings, status indicators (color-coded), version history table, and page numbers. Content is pulled from GDD sections.",
+    "rubric": [
+      "Document has cover page and TOC",
+      "Heading hierarchy is correct (H1, H2, H3)",
+      "Status indicators present with color coding",
+      "Version history included",
+      "Professional formatting suitable for stakeholders"
+    ]
+  },
+  {
+    "id": "gdd-writer-executive-summary",
+    "description": "Generate an executive summary of the GDD",
+    "input": "Write a 2-page executive summary of the entire GDD for a publisher meeting. Focus on what makes Infinite Voyage unique and the current development status.",
+    "expected_behavior": "Produces a concise executive summary covering vision, key differentiators, development status, and next milestones. Written for a non-technical audience. Professional tone.",
+    "rubric": [
+      "Fits within 2 pages",
+      "Covers vision, differentiators, and status",
+      "Written for non-technical audience",
+      "Professional tone appropriate for publishers",
+      "Highlights what makes the game unique"
+    ]
+  },
+  {
+    "id": "gdd-writer-section-format",
+    "description": "Format a raw design document into GDD standard",
+    "input": "Here are my rough notes about the crafting system. Can you format them into a proper GDD section following our templates?",
+    "expected_behavior": "Takes informal notes and restructures them into the standard section template (section-template.md format). Adds missing fields, flags incomplete areas, and applies consistent formatting.",
+    "rubric": [
+      "Follows section-template.md structure",
+      "All required fields present or flagged as missing",
+      "Technical parameters extracted into tables",
+      "Dependencies section populated",
+      "Open questions identified"
+    ]
+  }
+]

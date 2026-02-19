@@ -1,0 +1,39 @@
+[
+  {
+    "id": "systems-mechanic-spec",
+    "description": "Design a new game mechanic from a high-level request",
+    "input": "Design a crafting system where players combine materials found in the world to create gear. It should have recipe discovery and quality tiers.",
+    "expected_behavior": "Produces a mechanic specification with player-facing description, technical spec (parameters, formulas), state machine for crafting flow, system interactions (economy, progression, UI), and edge cases. Flags items for balancer review.",
+    "rubric": [
+      "Includes player-facing description",
+      "Includes technical specification with parameters",
+      "Documents system interactions with other mechanics",
+      "Identifies edge cases and exploit potential",
+      "Outputs in structured markdown format"
+    ]
+  },
+  {
+    "id": "systems-interaction-analysis",
+    "description": "Analyze how a new mechanic interacts with existing systems",
+    "input": "How would adding a dodge-roll mechanic interact with our existing combat, stamina, and armor systems?",
+    "expected_behavior": "Produces an interaction analysis showing how dodge-roll connects to stamina (resource cost), combat (i-frames, cancellation), and armor (alternative to mitigation). Uses interaction matrix format. Identifies potential conflicts and emergent behavior.",
+    "rubric": [
+      "Maps interactions to existing systems",
+      "Uses interaction matrix format",
+      "Identifies synergies and conflicts",
+      "Flags balance implications"
+    ]
+  },
+  {
+    "id": "systems-state-diagram",
+    "description": "Create a state machine for a game mechanic",
+    "input": "Spec out the state machine for an NPC shopkeeper who has idle, greeting, trading, and farewell states.",
+    "expected_behavior": "Produces a state machine with states, transitions, triggers, guard conditions, and a mermaid diagram. Includes on-enter and on-exit effects for each state.",
+    "rubric": [
+      "All states have entry and exit conditions",
+      "Transitions have explicit triggers",
+      "Includes mermaid diagram",
+      "No dead-end states"
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "playtest-archetype-sim",
+    "description": "Simulate different player archetypes through content",
+    "input": "Simulate an Optimizer and a Casual player going through the Starfall Ruins zone. The zone has 12 encounters, 3 optional puzzles, and a boss fight. What issues does each archetype encounter?",
+    "expected_behavior": "Walks through the zone as each archetype, describing their decisions, pain points, and experience. Optimizer finds exploits or shortcuts. Casual may struggle with difficulty spikes. Both identify pacing issues.",
+    "rubric": [
+      "Each archetype has distinct behavior patterns",
+      "Specific encounters are analyzed, not generalities",
+      "Pain points are identified per archetype",
+      "Exploits or degenerate strategies are flagged",
+      "Recommendations are actionable"
+    ]
+  },
+  {
+    "id": "playtest-exploit-detection",
+    "description": "Find exploits in a game mechanic",
+    "input": "Our crafting system lets players disassemble items to get materials and craft new items. Can you find any exploits?",
+    "expected_behavior": "Identifies potential duplication loops (craft → disassemble → craft for profit), material laundering, and economy-breaking exploits. Walks through each as an Optimizer archetype. Recommends fixes.",
+    "rubric": [
+      "Identifies at least 2 potential exploits",
+      "Walks through exploit step-by-step",
+      "Quantifies the impact (how much currency/items generated)",
+      "Recommends specific fixes",
+      "Considers edge cases"
+    ]
+  },
+  {
+    "id": "playtest-pacing-analysis",
+    "description": "Analyze pacing for a sequence of content",
+    "input": "Our tutorial sequence is: 5 min intro cutscene, 2 min movement tutorial, 8 min combat tutorial, 3 min inventory tutorial, 10 min first quest, 5 min story cutscene. Is the pacing good?",
+    "expected_behavior": "Analyzes the tension/release rhythm, identifies potential drop-off points (5 min intro cutscene too long for Casual), and suggests pacing improvements. Compares against onboarding best practices.",
+    "rubric": [
+      "Identifies pacing issues",
+      "References each archetype's tolerance",
+      "Suggests specific timing adjustments",
+      "Applies tension/release principles",
+      "Considers dropout risk at each step"
+    ]
+  }
+]

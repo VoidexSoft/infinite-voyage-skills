@@ -1,0 +1,50 @@
+[
+  {
+    "id": "gdd-manager-routing",
+    "description": "Route a cross-cutting design request to the correct specialist skill",
+    "input": "I want to add a new shield mechanic that blocks incoming damage and has a durability system. Where should I start?",
+    "expected_behavior": "Identifies systems-designer as primary, game-balancer as supporting. Suggests checking economy-designer for durability repair costs and ux-designer for shield UI indicator. Provides context from existing GDD combat section.",
+    "rubric": [
+      "Correctly identifies primary skill (systems-designer)",
+      "Identifies at least 2 supporting skills",
+      "Suggests an order of operations",
+      "References relevant GDD sections"
+    ]
+  },
+  {
+    "id": "gdd-manager-consistency-check",
+    "description": "Detect inconsistencies between GDD sections",
+    "input": "The combat section says bosses drop 500 Starlight Crystals, but I can't find that currency defined anywhere. Can you check?",
+    "expected_behavior": "Identifies the missing currency definition as a consistency violation (rule ME-01). Suggests adding the currency to the economy section with source, sink, and exchange rate. Flags the issue for economy-designer.",
+    "rubric": [
+      "Identifies the consistency violation",
+      "References the correct cross-reference rule",
+      "Suggests concrete fix",
+      "Routes to appropriate skill for resolution"
+    ]
+  },
+  {
+    "id": "gdd-manager-daily-priority",
+    "description": "Suggest daily work priorities based on project state",
+    "input": "What should I work on today?",
+    "expected_behavior": "Checks project board status, identifies incomplete GDD sections, considers dependencies, and suggests the highest-priority task with context. Explains why this task is the most impactful.",
+    "rubric": [
+      "Considers sprint goals or project board state",
+      "Identifies dependencies and blockers",
+      "Suggests a specific, actionable task",
+      "Provides context for why this is the priority"
+    ]
+  },
+  {
+    "id": "gdd-manager-section-index",
+    "description": "Parse and index a GDD directory structure",
+    "input": "I just reorganized my GDD folder. Can you rescan and tell me what sections are present and which are missing?",
+    "expected_behavior": "Runs parse_gdd.py or manually scans the directory. Maps files to the 12-section taxonomy. Reports which sections are present, which are missing, and their completeness status.",
+    "rubric": [
+      "Uses the GDD section taxonomy correctly",
+      "Identifies present and missing sections",
+      "Reports section status (draft, complete, missing)",
+      "Suggests next steps for gaps"
+    ]
+  }
+]

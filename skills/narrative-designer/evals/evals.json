@@ -1,0 +1,54 @@
+[
+  {
+    "id": "narrative-quest-design",
+    "description": "Design a quest with branching outcomes",
+    "input": "Design a side quest where the player discovers a smuggler hiding refugees. The player can turn them in, help them escape, or negotiate a deal with the authorities.",
+    "expected_behavior": "Produces a quest spec with objectives per branch, prerequisites, rewards tied to economy system, dialogue for key NPCs, and narrative consequences. Each branch has distinct gameplay and narrative outcomes.",
+    "rubric": [
+      "All three branches are fully designed",
+      "Each branch has distinct rewards and consequences",
+      "Dialogue follows established tone/voice",
+      "Quest ties to broader narrative themes",
+      "Includes prerequisites and unlock conditions"
+    ]
+  },
+  {
+    "id": "narrative-dialogue-tree",
+    "description": "Write a dialogue tree in engine-ready JSON format",
+    "input": "Write the dialogue tree for a mysterious merchant who sells rare star charts. Include conditional dialogue based on whether the player has completed the main quest 'Stellar Cartography'.",
+    "expected_behavior": "Produces a JSON dialogue tree with speaker, lines, conditions, and branching responses. Includes conditional paths based on quest state. Follows the dialogue-format.md schema.",
+    "rubric": [
+      "Valid JSON structure matching dialogue-format.md",
+      "Conditional branching based on quest state",
+      "Character voice is consistent and distinctive",
+      "Multiple response options per dialogue node",
+      "Includes exit/shop transitions"
+    ]
+  },
+  {
+    "id": "narrative-character-profile",
+    "description": "Create a character profile for a key NPC",
+    "input": "Create a character profile for Captain Voss, the grizzled commander of the player's home station. She's been through the first Contact War and doesn't trust easily.",
+    "expected_behavior": "Produces a character profile with personality traits, backstory, motivations, relationships, dialogue style guide, and character arc progression. Ties to the broader narrative.",
+    "rubric": [
+      "Follows character-template.md format",
+      "Personality traits are specific and actionable for dialogue writing",
+      "Backstory connects to world lore",
+      "Character arc has clear progression",
+      "Dialogue style is distinct and consistent"
+    ]
+  },
+  {
+    "id": "narrative-lore-entry",
+    "description": "Write an in-game lore codex entry",
+    "input": "Write a codex entry about the Void Tides, a mysterious phenomenon where space itself seems to shift and reconfigure, making navigation deadly.",
+    "expected_behavior": "Produces a lore entry written in-universe, with appropriate tone, that enriches the world without info-dumping. Connects to gameplay implications (navigation hazard).",
+    "rubric": [
+      "Written in-universe (not a design document)",
+      "Appropriate length (150-300 words)",
+      "Connects to gameplay mechanics",
+      "Enriches world-building without contradicting existing lore",
+      "Evocative writing that creates atmosphere"
+    ]
+  }
+]

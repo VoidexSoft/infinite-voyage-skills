@@ -354,140 +354,24 @@ def generate_item_database(output_dir):
     apply_header_row(ws, headers)
 
     items = [
-        # Common items
-        [
-            "item_sword_001",
-            "Iron Sword",
-            "Weapon",
-            "Common",
-            1,
-            "+3 ATK",
-            50,
-            "15%",
-            "Bandit Drop",
-        ],
-        [
-            "item_shield_001",
-            "Wooden Shield",
-            "Armor",
-            "Common",
-            1,
-            "+2 DEF",
-            35,
-            "18%",
-            "Goblin Drop",
-        ],
-        # Uncommon items
-        [
-            "item_bow_001",
-            "Hunter's Longbow",
-            "Weapon",
-            "Uncommon",
-            5,
-            "+6 ATK, +2 DEX",
-            180,
-            "8%",
-            "Forest Ranger Drop",
-        ],
-        [
-            "item_ring_001",
-            "Silver Ring of Focus",
-            "Accessory",
-            "Uncommon",
-            5,
-            "+4 INT",
-            200,
-            "7%",
-            "Chest (Ruins)",
-        ],
-        # Rare items
-        [
-            "item_staff_001",
-            "Starweave Staff",
-            "Weapon",
-            "Rare",
-            10,
-            "+10 INT, +5 WIS",
-            750,
-            "3%",
-            "Void Cultist Drop",
-        ],
-        [
-            "item_armor_001",
-            "Warden's Plate",
-            "Armor",
-            "Rare",
-            10,
-            "+8 DEF, +4 CON",
-            900,
-            "2.5%",
-            "Dungeon Boss",
-        ],
-        [
-            "item_potion_001",
-            "Elixir of Swiftness",
-            "Consumable",
-            "Rare",
-            8,
-            "+5 Speed (temp)",
-            120,
-            "5%",
-            "Alchemist Quest",
-        ],
-        # Epic items
-        [
-            "item_dagger_001",
-            "Nightfall Dagger",
-            "Weapon",
-            "Epic",
-            20,
-            "+15 ATK, +8 DEX, +Crit",
-            3500,
-            "0.8%",
-            "Shadow Lord Drop",
-        ],
-        [
-            "item_amulet_001",
-            "Amulet of the Cosmos",
-            "Accessory",
-            "Epic",
-            20,
-            "+10 INT, +10 WIS",
-            4200,
-            "0.5%",
-            "Ancient Vault",
-        ],
-        # Legendary item
-        [
-            "item_blade_001",
-            "Eternity Blade",
-            "Weapon",
-            "Legendary",
-            30,
-            "+25 ATK, +10 STR, +Life Steal",
-            15000,
-            "0.1%",
-            "Final Boss",
-        ],
+        ["item_sword_001", "Iron Sword", "Weapon", "Common", 1, "+3 ATK", 50, "15%", "Bandit Drop"],
+        ["item_shield_001", "Wooden Shield", "Armor", "Common", 1, "+2 DEF", 35, "18%", "Goblin Drop"],
+        ["item_bow_001", "Hunter's Longbow", "Weapon", "Uncommon", 5, "+6 ATK, +2 DEX", 180, "8%", "Forest Ranger Drop"],
+        ["item_ring_001", "Silver Ring of Focus", "Accessory", "Uncommon", 5, "+4 INT", 200, "7%", "Chest (Ruins)"],
+        ["item_staff_001", "Starweave Staff", "Weapon", "Rare", 10, "+10 INT, +5 WIS", 750, "3%", "Void Cultist Drop"],
+        ["item_armor_001", "Warden's Plate", "Armor", "Rare", 10, "+8 DEF, +4 CON", 900, "2.5%", "Dungeon Boss"],
+        ["item_potion_001", "Elixir of Swiftness", "Consumable", "Rare", 8, "+5 Speed (temp)", 120, "5%", "Alchemist Quest"],
+        ["item_dagger_001", "Nightfall Dagger", "Weapon", "Epic", 20, "+15 ATK, +8 DEX, +Crit", 3500, "0.8%", "Shadow Lord Drop"],
+        ["item_amulet_001", "Amulet of the Cosmos", "Accessory", "Epic", 20, "+10 INT, +10 WIS", 4200, "0.5%", "Ancient Vault"],
+        ["item_blade_001", "Eternity Blade", "Weapon", "Legendary", 30, "+25 ATK, +10 STR, +Life Steal", 15000, "0.1%", "Final Boss"],
     ]
 
-    # Rarity colour fills
     rarity_fills = {
-        "Common": PatternFill(
-            start_color="E8E8E8", end_color="E8E8E8", fill_type="solid"
-        ),
-        "Uncommon": PatternFill(
-            start_color="C6EFCE", end_color="C6EFCE", fill_type="solid"
-        ),
-        "Rare": PatternFill(
-            start_color="BDD7EE", end_color="BDD7EE", fill_type="solid"
-        ),
-        "Epic": PatternFill(
-            start_color="D9C2EC", end_color="D9C2EC", fill_type="solid"
-        ),
-        "Legendary": PatternFill(
-            start_color="FFD966", end_color="FFD966", fill_type="solid"
-        ),
+        "Common": PatternFill(start_color="E8E8E8", end_color="E8E8E8", fill_type="solid"),
+        "Uncommon": PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid"),
+        "Rare": PatternFill(start_color="BDD7EE", end_color="BDD7EE", fill_type="solid"),
+        "Epic": PatternFill(start_color="D9C2EC", end_color="D9C2EC", fill_type="solid"),
+        "Legendary": PatternFill(start_color="FFD966", end_color="FFD966", fill_type="solid"),
     }
 
     for row_idx, row_data in enumerate(items, 2):
@@ -587,14 +471,12 @@ def generate_economy_model(output_dir):
 
     for row_idx, row_data in enumerate(balance_data, 2):
         apply_data_row(ws_balance, row_idx, row_data[:3])
-        # Net_Flow formula: Income - Expense
         cell = ws_balance.cell(row=row_idx, column=4)
         cell.value = f"=B{row_idx}-C{row_idx}"
         cell.font = BODY_FONT
         cell.alignment = BODY_ALIGNMENT
         cell.border = THIN_BORDER
 
-    # Conditional formatting on Net_Flow column D
     ws_balance.conditional_formatting.add(
         "D2:D100",
         CellIsRule(operator="greaterThan", formula=["0"], fill=GREEN_FILL),
