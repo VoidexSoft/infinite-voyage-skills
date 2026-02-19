@@ -43,39 +43,184 @@ ln -s $(pwd)/skills/* ~/.claude/skills/
 
 ## Project Structure
 
+Each skill follows a consistent directory layout:
+
+```
+skills/<skill-name>/
+├── SKILL.md              # Skill definition and prompt
+├── evals/files/          # Evaluation test files
+├── references/           # Domain knowledge documents
+├── scripts/              # Python automation tools
+└── templates/            # Output templates and schemas
+```
+
+### Full Tree
+
 ```
 skills/
-├── gdd-manager/          # Hub skill
+├── asset-spec/                       # Art & audio asset requirements
 │   ├── SKILL.md
-│   └── scripts/
-├── systems-designer/     # Mechanics specialist
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── animation-naming-conventions.md
+│   │   ├── art-style-guide.md
+│   │   ├── audio-technical-guide.md
+│   │   ├── polygon-budgets.md
+│   │   └── texture-memory-guide.md
+│   ├── scripts/
+│   └── templates/
+│       ├── asset-spec-animation.md
+│       ├── asset-spec-audio.md
+│       ├── asset-spec-character.md
+│       └── asset-spec-environment.md
+│
+├── data-modeler/                     # Game data spreadsheets
 │   ├── SKILL.md
-│   └── references/
-├── narrative-designer/   # Story specialist
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── balance-benchmarks.md
+│   │   ├── data-integrity-checklist.md
+│   │   ├── openpyxl-guide.md
+│   │   └── stat-formulas.md
+│   ├── scripts/
+│   └── templates/
+│       ├── export-schema.json
+│       └── generate_templates.py
+│
+├── economy-designer/                 # Currencies, loot, sink/faucet
 │   ├── SKILL.md
-│   └── references/
-├── economy-designer/     # Economy specialist
-│   └── SKILL.md
-├── level-designer/       # Content specialist
-│   └── SKILL.md
-├── ux-designer/          # UX specialist
-│   └── SKILL.md
-├── game-balancer/        # Balance analyst
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── currency-templates.md
+│   │   ├── economy-anti-patterns.md
+│   │   ├── loot-table-library.md
+│   │   └── monetization-case-studies.md
+│   ├── scripts/
+│   │   └── inflation_tracker.py
+│   └── templates/
+│
+├── game-balancer/                    # Numerical balance & simulations
 │   ├── SKILL.md
-│   └── scripts/          # Python simulation tools
-├── playtest-simulator/   # Virtual QA
-│   └── SKILL.md
-├── github-gamedev/       # Project management
+│   ├── evals/files/
+│   ├── references/
+│   ├── scripts/
+│   │   ├── combat_sim.py
+│   │   ├── economy_sim.py
+│   │   ├── fairness.py
+│   │   ├── loot_sim.py
+│   │   ├── optimizer.py
+│   │   ├── stat_curves.py
+│   │   └── visualize.py
+│   └── templates/
+│
+├── gdd-manager/                      # Central hub & GDD consistency
 │   ├── SKILL.md
-│   └── scripts/
-├── data-modeler/         # Spreadsheet templates
-│   └── SKILL.md
-├── gdd-writer/           # Document export
-│   └── SKILL.md
-├── pitch-deck/           # Presentations
-│   └── SKILL.md
-└── asset-spec/           # Asset requirements
-    └── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   ├── scripts/
+│   │   ├── consistency_check.py
+│   │   ├── parse_gdd.py
+│   │   └── section_status.py
+│   └── templates/
+│
+├── gdd-writer/                       # Formatted GDD export
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── gdd-writing-style.md
+│   │   ├── python-docx-guide.md
+│   │   └── stakeholder-document-checklist.md
+│   ├── scripts/
+│   └── templates/
+│       └── generate_templates.py
+│
+├── github-gamedev/                   # GitHub project management
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   ├── scripts/
+│   │   ├── board_status.py
+│   │   ├── gdd_to_issues.py
+│   │   ├── sprint_planning.py
+│   │   └── sprint_report.py
+│   └── templates/
+│
+├── level-designer/                   # Encounters, zones, pacing
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── boss-mechanics.md
+│   │   ├── difficulty-guide.md
+│   │   ├── encounter-checklist.md
+│   │   ├── environmental-storytelling.md
+│   │   ├── pacing-patterns.md
+│   │   ├── player-testing-checklist.md
+│   │   └── progression-examples.md
+│   ├── scripts/
+│   └── templates/
+│       └── encounter.json
+│
+├── narrative-designer/               # Story, lore, quests, dialogue
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── branching-patterns.md
+│   │   ├── character-template.md
+│   │   ├── dialogue-format.md
+│   │   ├── narrative-bible.md
+│   │   ├── quest-template.md
+│   │   └── world-timeline.md
+│   ├── scripts/
+│   └── templates/
+│
+├── pitch-deck/                       # Game pitch presentations
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── competitor-analysis-template.md
+│   │   ├── market-analysis-examples.md
+│   │   ├── pitch-presentation-guide.md
+│   │   └── storytelling-for-games.md
+│   ├── scripts/
+│   └── templates/
+│       └── generate_templates.py
+│
+├── playtest-simulator/               # Virtual playtesting with archetypes
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── exploit-patterns.md
+│   │   ├── player-archetypes.md
+│   │   ├── reporting-format.md
+│   │   └── simulation-scenarios.md
+│   ├── scripts/
+│   └── templates/
+│
+├── systems-designer/                 # Game mechanics & rules
+│   ├── SKILL.md
+│   ├── evals/files/
+│   ├── references/
+│   │   ├── anti-patterns.md
+│   │   └── mechanic-patterns.md
+│   ├── scripts/
+│   └── templates/
+│
+└── ux-designer/                      # UI flows, wireframes, accessibility
+    ├── SKILL.md
+    ├── evals/files/
+    ├── references/
+    │   ├── accessibility-checklist.md
+    │   ├── accessibility-standards.md
+    │   ├── color-palettes.md
+    │   ├── feedback-library.md
+    │   ├── font-guidelines.md
+    │   ├── hud-case-studies.md
+    │   ├── input-devices.md
+    │   ├── onboarding-patterns.md
+    │   └── ui-patterns.md
+    ├── scripts/
+    └── templates/
+        └── input-map.json
 ```
 
 ## Requirements
