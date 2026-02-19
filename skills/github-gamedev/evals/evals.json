@@ -37,5 +37,57 @@
       "Blockers highlighted",
       "Actionable summary provided"
     ]
+  },
+  {
+    "id": "github-design-decomposition",
+    "description": "Parse a raw verbal design decision into a 6-category task tree",
+    "input": "New design decision: The player's ship can deploy autonomous Sentinel Drones that patrol a radius around the ship, engaging hostile targets with low-damage lasers. Drones have their own health pool, can be upgraded through the crew skill tree, and self-destruct on a timer (45 seconds). We need VFX for deployment, patrol idle, laser fire, and self-destruct. Audio needs activation chirp, ambient hover hum, laser zap, and explosion. QA needs to verify drone AI doesn't target friendlies and that multiple drones don't tank framerate. Balance team needs to ensure drones don't replace manual combat.",
+    "expected_behavior": "Produces a structured task tree with exactly 6 top-level categories (Design, Code, Art, Audio, QA, Balance). Each category contains 2-4 concrete, assignable issues with titles following the '[CATEGORY] Feature - Task' convention. Issues include size estimates, priority labels, dependency links between categories (e.g., Art VFX depends on Code implementing drone state machine), and system labels (void-engine). Total should be 12-20 issues representing 3-5 weeks of team effort.",
+    "rubric": [
+      "All 6 categories present (Design, Code, Art, Audio, QA, Balance) with at least 2 issues each",
+      "Each issue has a concrete title, size estimate (small/medium/large), and priority label",
+      "Cross-category dependencies identified (e.g., QA testing depends on Code implementation, Audio integration depends on Code state hooks)",
+      "Issues are scoped to 1-3 days of individual work, not too coarse or too granular",
+      "Balance category includes specific measurable criteria (e.g., drone DPS should not exceed 40% of manual weapon DPS)"
+    ]
+  },
+  {
+    "id": "github-milestone-planning",
+    "description": "Assign 30 issues to milestones with dependency ordering",
+    "input": "Plan milestones for our next release. Here are 30 open issues that need scheduling. Use the issue data in evals/files/issue-list-for-planning.json. We have 3 milestones available: 'Sprint 7 - Star Map Foundation' (2 weeks, capacity 40 person-days), 'Sprint 8 - Crew & Diplomacy' (2 weeks, capacity 40 person-days), and 'Sprint 9 - Combat & Polish' (2 weeks, capacity 40 person-days). Assign all 30 issues to the correct milestone respecting dependencies and capacity.",
+    "expected_behavior": "Produces a milestone assignment plan that places all 30 issues into Sprint 7, 8, or 9. Dependencies are respected (no issue is scheduled before its prerequisites). Each sprint's total estimated effort does not exceed 40 person-days (small=2, medium=4, large=8). Issues are grouped thematically where possible (star map issues in Sprint 7, crew/diplomacy in Sprint 8, combat/polish in Sprint 9). The plan includes a dependency graph or ordering notes, a per-sprint effort summary, and flags any issues at risk of overcommitment.",
+    "rubric": [
+      "All 30 issues assigned to exactly one milestone with no orphans",
+      "Dependency ordering is correct (no issue scheduled before its prerequisites complete)",
+      "Per-sprint capacity not exceeded (small=2d, medium=4d, large=8d, total <= 40 person-days per sprint)",
+      "Thematic grouping is logical (related systems co-located in the same sprint where dependencies allow)",
+      "Risk flags raised for sprints near capacity or issues with long dependency chains"
+    ]
+  },
+  {
+    "id": "github-label-taxonomy",
+    "description": "Produce a complete label taxonomy and apply labels to sample issues",
+    "input": "We need to set up our GitHub label system from scratch for Infinite Voyage. First, define the complete label taxonomy (discipline, priority, size, status, and system labels). Then apply the correct labels to each of the 10 issues in evals/files/sample-issues-unlabeled.json. Each issue should get at least one discipline label, one priority label, one size label, and one system label.",
+    "expected_behavior": "Produces a full label taxonomy document listing all labels organized by category (Discipline: code, art, audio, design, qc, balance, ui, docs, infra; Priority: p0-critical through p3-low; Size: small, medium, large, epic; Status: blocked, waiting-feedback, technical-spike, bug; System: void-engine, enemy-ai, level-design, narrative, ui-menus, ui-hud, economy, optimization, accessibility). Then for each of the 10 sample issues, assigns the correct combination of labels with brief justification. Multi-discipline issues (e.g., a bug that is both code and qc) receive multiple discipline labels.",
+    "rubric": [
+      "Taxonomy includes all 5 label categories with correct labels matching SKILL.md reference",
+      "Each of the 10 issues receives at least one discipline, one priority, one size, and one system label",
+      "Label assignments are accurate to issue content (e.g., issue #210 gets 'code, bug, qc' not just 'code')",
+      "Multi-discipline issues correctly receive multiple discipline labels with reasoning",
+      "Output includes gh CLI commands to create the taxonomy labels and apply them to each issue"
+    ]
+  },
+  {
+    "id": "github-blocker-escalation",
+    "description": "Identify stale issues and produce an escalation report from a board snapshot",
+    "input": "Review the project board snapshot in evals/files/stale-board-snapshot.json and produce an escalation report. Flag any issues that have been in 'In Progress' for more than 5 days or in 'Review' for more than 3 days. Identify root causes, downstream impacts, and recommend specific actions for each stale item. Also flag any Sprint column issues that have not started and any blocked dependencies.",
+    "expected_behavior": "Produces a structured escalation report identifying all 5 stale In Progress issues (#305-#309) and both stale Review issues (#310-#311). For each stale item, the report includes: days stale, owner, root cause analysis (stuck on technical problem, waiting on review, under-scoped estimate, etc.), downstream issues that are blocked or at risk, and a specific recommended action (pair programming session, reassign reviewer, re-estimate and split issue, etc.). The report also flags Sprint column issues #303 and #304 as not-started risks with #304 blocked by #303. Includes a severity-ranked summary with the most critical escalations first (p0-critical #307 at top).",
+    "rubric": [
+      "All 7 stale issues correctly identified with accurate days-stale counts",
+      "Root cause analysis is specific to each issue (not generic), referencing last_comment and linked_pr data",
+      "Downstream impact traced (e.g., #303 not started blocks #304; #305 stale may block dependent work)",
+      "Recommended actions are concrete and actionable (named owners, specific meetings, timeline targets)",
+      "Report is severity-ranked with p0-critical issues escalated first and includes a sprint health summary"
+    ]
   }
 ]

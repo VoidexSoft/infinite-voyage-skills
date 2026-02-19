@@ -50,5 +50,70 @@
       "Provides actionable, specific fixes",
       "Considers multiple disability types"
     ]
+  },
+  {
+    "id": "ux-screen-spec",
+    "description": "Create a complete screen specification for a character select screen",
+    "input": "Create a full Screen Specification for the character select screen in Infinite Voyage. The game has 4 playable classes (Navigator, Vanguard, Engineer, Specter), each with a 3D model preview, stat block, class ability summary, and lore blurb. Players must be able to compare classes side-by-side, rotate models, and confirm their selection before starting a new campaign.",
+    "expected_behavior": "Produces a complete screen specification document following the Screen/Wireframe Specification Template. Includes information zones (header, model preview, stat comparison, footer), interactive elements with all states (default, hover, selected, disabled), layout responsiveness table, transitions, and an accessibility checklist specific to this screen.",
+    "rubric": [
+      "All four classes are represented with preview, stats, abilities, and lore",
+      "Information zones are clearly defined with sizing and content",
+      "Interactive elements include all states (default, hover, selected, disabled, focus)",
+      "Layout responsiveness covers at least 3 screen sizes",
+      "Accessibility checklist is completed for this specific screen"
+    ]
+  },
+  {
+    "id": "ux-interaction-spec",
+    "description": "Specify all interactions for a crafting screen including error states",
+    "input": "Using the attached wireframe (see file: crafting-screen-wireframe.md), write a complete interaction specification for the Infinite Voyage crafting screen. Define every interactive element's behavior, all input mappings (keyboard, controller, mouse), state transitions, animation timings, and error states. Pay special attention to what happens when crafting fails, materials are insufficient, or inventory is full.",
+    "expected_behavior": "Produces a detailed interaction spec covering every interactive element in the wireframe. Each element has defined states, input mappings for 3 input methods, feedback (visual + audio), and transition timing. Error states are fully specified with user-facing messages, recovery paths, and visual treatment. Includes edge cases like mid-craft disconnection and station tier restrictions.",
+    "rubric": [
+      "Every interactive element from the wireframe has a complete behavior spec",
+      "Input mappings cover keyboard, controller, and mouse for each action",
+      "At least 4 error states are fully defined with messages and recovery paths",
+      "Animation and transition timings are specified in seconds/milliseconds",
+      "Audio feedback is defined for key interactions (craft success, failure, selection)"
+    ]
+  },
+  {
+    "id": "ux-responsive-scaling",
+    "description": "Adapt a HUD layout from 1080p to 4K, ultrawide, and mobile",
+    "input": "Using the attached HUD element list (see file: hud-element-list.md), define the complete responsive scaling rules to adapt the Infinite Voyage combat HUD from its 1080p baseline to: (1) 4K at 3840x2160, (2) ultrawide at 3440x1440, and (3) mobile landscape at 2560x1080 with touch controls. For each resolution, specify how every element repositions, resizes, or restructures. Address DPI scaling, minimum touch target sizes, and readability at each resolution.",
+    "expected_behavior": "Produces a comprehensive scaling specification for all 16 HUD elements across 3 target resolutions. Includes a scaling strategy (pixel-based vs percentage-based vs hybrid), per-element rules for position and size at each resolution, DPI considerations for 4K, ultrawide safe-zone handling for edge elements, and mobile-specific adaptations (touch targets at least 44x44pt, thumb-zone placement). Elements that hide, merge, or restructure at certain resolutions are explicitly called out.",
+    "rubric": [
+      "All 16 HUD elements have defined behavior at each of the 3 target resolutions",
+      "Scaling strategy is clearly stated and consistently applied",
+      "4K spec addresses DPI scaling so elements are not too small",
+      "Ultrawide spec handles horizontal safe zones and element repositioning",
+      "Mobile spec defines touch targets (minimum 44x44pt) and thumb-zone placement"
+    ]
+  },
+  {
+    "id": "ux-diegetic-design",
+    "description": "Propose diegetic alternatives for non-diegetic UI elements",
+    "input": "Infinite Voyage currently uses these non-diegetic (traditional overlay) HUD elements: (1) a rectangular health bar in the bottom-left corner, (2) a floating minimap in the top-right corner, and (3) pop-up text notifications for quest updates that appear center-screen. Propose diegetic alternatives for each — UI that exists within the game world rather than overlaid on the screen. The game is set in a sci-fi universe where players wear exosuits with helmet visors. Consider immersion, readability, and accessibility trade-offs for each proposal.",
+    "expected_behavior": "Produces 3 diegetic UI proposals, one per element. Each proposal describes the in-world representation (e.g., health bar as a light strip on the player's arm), how it communicates the same information as the non-diegetic version, where it appears in the game world, and how the camera/player interacts with it. Each proposal includes an accessibility fallback (option to revert to non-diegetic for players who need clearer readability). Trade-offs between immersion and usability are explicitly discussed.",
+    "rubric": [
+      "All 3 elements receive a distinct diegetic alternative grounded in the sci-fi setting",
+      "Each proposal explains how the same information is communicated in-world",
+      "Readability trade-offs are discussed (e.g., diegetic health harder to read at a glance)",
+      "Accessibility fallback to non-diegetic mode is provided for each element",
+      "At least one proposal includes a sketch or ASCII wireframe of the in-world element"
+    ]
+  },
+  {
+    "id": "ux-error-states",
+    "description": "Define all error and edge case states for the item equipment screen",
+    "input": "Using the attached error scenarios (see file: equipment-error-scenarios.md), define the complete UI response for each of the 6 error/edge-case scenarios on the Infinite Voyage equipment screen. For each scenario, specify: the exact error message text, visual treatment (colors, icons, animations), which UI elements change state, what the player's recovery options are, and how the UI prevents the error from recurring. Include wireframe sketches of at least 2 of the error states.",
+    "expected_behavior": "Produces a complete error state specification covering all 6 scenarios. Each scenario includes: a user-facing error message (concise, actionable), visual treatment (color, icon, animation), affected UI element states, 1-2 recovery paths the player can take, and a prevention mechanism (e.g., graying out invalid items before selection). At least 2 scenarios include ASCII wireframe sketches showing the error state layout. The tone of error messages is helpful and non-punishing.",
+    "rubric": [
+      "All 6 error scenarios have complete UI specifications",
+      "Error messages are concise, actionable, and use a helpful tone",
+      "Visual treatment uses color, icons, and animation — not color alone",
+      "Each scenario defines at least one clear recovery path for the player",
+      "At least 2 error states include wireframe sketches showing the UI layout"
+    ]
   }
 ]

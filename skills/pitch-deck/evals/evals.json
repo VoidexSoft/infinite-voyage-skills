@@ -37,5 +37,70 @@
       "Market gap identified",
       "Visual format suitable for slide presentation"
     ]
+  },
+  {
+    "id": "pitch-investor-deck",
+    "description": "Create an investor-focused pitch deck leading with financials and market sizing",
+    "input": "Build an investor pitch deck for Infinite Voyage. We are raising a $2.5M seed round from game-focused VCs. Lead with the financial opportunity — TAM/SAM/SOM, ROI projections, and revenue model. Use the attached financial projections as source data. See evals/files/financial-projections.md for cost and revenue estimates.",
+    "expected_behavior": "Produces a 10-12 slide investor deck that opens with the market opportunity and financial upside before presenting gameplay. Includes TAM/SAM/SOM breakdown, three-scenario ROI analysis, clear use-of-funds slide, and revenue model with platform splits. Positions the game as a financial opportunity, not just a creative one. Speaker notes translate game jargon into investor language.",
+    "rubric": [
+      "TAM/SAM/SOM figures presented with credible sourcing",
+      "ROI analysis includes conservative, base, and optimistic scenarios",
+      "Use-of-funds slide with clear budget allocation breakdown",
+      "Revenue model accounts for platform fees, publisher splits, and DLC",
+      "Financial language appropriate for VC audience throughout speaker notes"
+    ]
+  },
+  {
+    "id": "pitch-milestone-review",
+    "description": "Create an internal milestone review deck with KPIs, blockers, and next steps",
+    "input": "Prepare a milestone review deck for our M3 (Vertical Slice) internal review with the publisher. We need to show what we planned vs what we delivered, key metrics from playtesting, current blockers, and our plan for M4. Use the milestone data in evals/files/milestone-data.md as the source.",
+    "expected_behavior": "Produces an 8-10 slide milestone review deck following the planned-vs-actual structure. Opens with a milestone summary, then walks through deliverable status with clear on-track/at-risk/behind indicators. Presents playtest KPIs and technical metrics with targets vs actuals. Dedicates slides to blockers with proposed solutions and timelines. Closes with M4 targets and any resource requests. Tone is honest and professional, not defensive about missed targets.",
+    "rubric": [
+      "Planned vs actual deliverables shown with clear status indicators",
+      "Playtest and technical KPIs presented with targets vs actuals",
+      "Blockers listed with specific proposed solutions and timelines",
+      "Budget status and any projected overspend disclosed transparently",
+      "Next milestone targets are concrete and measurable"
+    ]
+  },
+  {
+    "id": "pitch-elevator-pitch",
+    "description": "Condense the full pitch into a 30-second verbal pitch and a 3-slide deck",
+    "input": "I have a 30-second window with a publisher executive at GDC. Create a verbal elevator pitch script I can memorize, plus a 3-slide micro-deck I can show on my phone if they ask to see more. The game is Infinite Voyage — a narrative-driven space exploration RPG where you uncover ancient alien ruins across procedurally-assisted star systems.",
+    "expected_behavior": "Produces a tightly written 30-second verbal pitch (roughly 75-80 words) that hooks with the unique selling proposition, conveys the core experience, names a comparable title for anchoring, and ends with a clear next-step ask. Also produces a 3-slide micro-deck: Slide 1 is a visual hook with tagline, Slide 2 is the core loop in 3 bullets with one key image, Slide 3 is the ask with contact info. Speaker notes explain delivery tips (pacing, eye contact, when to show the phone).",
+    "rubric": [
+      "Verbal pitch is 75-85 words and deliverable in 30 seconds",
+      "Opens with a compelling hook, not the game title",
+      "Includes a comparable title anchor for instant context",
+      "3-slide deck is visually clean and readable on a phone screen",
+      "Ends with a specific call to action and next step"
+    ]
+  },
+  {
+    "id": "pitch-objection-handling",
+    "description": "Prepare counter-arguments for common publisher objections",
+    "input": "Our publisher pitch for Infinite Voyage is next week. Prepare counter-arguments and backup slide content for the 5 most common objections we expect to face. Use the anticipated objections listed in evals/files/publisher-objections.md as the basis. For each objection, I need a rebuttal strategy, a 1-2 sentence spoken response, and a backup slide outline I can jump to.",
+    "expected_behavior": "Produces a structured objection-handling guide covering all 5 objections. Each entry includes: the objection paraphrased, the underlying concern it reveals, a rebuttal strategy explaining the approach, a concise spoken response (1-2 sentences suitable for live delivery), and a backup slide outline with title, key data points, and visuals. Rebuttals are evidence-based (citing market data, team credentials, comparable titles, and budget details) rather than dismissive.",
+    "rubric": [
+      "All 5 objections addressed with distinct rebuttal strategies",
+      "Spoken responses are concise and confident, not defensive",
+      "Backup slides include specific data points and evidence",
+      "Underlying concerns behind each objection are identified",
+      "Rebuttals reference comparable titles, market data, or project specifics"
+    ]
+  },
+  {
+    "id": "pitch-visual-brief",
+    "description": "Create a visual style guide brief for the pitch deck",
+    "input": "Create a visual style guide for all Infinite Voyage pitch decks. Define the color palette, typography, image treatment, slide layout rules, and do/don't examples. Use our brand identity in evals/files/game-brand-colors.md as the foundation. This guide will be handed to a designer to produce final slides.",
+    "expected_behavior": "Produces a comprehensive visual brief that a designer can follow without additional input. Specifies primary and secondary color palettes with hex codes and usage rules. Defines typography hierarchy with font families, weights, and sizes for each slide element. Includes slide layout templates (title slide, content slide, data slide, image slide) with spacing and alignment rules. Provides image treatment guidelines (style, mood, composition, color grading). Lists explicit do/don't examples for common mistakes. References the game's sci-fi aesthetic throughout.",
+    "rubric": [
+      "Color palette specifies hex codes with clear usage rules for each color",
+      "Typography hierarchy covers titles, subtitles, body, and data labels",
+      "At least 3 slide layout templates with spacing and alignment guidance",
+      "Image treatment guidelines address style, mood, and composition",
+      "Do/don't examples cover at least 4 common presentation design mistakes"
+    ]
   }
 ]

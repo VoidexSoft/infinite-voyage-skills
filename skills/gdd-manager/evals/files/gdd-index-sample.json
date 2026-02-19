@@ -1,0 +1,123 @@
+{
+  "project": "Infinite Voyage",
+  "version": "0.4.0",
+  "last_updated": "2026-02-15",
+  "sections": [
+    {
+      "id": "01-game-overview",
+      "title": "Game Overview & Vision",
+      "status": "complete",
+      "file": "01-game-overview.md",
+      "last_modified": "2026-01-20",
+      "word_count": 2400,
+      "dependencies": []
+    },
+    {
+      "id": "02-core-gameplay",
+      "title": "Core Gameplay Loop",
+      "status": "complete",
+      "file": "02-core-gameplay.md",
+      "last_modified": "2026-02-01",
+      "word_count": 3800,
+      "dependencies": ["01-game-overview"]
+    },
+    {
+      "id": "03-mechanics-systems",
+      "title": "Mechanics & Systems",
+      "status": "in_progress",
+      "file": "03-mechanics-systems.md",
+      "last_modified": "2026-02-10",
+      "word_count": 5200,
+      "dependencies": ["02-core-gameplay"],
+      "notes": "Combat system complete, crew management 70%, ship upgrades stub only"
+    },
+    {
+      "id": "04-narrative-worldbuilding",
+      "title": "Narrative & Worldbuilding",
+      "status": "in_progress",
+      "file": "04-narrative-worldbuilding.md",
+      "last_modified": "2026-02-12",
+      "word_count": 4100,
+      "dependencies": ["01-game-overview"],
+      "notes": "Main storyline drafted, faction lore incomplete, codex entries pending"
+    },
+    {
+      "id": "05-level-content",
+      "title": "Level & Content Design",
+      "status": "in_progress",
+      "file": "05-level-content.md",
+      "last_modified": "2026-02-08",
+      "word_count": 3200,
+      "dependencies": ["03-mechanics-systems", "04-narrative-worldbuilding"],
+      "notes": "3 of 8 biome regions designed, encounter tables for Verdant Nebula only"
+    },
+    {
+      "id": "06-economy-progression",
+      "title": "Economy & Progression",
+      "status": "draft",
+      "file": "06-economy-progression.md",
+      "last_modified": "2026-01-28",
+      "word_count": 2800,
+      "dependencies": ["03-mechanics-systems"],
+      "notes": "Nova Credits and Starlight Crystals defined, sink design incomplete"
+    },
+    {
+      "id": "07-ui-ux",
+      "title": "UI/UX Design",
+      "status": "draft",
+      "file": "07-ui-ux.md",
+      "last_modified": "2026-01-15",
+      "word_count": 1800,
+      "dependencies": ["03-mechanics-systems", "06-economy-progression"],
+      "notes": "HUD wireframe only, no menu system or settings screen"
+    },
+    {
+      "id": "08-art-style",
+      "title": "Art Direction & Style Guide",
+      "status": "in_progress",
+      "file": "08-art-style.md",
+      "last_modified": "2026-02-05",
+      "word_count": 2600,
+      "dependencies": ["01-game-overview", "04-narrative-worldbuilding"]
+    },
+    {
+      "id": "09-audio-design",
+      "title": "Audio Design",
+      "status": "stub",
+      "file": "09-audio-design.md",
+      "last_modified": "2026-01-10",
+      "word_count": 400,
+      "dependencies": ["08-art-style"],
+      "notes": "Placeholder only — needs full pass"
+    },
+    {
+      "id": "10-technical",
+      "title": "Technical Architecture",
+      "status": "draft",
+      "file": "10-technical.md",
+      "last_modified": "2026-02-03",
+      "word_count": 3100,
+      "dependencies": ["03-mechanics-systems"],
+      "notes": "Networking model decided, save system pending, platform targets listed"
+    },
+    {
+      "id": "11-monetization",
+      "title": "Monetization & Live Ops",
+      "status": "stub",
+      "file": "11-monetization.md",
+      "last_modified": "2026-01-05",
+      "word_count": 300,
+      "dependencies": ["06-economy-progression"],
+      "notes": "Premium currency name chosen, no store design or season pass plan"
+    },
+    {
+      "id": "12-analytics",
+      "title": "Analytics & KPIs",
+      "status": "complete",
+      "file": "12-analytics.md",
+      "last_modified": "2026-02-14",
+      "word_count": 1900,
+      "dependencies": ["06-economy-progression", "11-monetization"]
+    }
+  ]
+}

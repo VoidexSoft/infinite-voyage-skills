@@ -1,0 +1,509 @@
+{
+  "document": "Infinite Voyage — Game Design Document",
+  "version": "1.1",
+  "snapshot_date": "2026-02-10",
+  "status_legend": {
+    "Final": {
+      "color": "green",
+      "meaning": "Approved — no further changes expected"
+    },
+    "Review": {
+      "color": "blue",
+      "meaning": "Content complete — pending lead approval"
+    },
+    "Draft": {
+      "color": "orange",
+      "meaning": "In progress — structure set, details being written"
+    },
+    "Concept": {
+      "color": "red",
+      "meaning": "Placeholder — high-level notes only"
+    },
+    "Cut": {
+      "color": "gray",
+      "meaning": "Removed from scope — kept for reference"
+    }
+  },
+  "sections": [
+    {
+      "number": "1",
+      "title": "High Concept",
+      "status": "Final",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-10",
+      "notes": ""
+    },
+    {
+      "number": "1.1",
+      "title": "Logline",
+      "status": "Final",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-10",
+      "notes": ""
+    },
+    {
+      "number": "1.2",
+      "title": "Setting — The Kepler Sector",
+      "status": "Final",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-10",
+      "notes": ""
+    },
+    {
+      "number": "1.3",
+      "title": "Core Premise",
+      "status": "Final",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-10",
+      "notes": ""
+    },
+    {
+      "number": "1.4",
+      "title": "Target Audience",
+      "status": "Final",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-10",
+      "notes": ""
+    },
+    {
+      "number": "2",
+      "title": "Gameplay",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-02-05",
+      "notes": ""
+    },
+    {
+      "number": "2.1",
+      "title": "Core Loop",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-01-12",
+      "notes": ""
+    },
+    {
+      "number": "2.2",
+      "title": "Progression System",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-01-12",
+      "notes": ""
+    },
+    {
+      "number": "2.3",
+      "title": "Combat — Turn-Based Tactical",
+      "status": "Draft",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-02-05",
+      "notes": "Major rework in v1.1 — AP system replacing fixed actions"
+    },
+    {
+      "number": "2.4",
+      "title": "Victory Conditions & Endings",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-01-12",
+      "notes": ""
+    },
+    {
+      "number": "3",
+      "title": "Story & Narrative",
+      "status": "Review",
+      "owner": "Jessica Park",
+      "last_updated": "2026-02-04",
+      "notes": ""
+    },
+    {
+      "number": "3.1",
+      "title": "Story Overview — The Vanished Empire",
+      "status": "Final",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-14",
+      "notes": ""
+    },
+    {
+      "number": "3.2",
+      "title": "Characters — Crew Roster & NPCs",
+      "status": "Review",
+      "owner": "Jessica Park",
+      "last_updated": "2026-02-04",
+      "notes": "Two new crew members added in v1.1"
+    },
+    {
+      "number": "3.3",
+      "title": "Dialogue System & Tone",
+      "status": "Draft",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-14",
+      "notes": ""
+    },
+    {
+      "number": "3.4",
+      "title": "Narrative Flow — Three-Act Structure",
+      "status": "Review",
+      "owner": "Jessica Park",
+      "last_updated": "2026-02-04",
+      "notes": "Act 2 branches reduced from 5 to 3"
+    },
+    {
+      "number": "4",
+      "title": "Art & Visuals",
+      "status": "Draft",
+      "owner": "David Thompson",
+      "last_updated": "2026-01-08",
+      "notes": ""
+    },
+    {
+      "number": "4.1",
+      "title": "Visual Style — Bioluminescent Sci-Fi",
+      "status": "Draft",
+      "owner": "David Thompson",
+      "last_updated": "2026-01-08",
+      "notes": ""
+    },
+    {
+      "number": "4.2",
+      "title": "Character Design",
+      "status": "Concept",
+      "owner": "David Thompson",
+      "last_updated": "2026-01-08",
+      "notes": "Waiting on finalized crew roster"
+    },
+    {
+      "number": "4.3",
+      "title": "Environment Design — Planet Biomes",
+      "status": "Draft",
+      "owner": "David Thompson",
+      "last_updated": "2026-01-08",
+      "notes": ""
+    },
+    {
+      "number": "4.4",
+      "title": "UI/UX Style Guide",
+      "status": "Concept",
+      "owner": "David Thompson",
+      "last_updated": "2026-01-08",
+      "notes": ""
+    },
+    {
+      "number": "5",
+      "title": "Audio & Music",
+      "status": "Concept",
+      "owner": "Lena Okoro",
+      "last_updated": "2025-12-20",
+      "notes": "Blocked — waiting for vertical slice"
+    },
+    {
+      "number": "5.1",
+      "title": "Sound Direction",
+      "status": "Concept",
+      "owner": "Lena Okoro",
+      "last_updated": "2025-12-20",
+      "notes": ""
+    },
+    {
+      "number": "5.2",
+      "title": "Music Themes — Adaptive Soundtrack",
+      "status": "Concept",
+      "owner": "Lena Okoro",
+      "last_updated": "2025-12-20",
+      "notes": ""
+    },
+    {
+      "number": "5.3",
+      "title": "Voice Acting Plan",
+      "status": "Concept",
+      "owner": "Lena Okoro",
+      "last_updated": "2025-12-20",
+      "notes": ""
+    },
+    {
+      "number": "5.4",
+      "title": "SFX Reference Sheet",
+      "status": "Concept",
+      "owner": "Lena Okoro",
+      "last_updated": "2025-12-20",
+      "notes": ""
+    },
+    {
+      "number": "6",
+      "title": "Systems & Mechanics",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-02-05",
+      "notes": ""
+    },
+    {
+      "number": "6.1",
+      "title": "Inventory System — Ship & Personal",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-01-13",
+      "notes": ""
+    },
+    {
+      "number": "6.2",
+      "title": "Ability System — Xenotech Augments",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-02-05",
+      "notes": "Augment slots increased to 4 in v1.1"
+    },
+    {
+      "number": "6.3",
+      "title": "Equipment & Crafting",
+      "status": "Draft",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-01-13",
+      "notes": ""
+    },
+    {
+      "number": "6.4",
+      "title": "Economy Model — Credits & Barter",
+      "status": "Review",
+      "owner": "Marcus Rodriguez",
+      "last_updated": "2026-02-05",
+      "notes": "Quest rewards rebalanced in v1.1"
+    },
+    {
+      "number": "7",
+      "title": "Level Design",
+      "status": "Draft",
+      "owner": "Tomás Herrera",
+      "last_updated": "2026-01-05",
+      "notes": ""
+    },
+    {
+      "number": "7.1",
+      "title": "Level Structure — Hub-and-Spoke",
+      "status": "Draft",
+      "owner": "Tomás Herrera",
+      "last_updated": "2026-01-05",
+      "notes": ""
+    },
+    {
+      "number": "7.2",
+      "title": "Progression Curve — 40-Hour Campaign",
+      "status": "Draft",
+      "owner": "Tomás Herrera",
+      "last_updated": "2026-01-05",
+      "notes": ""
+    },
+    {
+      "number": "7.3",
+      "title": "Key Encounters — Boss Fights",
+      "status": "Concept",
+      "owner": "Tomás Herrera",
+      "last_updated": "2026-01-05",
+      "notes": ""
+    },
+    {
+      "number": "7.4",
+      "title": "Level Layouts — Planet Surface Maps",
+      "status": "Concept",
+      "owner": "Tomás Herrera",
+      "last_updated": "2026-01-05",
+      "notes": ""
+    },
+    {
+      "number": "8",
+      "title": "Technical Specifications",
+      "status": "Draft",
+      "owner": "Amir Patel",
+      "last_updated": "2026-01-09",
+      "notes": ""
+    },
+    {
+      "number": "8.1",
+      "title": "Engine — Unreal Engine 5.4",
+      "status": "Final",
+      "owner": "Amir Patel",
+      "last_updated": "2026-01-09",
+      "notes": ""
+    },
+    {
+      "number": "8.2",
+      "title": "Performance Targets",
+      "status": "Review",
+      "owner": "Amir Patel",
+      "last_updated": "2026-01-09",
+      "notes": ""
+    },
+    {
+      "number": "8.3",
+      "title": "Platform-Specific Notes",
+      "status": "Draft",
+      "owner": "Amir Patel",
+      "last_updated": "2026-01-09",
+      "notes": ""
+    },
+    {
+      "number": "8.4",
+      "title": "Technical Dependencies & Middleware",
+      "status": "Draft",
+      "owner": "Amir Patel",
+      "last_updated": "2026-01-09",
+      "notes": ""
+    },
+    {
+      "number": "9",
+      "title": "Multiplayer & Online",
+      "status": "Draft",
+      "owner": "Amir Patel",
+      "last_updated": "2026-02-05",
+      "notes": "Promoted from Concept in v1.1"
+    },
+    {
+      "number": "9.1",
+      "title": "Co-op Mode — 2-Player Expedition",
+      "status": "Draft",
+      "owner": "Amir Patel",
+      "last_updated": "2026-02-05",
+      "notes": "New draft in v1.1"
+    },
+    {
+      "number": "9.2",
+      "title": "Async Features — Expedition Logs",
+      "status": "Draft",
+      "owner": "Amir Patel",
+      "last_updated": "2026-02-05",
+      "notes": "New draft in v1.1"
+    },
+    {
+      "number": "9.3",
+      "title": "Network Architecture",
+      "status": "Concept",
+      "owner": "Amir Patel",
+      "last_updated": "2025-12-18",
+      "notes": ""
+    },
+    {
+      "number": "9.4",
+      "title": "Anti-Cheat & Security",
+      "status": "Concept",
+      "owner": "Amir Patel",
+      "last_updated": "2025-12-18",
+      "notes": ""
+    },
+    {
+      "number": "10",
+      "title": "Monetization & Live Service",
+      "status": "Concept",
+      "owner": "Sarah Chen",
+      "last_updated": "2025-12-22",
+      "notes": ""
+    },
+    {
+      "number": "10.1",
+      "title": "Business Model",
+      "status": "Concept",
+      "owner": "Sarah Chen",
+      "last_updated": "2025-12-22",
+      "notes": ""
+    },
+    {
+      "number": "10.2",
+      "title": "Season Pass Structure",
+      "status": "Concept",
+      "owner": "Sarah Chen",
+      "last_updated": "2025-12-22",
+      "notes": ""
+    },
+    {
+      "number": "10.3",
+      "title": "Post-Launch Content Roadmap",
+      "status": "Concept",
+      "owner": "Sarah Chen",
+      "last_updated": "2025-12-22",
+      "notes": ""
+    },
+    {
+      "number": "10.4",
+      "title": "Community & Modding Support",
+      "status": "Concept",
+      "owner": "Sarah Chen",
+      "last_updated": "2025-12-22",
+      "notes": ""
+    },
+    {
+      "number": "11",
+      "title": "Accessibility & Localization",
+      "status": "Draft",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-04",
+      "notes": ""
+    },
+    {
+      "number": "11.1",
+      "title": "Accessibility Features",
+      "status": "Draft",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-04",
+      "notes": ""
+    },
+    {
+      "number": "11.2",
+      "title": "Difficulty & Assist Options",
+      "status": "Draft",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-04",
+      "notes": ""
+    },
+    {
+      "number": "11.3",
+      "title": "Localization Plan — 12 Languages",
+      "status": "Concept",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-04",
+      "notes": ""
+    },
+    {
+      "number": "11.4",
+      "title": "Cultural Sensitivity Review",
+      "status": "Concept",
+      "owner": "Jessica Park",
+      "last_updated": "2026-01-04",
+      "notes": ""
+    },
+    {
+      "number": "12",
+      "title": "Project Management & Milestones",
+      "status": "Review",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-02-05",
+      "notes": ""
+    },
+    {
+      "number": "12.1",
+      "title": "Team Structure & Roles",
+      "status": "Final",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-15",
+      "notes": ""
+    },
+    {
+      "number": "12.2",
+      "title": "Milestone Schedule",
+      "status": "Review",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-02-05",
+      "notes": "Vertical Slice pushed to July; Co-op Prototype added"
+    },
+    {
+      "number": "12.3",
+      "title": "Risk Register & Mitigations",
+      "status": "Review",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-15",
+      "notes": ""
+    },
+    {
+      "number": "12.4",
+      "title": "Budget Overview — High Level",
+      "status": "Draft",
+      "owner": "Sarah Chen",
+      "last_updated": "2026-01-15",
+      "notes": ""
+    }
+  ]
+}

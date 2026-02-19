@@ -37,5 +37,70 @@
       "Lore hooks tie to narrative-designer content",
       "Gating conditions align with progression system"
     ]
+  },
+  {
+    "id": "level-boss-fight-design",
+    "description": "Design a multi-phase boss fight with transitions, arena hazards, and counterplay",
+    "input": "Using the context in evals/files/boss-context.md, design a complete multi-phase boss fight for Admiral Voss aboard the UEC Leviathan bridge. The fight must have 3 phases with distinct mechanics, use the arena's environmental elements (electrified floor, destructible consoles, bulkhead doors, AI core), include clear tells and dodge windows for every attack, and provide counterplay options that reward skillful use of the player's available abilities (especially Phase Dash and EMP charges).",
+    "expected_behavior": "Produces a full boss spec following the Boss Fight Design Template: 3 phases with HP thresholds and escalating mechanics, a stat profile scaled for level 28-32, tells-and-timing table for every attack, arena layout with hazard zones, phase transition cinematics, fail states, reward structure, and design notes explaining what the fight teaches. Each phase should feel mechanically distinct and the overall fight should build toward a climactic Phase 3.",
+    "rubric": [
+      "Three phases with clearly differentiated mechanics and escalating difficulty",
+      "Every attack has a defined tell, duration, and dodge window",
+      "Arena hazards are integrated into boss mechanics (not just decoration)",
+      "Counterplay rewards using specific abilities (EMP, Phase Dash, Shield Capacitor)",
+      "Phase transitions have clear visual/narrative moments and reset player positioning"
+    ]
+  },
+  {
+    "id": "level-puzzle-design",
+    "description": "Design 3 environmental puzzles with teaching progression and a hint system",
+    "input": "Design 3 environmental puzzles for a Void-corrupted space station research wing (level range 20-24). The puzzles should use a shared core mechanic — redirecting energy conduits by rotating junction nodes — but increase in complexity. Puzzle 1 should teach the mechanic with no fail state. Puzzle 2 should add a time pressure element (conduit overload). Puzzle 3 should combine the mechanic with a spatial reasoning challenge (3D junction network across two floors). Include a progressive hint system that activates if the player idles for more than 90 seconds on any puzzle.",
+    "expected_behavior": "Produces 3 puzzle specs with: layout description or diagram for each, step-by-step solution, teaching moment identification (what does the player learn?), fail states and consequences, estimated solve time for average and skilled players, and a 3-tier hint system (subtle environmental hint at 90 sec, direct hint at 180 sec, solution outline at 300 sec). Puzzles should scaffold in complexity and the hint system should feel diegetic (in-world) rather than breaking immersion.",
+    "rubric": [
+      "Three puzzles with clear mechanical escalation from tutorial to complex",
+      "Puzzle 1 teaches the core mechanic safely with no punishment for failure",
+      "Time pressure and spatial complexity are introduced incrementally",
+      "Hint system has 3 tiers with increasing directness and diegetic delivery",
+      "Estimated solve times are provided for both skilled and average players"
+    ]
+  },
+  {
+    "id": "level-pacing-validation",
+    "description": "Validate tension rhythm of an encounter sequence, identifying dead zones and pacing issues",
+    "input": "Analyze the encounter sequence in evals/files/encounter-sequence.json for Frozen Relay Station Theta-7. Validate the tension/release rhythm across all 10 encounters. Identify any dead zones (consecutive low-tension encounters without purpose), check that tension peaks have adequate recovery periods, verify content-type variety (no more than 2 consecutive encounters of the same type), and assess whether the overall arc follows an appropriate difficulty curve pattern for a mid-game zone (levels 22-26). Flag any specific pacing problems and suggest concrete fixes.",
+    "expected_behavior": "Produces a pacing analysis with: tension/release cycle diagram or chart, identification of each cycle's build-peak-release pattern, flagged dead zones with specific encounter numbers, flagged tension spikes without recovery, content-type adjacency analysis, overall curve shape classification (referencing Difficulty Curve Patterns from the skill), and actionable fix suggestions for each flagged issue (e.g., 'insert a combat encounter between encounters 2 and 3 to prevent low-tension lull' or 'add a safe zone after encounter 9 before the boss').",
+    "rubric": [
+      "Tension/release cycles are explicitly mapped with encounter-by-encounter analysis",
+      "Dead zones are identified with specific encounter numbers and reasoning",
+      "Tension spikes without adequate recovery are flagged",
+      "Content-type variety is validated (no 3+ consecutive same-type encounters)",
+      "Concrete, actionable fix suggestions are provided for each pacing issue"
+    ]
+  },
+  {
+    "id": "level-progression-gating",
+    "description": "Design critical path with locked doors, keys, and optional branches for a zone",
+    "input": "Using the rough zone layout in evals/files/zone-layout-rough.md for the Derelict Mining Complex on Asteroid K-19, produce a complete progression map. Define all gate types (keycards, power requirements, boss defeats), validate that the critical path is completable without soft-locks, ensure optional branches reward exploration without blocking progress, verify that key placement creates interesting routing decisions, and produce a Mermaid diagram showing all paths, gates, and connections. Also check for sequence-breaking exploits — can a player reach the boss without the required key?",
+    "expected_behavior": "Produces a progression map with: Mermaid diagram of all routes and gates, gate inventory table (gate, key, location of key, required or optional), critical path walkthrough with estimated time, optional branch descriptions with risk/reward assessment, soft-lock analysis confirming no dead-end states, sequence-break analysis identifying potential exploit paths, and backtracking assessment (does the player ever need to retrace steps? If so, is it justified?). The Blue Keycard backtracking loop should be specifically addressed as a design choice.",
+    "rubric": [
+      "Mermaid progression diagram covers all paths, gates, and connections",
+      "Critical path is validated as completable with no soft-lock scenarios",
+      "Optional branches have clear risk/reward descriptions",
+      "Sequence-break analysis identifies whether players can bypass intended gates",
+      "Backtracking requirements are flagged and assessed for player frustration impact"
+    ]
+  },
+  {
+    "id": "level-checkpoint-placement",
+    "description": "Optimize checkpoint locations against a frustration model for a level",
+    "input": "Using the walkthrough timing in evals/files/level-walkthrough-timing.md for Orbital Prison Kappa-9, optimize checkpoint (save point) placement across the 13-encounter level. The current design has only one explicit checkpoint (encounter 5, Medical Bay). Apply a frustration model where: max time between checkpoints should not exceed 15 minutes, a checkpoint should always precede a boss fight, high-tension sequences (8+ tension rating) should have a checkpoint within the preceding 2 encounters, and timed/instant-fail sequences need an immediately preceding checkpoint. Identify all violations, propose new checkpoint locations, and assess the tradeoff between tension preservation and frustration reduction.",
+    "expected_behavior": "Produces a checkpoint analysis with: current checkpoint map showing gaps, frustration model violation list with specific encounters and time gaps, proposed checkpoint placement (with justification for each), before/after comparison of max-time-between-saves, assessment of how additional checkpoints affect tension (e.g., 'adding a checkpoint before encounter 7 reduces the boss-run penalty but may diminish the infiltration atmosphere'), and a final recommended checkpoint layout. Should specifically address the 21-minute gap between encounters 7 and 10 noted in the input file's known concerns.",
+    "rubric": [
+      "Current checkpoint gaps are identified with specific time durations",
+      "Frustration model rules are applied systematically to every encounter transition",
+      "Proposed checkpoints include justification balancing tension vs. frustration",
+      "The 21-minute gap between encounters 7-10 is specifically addressed",
+      "Timed escape sequence (encounter 12) checkpoint placement follows instant-fail rules"
+    ]
   }
 ]

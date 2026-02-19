@@ -37,5 +37,70 @@
       "Suggests both immediate and long-term fixes",
       "References economy-anti-patterns.md principles"
     ]
+  },
+  {
+    "id": "economy-shop-pricing",
+    "description": "Audit vendor shop pricing for internal consistency",
+    "input": "Review the attached Starport Bazaar price list (see evals/files/item-price-list-draft.md). Validate sell-to-buy ratios, cross-tier pricing curves, rarity multiplier consistency, and flag any arbitrage opportunities or outlier prices.",
+    "expected_behavior": "Produces a structured audit identifying every inconsistency: outlier sell:buy ratios (Photon Annihilator at 13%, Nebula Weave Mantle at 14%, Dark Matter Residue at 70%), the underpriced Graviton Hammer relative to Tier 2 peers, the Warp Fuel Cell's abnormally high 45% sell-back rate, and any crafting-material arbitrage paths. Recommends corrected prices with reasoning. Verifies that damage-per-GC and armor-per-GC curves are monotonically reasonable across tiers.",
+    "rubric": [
+      "Identifies all outlier sell:buy ratios and proposes a target band (e.g. 25-35%)",
+      "Detects the Graviton Hammer underpricing relative to Tier 2 damage/cost curve",
+      "Flags crafting material sell prices that could enable buy-sell arbitrage loops",
+      "Validates that price-per-stat-point scales consistently within and across tiers",
+      "Provides corrected price table with explicit reasoning for each adjustment"
+    ]
+  },
+  {
+    "id": "economy-progression-pacing",
+    "description": "Analyze time-to-afford pacing at milestone levels",
+    "input": "Using the gear cost ladder (see evals/files/gear-cost-ladder.md), evaluate whether progression pacing is healthy at each milestone. Check if time-to-afford scales smoothly, identify any walls or trivial gaps, and recommend adjustments for milestones that feel too grindy or too easy.",
+    "expected_behavior": "Produces a milestone-by-milestone analysis showing time-to-afford in both hours and real-world play sessions (assuming 2h/day). Identifies Milestone 2 as a potential early-game churn risk (11 hours before player investment), flags the Milestone 5-to-6 jump as a harsh doubling, evaluates the endgame daily cap's 9-day gate, and recommends alternative progression paths (crafting shortcuts, faction rewards, trading) to smooth the curve. Includes a pacing chart or table showing ideal vs. current time-to-afford.",
+    "rubric": [
+      "Converts raw hours into real-world play sessions and calendar days",
+      "Identifies Milestone 2 as an early-game retention risk with specific fix proposals",
+      "Flags the Milestone 5-to-6 doubling and recommends smoothing the curve",
+      "Evaluates the endgame daily cap as a time-gate and assesses player impact",
+      "Suggests at least two alternate progression paths to supplement pure GC grinding"
+    ]
+  },
+  {
+    "id": "economy-p2w-audit",
+    "description": "Evaluate premium currency store against pay-to-win thresholds",
+    "input": "Audit the proposed Stardust premium store (see evals/files/premium-currency-features.md). Classify each item category (A through D) on a pay-to-win severity scale. Evaluate the F2P earning rate fairness. Flag any items that cross the pay-to-win line and recommend alternatives.",
+    "expected_behavior": "Produces a severity-rated audit of all four item categories. Category A (cosmetics) passes cleanly. Category B (convenience) is evaluated item-by-item, with Credit Booster flagged as borderline P2W since GC buys power. Category C (progression acceleration) is flagged as soft P2W with specific reasoning per item. Category D is rejected entirely with replacement suggestions (cosmetic-only alternatives). The F2P earning rate is analyzed showing 5 weeks for the cheapest cosmetic is punishing, with recommendations to increase free SD earning by 2-3x. Season Pass Premium Track+ level skip is evaluated for competitive impact.",
+    "rubric": [
+      "Classifies each store category on a clear P2W severity scale with per-item ratings",
+      "Identifies Credit Booster as borderline P2W due to GC-to-gear conversion path",
+      "Rejects all Category D items and proposes cosmetic-only replacements",
+      "Quantifies the F2P earning gap and recommends a specific improved earning rate",
+      "Evaluates Season Pass level skip for competitive fairness implications"
+    ]
+  },
+  {
+    "id": "economy-crafting-cost-design",
+    "description": "Validate crafting recipe costs against material farming and vendor buy prices",
+    "input": "Using material drop sources and crafting recipes (see evals/files/material-drop-sources.md), analyze whether crafting costs are balanced. For each recipe, calculate the total cost via farming vs. vendor purchase, compare the crafted item value to its vendor buy price, and verify that crafting is a meaningful currency sink rather than a shortcut or a trap.",
+    "expected_behavior": "Produces a cost breakdown per recipe showing: total material cost (farming time converted to GC-equivalent), total material cost (vendor purchase), crafting fee, and final crafted item value vs. vendor buy price. Identifies whether each recipe is a net GC sink (intended) or accidentally profitable. Flags if any recipe's farming path is dramatically cheaper or more expensive than vendor-buying materials. Validates that higher-tier recipes require proportionally more effort. Checks that the Transcendent Blade's legendary material bottleneck (Dark Matter Residue at 0.2/hr drop) creates appropriate endgame time-gating without being punishing.",
+    "rubric": [
+      "Calculates both farming-path and vendor-path costs for each recipe with GC totals",
+      "Verifies each recipe acts as a net currency sink (crafted value < total input cost)",
+      "Flags any recipe where vendor-buy vs farm-time costs diverge by more than 50%",
+      "Validates that recipe difficulty scales proportionally with output rarity tier",
+      "Assesses the legendary material time-gate and whether drop rates need adjustment"
+    ]
+  },
+  {
+    "id": "economy-current-state-audit",
+    "description": "Structured audit of live economy faucets, sinks, and health indicators",
+    "input": "Perform a full economy health audit using the attached snapshot data (see evals/files/economy-snapshot.json). Evaluate faucet/sink balance, inflation trajectory, wealth distribution, and the impact of recent changes. Produce a priority-ordered action plan.",
+    "expected_behavior": "Produces a structured audit report covering: (1) Faucet/sink imbalance — the 22.6% daily surplus is in the warning zone per health indicator thresholds, driven by the new daily login bonus (7M GC/day) and Void Rift quest faucet increase. (2) Inflation — 8.8% monthly is above the 5% healthy threshold. (3) Wealth inequality — Gini of 0.72 and top 1% holding 38.5% signals whale concentration. (4) Recent changes analysis — identifies the login bonus and repair cost reduction as compounding the surplus. Recommends specific interventions: reduce login bonus or add new sinks, introduce GC costs for new Void Rift content, add prestige/cosmetic sinks for high-balance players. Provides a 30/60/90-day action timeline.",
+    "rubric": [
+      "Correctly identifies the 22.6% surplus as warning-level and traces it to specific faucets",
+      "Flags monthly inflation at 8.8% as above healthy threshold with projected 30-day impact",
+      "Analyzes wealth concentration (Gini 0.72, top 1% at 38.5%) and proposes targeted sinks",
+      "Traces the compounding effect of the three recent changes on economy health",
+      "Delivers a priority-ordered action plan with specific parameter changes and timeline"
+    ]
   }
 ]

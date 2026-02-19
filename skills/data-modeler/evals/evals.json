@@ -37,5 +37,70 @@
       "Farming efficiency ranked",
       "Data formatted for team sharing"
     ]
+  },
+  {
+    "id": "data-item-database",
+    "description": "Build a full item database table with proper schema from informal notes",
+    "input": "Using the rough item notes in [files/item-list-rough.md], create a master item database spreadsheet. Include columns for Item_ID, Item_Name, Item_Type, Rarity, Level_Require, Base_Damage, Base_Defense, Special_Effect, Price_Buy, Price_Sell, Drop_Rate, Drop_Source, Craft_Materials, Craft_Cost, Weight, Tradeable, Stackable, Max_Stack, Icon_File, Status, Notes, Modified_Date, and Modified_By. All 10 items must have every field populated with no blanks.",
+    "expected_behavior": "Produces a complete master data table with all 10 items, each having a unique ID following the item_<type>_<number> convention. Informal descriptions are translated into structured numeric and categorical values. Rarity uses the standard tier set (Common/Uncommon/Rare/Epic/Legendary). Buy/sell prices are consistent (sell is roughly 50% of buy). Drop rates are converted to percentages. Craft-only items show 0% drop rate with materials listed. The table is ready for xlsx export with proper column types.",
+    "rubric": [
+      "All 10 items present with unique IDs following naming convention",
+      "Every column populated for every row — no blank cells",
+      "Rarity, Item_Type, and Tradeable use controlled vocabulary (no free-text variants)",
+      "Buy/sell price ratio is consistent and economically sensible",
+      "Weapons, armor, consumables, and misc items each handled correctly for their type-specific fields"
+    ]
+  },
+  {
+    "id": "data-ability-matrix",
+    "description": "Create an ability comparison matrix across classes with cost-efficiency analysis",
+    "input": "Using the ability design notes in [files/ability-design-notes.md], build an ability comparison matrix for all 4 classes (Navigator, Vanguard, Arcanist, Phantom). Each class has 3 abilities (basic, defensive, ultimate). The matrix should include: Ability_Name, Class, Role (Damage/Defense/Ultimate), Base_Damage, Energy_Cost, Cooldown_Turns, Target_Type (Single/AoE/Self), Level_Unlock, Special_Mechanic, Damage_Per_Energy, Damage_Per_Cooldown_Turn, and an Efficiency_Rating. Add a summary section comparing classes on burst damage, sustained DPS, defensive value, and energy efficiency.",
+    "expected_behavior": "Produces a 12-row ability matrix (3 abilities x 4 classes) with all numeric fields extracted from the design notes. Derived columns (Damage_Per_Energy, Damage_Per_Cooldown_Turn, Efficiency_Rating) are calculated with visible formulas, not hardcoded. A summary comparison section ranks classes across each dimension. Defensive abilities are evaluated using effective damage prevented rather than raw damage. Conditional abilities (e.g., Phantom's stealth bonus) show both base and conditional values.",
+    "rubric": [
+      "All 12 abilities present with correct stats matching the design notes",
+      "Derived efficiency columns use formulas referencing base columns, not hardcoded values",
+      "Defensive abilities evaluated with damage-mitigation equivalents, not left as zero damage",
+      "Conditional abilities (stealth bonus, Void Mark scaling) show both base and enhanced values",
+      "Summary section ranks all 4 classes across burst, sustained DPS, defense, and energy efficiency"
+    ]
+  },
+  {
+    "id": "data-calculation-sheet",
+    "description": "Build a derived calculation sheet with formulas from base stat values",
+    "input": "Using the base stats in [files/warrior-base-stats.csv], generate a full level 1-30 stat progression calculation sheet for the Vanguard class. Each stat must use the growth_type and growth_rate from the CSV to compute its value at every level. Include columns: Level, and one column per stat showing the calculated value. Add a Formula_Reference section at the bottom documenting each growth formula: linear = base + (rate * (level-1)), diminishing = base + rate * ln(level) * 10, logarithmic = base + rate * ln(level) * 5, flat = base. Include sanity check rows verifying values stay within min_cap and max_cap.",
+    "expected_behavior": "Produces a 30-row table with 10 stat columns, all computed from the base CSV data using the specified formulas. No values are hardcoded — every cell references the base_value, growth_type, and growth_rate. A formula reference section at the bottom explains each calculation. Sanity check rows or conditional highlights flag any value that exceeds max_cap or falls below min_cap. Growth curves are visually distinguishable (linear stats grow steadily, diminishing stats plateau, flat stats stay constant).",
+    "rubric": [
+      "All 30 levels populated for all 10 stats with no gaps",
+      "Each stat uses the correct growth formula matching its growth_type from the CSV",
+      "Formula reference section documents every formula with variable substitution examples",
+      "Sanity checks verify all values stay within the min_cap and max_cap bounds",
+      "Flat stats (Energy_Regen, Movement_Speed) remain constant across all 30 levels"
+    ]
+  },
+  {
+    "id": "data-export-schema",
+    "description": "Map spreadsheet columns to a JSON export schema for engine consumption",
+    "input": "Using the target engine schema in [files/engine-json-schema.json], create a column-mapping spreadsheet that maps every field in the item database spreadsheet to the corresponding JSON path in the engine schema. Include columns: Spreadsheet_Column, JSON_Path, Data_Type_Spreadsheet, Data_Type_JSON, Transform_Rule, Validation_Regex, Required, and Example_Value. Where the spreadsheet uses human-readable values (e.g., Rarity='Rare') but the engine expects integers (e.g., rarity=2), document the exact transformation. Generate a sample JSON export for 3 items to demonstrate the mapping works.",
+    "expected_behavior": "Produces a mapping table covering every field in the engine JSON schema, with clear transformation rules for type conversions (string rarity to integer, percentage drop rates to 0-1 floats, Y/N booleans to true/false). The sample JSON output for 3 items validates against the provided schema. Nested JSON structures (stats, economy, drop_sources) are mapped with dot-notation paths. The ID pattern regex from the schema is reflected in the validation column.",
+    "rubric": [
+      "Every field in the engine JSON schema has a corresponding mapping row",
+      "Transformation rules are explicit and unambiguous (e.g., 'Common=0, Uncommon=1, Rare=2, Epic=3, Legendary=4')",
+      "Nested JSON paths use dot notation (e.g., stats.damage, economy.buy_price)",
+      "Sample JSON output for 3 items is valid against the provided schema",
+      "Required fields are correctly flagged matching the schema's required arrays"
+    ]
+  },
+  {
+    "id": "data-validation-rules",
+    "description": "Define validation rules and identify violating rows in item data",
+    "input": "Using the item data in [files/items-with-errors.csv], define a comprehensive set of validation rules for the item database and produce a validation report. Rules should cover: ID format (must match item_<type>_<number> pattern), no negative numeric values for damage/defense/weight/stack, sell price must not exceed buy price, rarity must be one of Common/Uncommon/Rare/Epic/Legendary, level requirement must be 0-50, drop rate must be 0-100%, no duplicate item names, no empty required fields (Item_Name), and max stack must be positive if stackable. Flag every row that violates any rule with the specific violation.",
+    "expected_behavior": "Produces two outputs: (1) a validation rules table listing each rule with its ID, description, affected columns, and severity (Error vs Warning), and (2) a violation report listing every bad row with the rule it violates and the specific offending value. The CSV contains 10 valid rows and 10 deliberately bad rows. All 10 bad rows should be caught. The report should identify: BAD_ID_FORMAT (invalid ID), item_neg_011 (negative damage), item_price_012 (sell > buy), item_stack_013 (negative max stack), item_rarity_014 (invalid rarity), item_level_015 (level > 50), item_dup_016 (duplicate name), item_drop_017 (drop rate > 100%), item_weight_018 (negative weight), and item_empty_019 (empty name).",
+    "rubric": [
+      "Validation rules table defines at least 8 distinct rules with clear descriptions",
+      "All 10 deliberately invalid rows are flagged in the violation report",
+      "Each violation cites the specific rule, the row ID, and the offending value",
+      "Valid rows (first 10) are not falsely flagged",
+      "Severity levels distinguish hard errors (data will break the engine) from warnings (data is suspicious)"
+    ]
   }
 ]

@@ -1,0 +1,34 @@
+ART DIRECTOR FEEDBACK — Navigator Character Spec v1
+Reviewer: Marcus Chen, Lead Art Director
+Date: 2026-02-15
+Spec under review: AssetSpec_Navigator_Character_v1.md
+
+=========================================================
+
+CHANGE REQUEST #1 — Silhouette Revision
+STATUS: Must Fix
+The current silhouette reads too similar to the Voidborn Stalker at LOD2 distance. The Navigator needs a more distinctive profile. Add asymmetric shoulder armor (left side only, larger thruster pack) and change the helmet shape from round dome to angular visor with antenna. The player must be instantly recognizable at 50m in a crowd of enemies.
+
+CHANGE REQUEST #2 — Color Palette Shift
+STATUS: Must Fix
+The primary suit color (steel gray, RGB 100,110,120) is too close to the station environment palette. It disappears against metal corridors. Shift primary to deep navy (RGB 25, 40, 80) with high-visibility orange accent trim (RGB 240, 130, 30) on the chest plate and helmet stripe. Keep metallic silver for mechanical joints only.
+
+CHANGE REQUEST #3 — Texture Detail Redistribution
+STATUS: Should Fix
+We're over budget on the backpack texture (currently 2K dedicated) but under-detailed on the hands/gloves. Hands are visible in every first-person interaction and tool-use animation. Merge the backpack into the main body 4K atlas and allocate a dedicated 1K sheet for the gloves with high-frequency detail (worn fingertips, grip pads, wrist display screen).
+
+CHANGE REQUEST #4 — Add Emissive Map Spec
+STATUS: Must Fix
+The spec completely omits emissive elements. The Navigator suit MUST have emissive strips along the arms and helmet visor for gameplay readability (team identification in multiplayer, visibility in dark environments). Add an emissive map channel to the texture spec. Emissive color should match the player's chosen faction color (runtime tint, default cyan RGB 0, 220, 255). Emissive intensity should pulse subtly (0.8 to 1.0 over 2 seconds) during idle.
+
+CHANGE REQUEST #5 — LOD1 Bone Reduction Not Specified
+STATUS: Should Fix
+The spec lists LOD polygon falloff but says nothing about bone reduction at distance. At LOD1 (10-25m), drop finger bones and facial bones (reduce from 120 to 65 bones). At LOD2, collapse to 32 bones (spine chain, limbs only, no twist bones). This is critical for the 30-character-on-screen scenario. Add a bone budget table per LOD level to the Technical Specifications section.
+
+=========================================================
+
+GENERAL NOTES:
+- Overall structure of the spec is solid, good job on the approval criteria
+- Add a "Revision History" section at the bottom to track these changes
+- Next review scheduled after v2 is submitted
+- Prioritize Change Requests #1 and #4 first — they affect gameplay readability

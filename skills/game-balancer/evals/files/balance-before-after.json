@@ -1,0 +1,104 @@
+{
+  "balance_pass": {
+    "name": "v0.8.3 Mid-Tier Weapon Rebalance",
+    "date": "2026-02-18",
+    "author": "balance-team",
+    "reason": "Plasma weapons outperform kinetic and void weapons at levels 20-35, collapsing build diversity"
+  },
+  "before": {
+    "label": "v0.8.2-live",
+    "weapons": {
+      "kinetic_rifle": {
+        "base_damage": 120,
+        "attack_speed": 1.0,
+        "crit_rate": 0.15,
+        "crit_multiplier": 2.0,
+        "effective_dps": 159.0,
+        "scaling_per_level": 6.5
+      },
+      "plasma_repeater": {
+        "base_damage": 95,
+        "attack_speed": 1.8,
+        "crit_rate": 0.10,
+        "crit_multiplier": 1.5,
+        "effective_dps": 186.39,
+        "scaling_per_level": 8.2
+      },
+      "void_cannon": {
+        "base_damage": 280,
+        "attack_speed": 0.4,
+        "crit_rate": 0.20,
+        "crit_multiplier": 2.5,
+        "effective_dps": 145.6,
+        "scaling_per_level": 5.8
+      }
+    },
+    "ttk_vs_standard_elite": {
+      "kinetic_rifle": 22.1,
+      "plasma_repeater": 18.9,
+      "void_cannon": 24.2
+    },
+    "pick_rates_pct": {
+      "kinetic_rifle": 18,
+      "plasma_repeater": 67,
+      "void_cannon": 15
+    }
+  },
+  "after": {
+    "label": "v0.8.3-candidate",
+    "weapons": {
+      "kinetic_rifle": {
+        "base_damage": 130,
+        "attack_speed": 1.0,
+        "crit_rate": 0.18,
+        "crit_multiplier": 2.0,
+        "effective_dps": 176.28,
+        "scaling_per_level": 7.0
+      },
+      "plasma_repeater": {
+        "base_damage": 85,
+        "attack_speed": 1.7,
+        "crit_rate": 0.10,
+        "crit_multiplier": 1.5,
+        "effective_dps": 157.68,
+        "scaling_per_level": 7.0
+      },
+      "void_cannon": {
+        "base_damage": 300,
+        "attack_speed": 0.42,
+        "crit_rate": 0.22,
+        "crit_multiplier": 2.5,
+        "effective_dps": 168.48,
+        "scaling_per_level": 6.8
+      }
+    },
+    "ttk_vs_standard_elite": {
+      "kinetic_rifle": 20.0,
+      "plasma_repeater": 22.3,
+      "void_cannon": 20.9
+    }
+  },
+  "regression_checks": [
+    {
+      "name": "No weapon DPS drops below 140",
+      "metric": "effective_dps",
+      "threshold_min": 140
+    },
+    {
+      "name": "TTK spread across weapons stays within 15%",
+      "metric": "ttk_vs_standard_elite",
+      "max_cv": 0.15
+    },
+    {
+      "name": "No single weapon scaling exceeds others by more than 20%",
+      "metric": "scaling_per_level",
+      "max_ratio": 1.20
+    },
+    {
+      "name": "Plasma repeater DPS must decrease",
+      "metric": "effective_dps",
+      "weapon": "plasma_repeater",
+      "direction": "decrease"
+    }
+  ]
+}

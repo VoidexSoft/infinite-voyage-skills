@@ -1,0 +1,165 @@
+{
+  "snapshot_date": "2026-02-15",
+  "period": "last_30_days",
+  "active_players": 48200,
+  "currency": "Galactic Credits (GC)",
+
+  "faucets": {
+    "mob_drops": {
+      "description": "Currency dropped by enemies on kill",
+      "gc_per_hour_per_player": 180,
+      "estimated_active_players": 22000,
+      "daily_hours_per_player": 1.8,
+      "total_gc_per_day": 7128000
+    },
+    "quest_rewards": {
+      "description": "GC awarded for completing quests",
+      "gc_per_hour_per_player": 350,
+      "estimated_active_players": 18000,
+      "daily_hours_per_player": 1.2,
+      "total_gc_per_day": 7560000
+    },
+    "dungeon_completion": {
+      "description": "GC bonus for finishing dungeons/raids",
+      "gc_per_hour_per_player": 500,
+      "estimated_active_players": 8500,
+      "daily_hours_per_player": 0.8,
+      "total_gc_per_day": 3400000
+    },
+    "daily_login_bonus": {
+      "description": "Flat GC for logging in each day",
+      "gc_per_day_per_player": 200,
+      "estimated_active_players": 35000,
+      "total_gc_per_day": 7000000
+    },
+    "pvp_rewards": {
+      "description": "GC for PvP match completion/wins",
+      "gc_per_hour_per_player": 220,
+      "estimated_active_players": 6000,
+      "daily_hours_per_player": 1.0,
+      "total_gc_per_day": 1320000
+    },
+    "item_selling_to_vendor": {
+      "description": "Players selling loot drops to NPC vendors",
+      "gc_per_hour_per_player": 90,
+      "estimated_active_players": 15000,
+      "daily_hours_per_player": 0.5,
+      "total_gc_per_day": 675000
+    }
+  },
+
+  "sinks": {
+    "equipment_purchases": {
+      "description": "Buying gear from NPC vendors",
+      "gc_per_day_per_active_buyer": 800,
+      "estimated_active_buyers": 12000,
+      "total_gc_per_day": 9600000
+    },
+    "consumable_purchases": {
+      "description": "Potions, grenades, fuel, repair kits",
+      "gc_per_day_per_active_buyer": 150,
+      "estimated_active_buyers": 28000,
+      "total_gc_per_day": 4200000
+    },
+    "crafting_fees": {
+      "description": "GC cost to craft items at stations",
+      "gc_per_day_per_crafter": 400,
+      "estimated_active_crafters": 5500,
+      "total_gc_per_day": 2200000
+    },
+    "fast_travel": {
+      "description": "Warp fuel costs for teleporting",
+      "gc_per_day_per_traveler": 100,
+      "estimated_active_travelers": 20000,
+      "total_gc_per_day": 2000000
+    },
+    "equipment_repair": {
+      "description": "Durability repair costs",
+      "gc_per_day_per_player": 60,
+      "estimated_active_players": 25000,
+      "total_gc_per_day": 1500000
+    },
+    "auction_house_tax": {
+      "description": "5% listing fee + 10% sale tax on player trades",
+      "total_gc_per_day": 850000
+    },
+    "respec_costs": {
+      "description": "Skill tree and stat respec fees",
+      "gc_per_respec": 500,
+      "estimated_respecs_per_day": 1200,
+      "total_gc_per_day": 600000
+    }
+  },
+
+  "aggregate": {
+    "total_faucet_per_day": 27083000,
+    "total_sink_per_day": 20950000,
+    "net_flow_per_day": 6133000,
+    "net_flow_direction": "surplus",
+    "surplus_as_percent_of_faucet": 22.6,
+    "estimated_total_gc_in_circulation": 2850000000,
+    "velocity": 3.2,
+    "median_player_balance": 12500,
+    "mean_player_balance": 59128,
+    "top_1_percent_hold": 38.5
+  },
+
+  "health_indicators": {
+    "daily_net_flow_percent": 22.6,
+    "monthly_inflation_estimate_percent": 8.8,
+    "earnings_to_spending_ratio": 1.29,
+    "gini_coefficient": 0.72,
+    "velocity_turns_per_month": 3.2,
+    "new_player_time_to_first_purchase_hours": 2.1,
+    "median_days_to_quit": 14
+  },
+
+  "recent_changes": [
+    {
+      "date": "2026-02-01",
+      "change": "Added Void Rift zone with new quest rewards",
+      "impact": "Quest faucet increased ~18%"
+    },
+    {
+      "date": "2026-01-20",
+      "change": "Reduced equipment repair costs by 30%",
+      "impact": "Repair sink decreased from 2.14M to 1.5M/day"
+    },
+    {
+      "date": "2026-01-10",
+      "change": "Introduced daily login bonus (200 GC)",
+      "impact": "New faucet adding ~7M GC/day"
+    }
+  ],
+
+  "player_segments": {
+    "casual": {
+      "percent_of_players": 55,
+      "avg_daily_playtime_hours": 0.8,
+      "avg_daily_gc_earned": 280,
+      "avg_daily_gc_spent": 200,
+      "avg_balance": 3200
+    },
+    "regular": {
+      "percent_of_players": 30,
+      "avg_daily_playtime_hours": 2.5,
+      "avg_daily_gc_earned": 1200,
+      "avg_daily_gc_spent": 850,
+      "avg_balance": 18000
+    },
+    "hardcore": {
+      "percent_of_players": 12,
+      "avg_daily_playtime_hours": 5.0,
+      "avg_daily_gc_earned": 4500,
+      "avg_daily_gc_spent": 2800,
+      "avg_balance": 95000
+    },
+    "whale": {
+      "percent_of_players": 3,
+      "avg_daily_playtime_hours": 6.0,
+      "avg_daily_gc_earned": 8000,
+      "avg_daily_gc_spent": 3500,
+      "avg_balance": 520000
+    }
+  }
+}

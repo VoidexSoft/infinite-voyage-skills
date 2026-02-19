@@ -50,5 +50,57 @@
       "Recommends specific adjustments if needed",
       "References fairness metrics from metrics-glossary.md"
     ]
+  },
+  {
+    "id": "balancer-monte-carlo",
+    "description": "Run Monte Carlo combat simulation with crit, dodge, and proc rates and report outcome distributions",
+    "input": "Using the parameters in evals/files/combat-params.json, run a 10,000-iteration Monte Carlo simulation of a level 35 Voidblade Assassin vs a level 35 Stellar Guardian Captain. Account for crit rates, dodge rates, Void Strike proc, and Phase Burst guaranteed crit. Report win rate, TTK distribution (mean, std, p5, p50, p95), and average HP remaining. Compare all results against the target metric ranges.",
+    "expected_behavior": "Loads combat-params.json and configures scripts/combat_sim.py. Runs 10,000 iterations with proper random seeding. Calculates per-iteration damage accounting for crit rolls, dodge rolls, and ability proc chances. Produces a distribution summary with mean, std, and percentiles for TTK. Reports player win rate and average HP remaining percentage. Flags any metric that falls outside the target ranges defined in the input file.",
+    "rubric": [
+      "Crit, dodge, and proc probabilities correctly applied each iteration",
+      "TTK distribution reported with mean, std, and at least p5/p50/p95 percentiles",
+      "Win rate and HP remaining compared against target_metrics ranges",
+      "Out-of-range metrics explicitly flagged with recommended parameter adjustments",
+      "Uses scripts/combat_sim.py or equivalent Monte Carlo approach with reproducible seed"
+    ]
+  },
+  {
+    "id": "balancer-iteration-diff",
+    "description": "Generate a before/after balance pass diff report with regression detection",
+    "input": "Using the data in evals/files/balance-before-after.json, produce a balance diff report for the v0.8.3 Mid-Tier Weapon Rebalance. Compare before (v0.8.2-live) and after (v0.8.3-candidate) values for all three weapons. Run every regression check defined in the file. Highlight whether the plasma repeater dominance problem is resolved.",
+    "expected_behavior": "Parses both parameter sets and computes deltas for each weapon stat (base_damage, attack_speed, crit_rate, effective_dps, scaling_per_level). Builds a side-by-side comparison table. Computes TTK changes and DPS spread (coefficient of variation). Evaluates each regression check: DPS floor of 140, TTK CV under 0.15, scaling ratio under 1.20, and plasma DPS decrease. Produces a pass/fail summary for each check. Assesses whether pick rate concentration is likely to improve based on the DPS convergence.",
+    "rubric": [
+      "Side-by-side diff table showing all stat deltas per weapon",
+      "Each regression check evaluated with explicit pass/fail and supporting numbers",
+      "DPS spread and TTK spread computed using coefficient of variation",
+      "Assessment of whether plasma dominance is resolved based on DPS convergence",
+      "Identifies any unintended side effects such as void cannon overtaking or kinetic rifle becoming dominant"
+    ]
+  },
+  {
+    "id": "balancer-economy-flow",
+    "description": "Simulate a 30-day economy flow and identify the day any gold threshold is breached",
+    "input": "Using the parameters in evals/files/economy-flow-params.json, simulate a 30-day Stellarite economy for a median-engaged player (2.5 hours/day). Track daily balance from all faucets and sinks. Identify the first day the inflation warning threshold (15,000 Stellarite) is breached, or confirm it stays within bounds. Check whether the player can afford the tier 2 ship upgrade by day 20 and the full gear set by day 25.",
+    "expected_behavior": "Loads economy-flow-params.json and computes daily net income from hourly rates times play hours plus daily-rate sources. Runs the simulation day by day, accumulating balance from the 500 starting gold. Produces a day-by-day balance table. Checks the balance against all thresholds (inflation warning at 15,000, critical at 25,000, poverty warning at 100, poverty critical at 0). Reports the first day any threshold is breached. Validates milestone affordability: tier 2 ship by day 20 (requires 5,000 cumulative savings after spending), gear set by day 25 (requires 3,500). Uses scripts/economy_sim.py or equivalent flow model.",
+    "rubric": [
+      "Daily faucet and sink totals correctly computed from hourly rates times 2.5 hours plus daily-rate sources",
+      "Day-by-day balance table or chart showing accumulation over 30 days",
+      "First threshold breach day explicitly identified or all-clear confirmed",
+      "Milestone affordability checks for tier 2 ship (day 20) and gear set (day 25)",
+      "Variance in faucet/sink rates incorporated to show best-case and worst-case trajectories"
+    ]
+  },
+  {
+    "id": "balancer-ability-power-budget",
+    "description": "Verify an ability against a power budget formula and recommend adjustments",
+    "input": "Using the power budget rules and component weights defined in evals/files/ability-power-budget.md, calculate the total power score of the Singularity Collapse ability (Voidwalker DPS, T3 Primary). The ability has: 480 base damage, 60x5 DoT, 1.2s stun, 3-target AoE, 20m range, 10s cooldown, 55 energy cost. The budget is 330 (T3 280 + DPS 20 + Primary 30). Is it within budget?",
+    "expected_behavior": "Computes each component's power contribution step by step: base damage (480/10 = 48), DoT (60*5/12 = 25), stun (1.2*25 = 30), subtotal before AoE = 103, AoE multiplier (103 * 2 * 0.3 = 61.8), range bonus (+5 per 5m beyond 10m = +10 for 20m), cooldown reduction (-2 * 2s above 8s = -4), resource cost (-1 * 2.5 rounded = -2). Total power score approximately 168.8. Budget is 330. The ability is significantly under budget (roughly 49% utilization), which flags it as potentially underwhelming per the 15% under-budget rule. Recommends increasing base damage, DoT ticks, or stun duration to bring closer to budget.",
+    "rubric": [
+      "Each component weight calculated correctly and shown step by step",
+      "AoE multiplier applied to pre-AoE subtotal, not to individual components",
+      "Cooldown and resource cost reductions correctly applied as negative power",
+      "Final power score compared against 330 budget with over/under/within verdict",
+      "Specific recommendations provided to bring the ability closer to budget if under by more than 15%"
+    ]
   }
 ]

@@ -46,5 +46,57 @@
       "Reports section status (draft, complete, missing)",
       "Suggests next steps for gaps"
     ]
+  },
+  {
+    "id": "gdd-manager-context-handoff",
+    "description": "Produce a full structured handoff document when routing a design request to a specialist skill",
+    "input": "I want to add a crew morale system where crew members can become demoralized during long voyages, affecting their skill check performance. Morale should recover at space stations and through narrative events. Please hand this off to the right specialist.",
+    "expected_behavior": "Produces a structured handoff in the standard format (Design Request title, Discipline, Supporting skills, Context from GDD, Constraints, Open Questions). Identifies systems-designer as primary. Lists narrative-designer and game-balancer as supporting. Pulls context from the Mechanics & Systems section (crew skill checks) and Narrative & Worldbuilding section (crew personal arcs). Notes constraints from the core gameplay loop session target. Poses open questions about morale thresholds, recovery rates, and interaction with existing crew leveling XP.",
+    "rubric": [
+      "Output follows the structured handoff template (title, discipline, supporting, context, constraints, open questions)",
+      "Correctly identifies systems-designer as primary and narrative-designer plus game-balancer as supporting",
+      "Extracts specific context from at least two existing GDD sections",
+      "Lists concrete constraints from existing design decisions",
+      "Poses at least 3 actionable open questions for the specialist to resolve"
+    ]
+  },
+  {
+    "id": "gdd-manager-multi-discipline",
+    "description": "Route a request that touches 4 or more disciplines and provide a sequenced order of operations",
+    "input": "I want to add a new endgame zone called The Shattered Nexus. It needs unique enemies with new combat abilities, a questline revealing the Synthex Collective's origin, rare crafting materials that feed into a new ship upgrade tier, and a dedicated UI for a zone-wide threat meter. How should we tackle this?",
+    "expected_behavior": "Identifies all relevant disciplines: level-designer (primary, zone layout and encounters), systems-designer (new combat abilities and ship upgrade tier), narrative-designer (Synthex origin questline), economy-designer (rare crafting materials and upgrade costs), ux-designer (threat meter UI), and game-balancer (endgame tuning). Proposes a sequenced order: (1) narrative-designer defines the questline beats and Synthex lore, (2) level-designer builds the zone structure and encounter flow, (3) systems-designer designs the new abilities and upgrade tier, (4) economy-designer sets material drop rates and upgrade costs, (5) ux-designer creates threat meter wireframes, (6) game-balancer tunes difficulty and reward curves. Explains dependencies between each step.",
+    "rubric": [
+      "Identifies at least 4 distinct specialist skills needed",
+      "Designates a clear primary skill with rationale",
+      "Proposes a numbered order of operations with at least 5 steps",
+      "Explains dependency reasoning between steps",
+      "References relevant existing GDD sections that each specialist should consult"
+    ]
+  },
+  {
+    "id": "gdd-manager-routing-economy",
+    "description": "Route an economy-focused request distinguishing primary vs support roles for economy-designer and game-balancer",
+    "input": "Players in the Frozen Expanse are earning Nova Credits 3x faster than in other regions because ice crystal salvage sells for too much. Meanwhile the Faction Token earn rate for the Drift Clans feels too slow compared to the Terran Accord. Can you figure out who should handle what?",
+    "expected_behavior": "Identifies two distinct issues. For the Nova Credits inflation: economy-designer is primary (currency source/sink rebalancing for ice crystal pricing), game-balancer is supporting (verifying the fix against the overall earning curve across all regions). For the Faction Token disparity: economy-designer is primary (faction reward structure), narrative-designer is supporting (Drift Clan quest availability may affect token earn rate), game-balancer is supporting (cross-faction parity verification). Provides context from the Economy & Progression section and Level/Content Design section. Distinguishes that economy-designer owns the parameter changes while game-balancer validates them through simulation.",
+    "rubric": [
+      "Separates the input into two distinct issues with independent routing",
+      "Correctly assigns economy-designer as primary for both currency concerns",
+      "Distinguishes game-balancer's supporting/validation role from economy-designer's ownership role",
+      "Identifies narrative-designer as a relevant support for the Faction Token issue",
+      "References specific GDD sections for context"
+    ]
+  },
+  {
+    "id": "gdd-manager-section-completeness",
+    "description": "Generate a completeness report across the full 12-section GDD taxonomy using the section index",
+    "input": "Using the GDD index at evals/files/gdd-index-partial.json, give me a full completeness report. I need to know exactly where we stand and what the critical gaps are before our milestone review.",
+    "expected_behavior": "Loads the partial GDD index (7 present sections, 5 missing). Maps all entries against the 12-section taxonomy. Produces a structured report: (1) Summary line (7/12 sections present, 58% coverage). (2) Per-section status table showing all 12 sections with status. (3) Critical gaps analysis identifying Narrative & Worldbuilding and UI/UX Design as the highest-priority missing sections because they block other work. (4) Staleness flags for sections not updated in 30+ days. (5) Recommended action plan prioritized by dependency impact.",
+    "rubric": [
+      "Correctly counts 7 present and 5 missing sections against the 12-section taxonomy",
+      "Produces a per-section status table covering all 12 categories",
+      "Identifies Narrative & Worldbuilding and UI/UX Design as high-priority gaps with dependency reasoning",
+      "Flags stale sections based on last_modified dates",
+      "Provides a prioritized action plan ordered by dependency impact"
+    ]
   }
 ]

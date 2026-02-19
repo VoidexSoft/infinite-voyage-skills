@@ -50,5 +50,70 @@
       "Enriches world-building without contradicting existing lore",
       "Evocative writing that creates atmosphere"
     ]
+  },
+  {
+    "id": "narrative-faction-design",
+    "description": "Design a complete faction profile with reputation system, ranks, and rewards",
+    "input": "Using the existing factions in @world-factions-stub.md and the lore in @lore-bible-stub.md, design a new faction: the Aethon Reclaimers — a group of engineers and salvagers dedicated to recovering lost technology from Sundering-damaged sites. Include a full reputation system with at least 5 tiers, unique rewards per tier, faction-specific quests at key thresholds, and how this faction's goals create tension with the three existing factions.",
+    "expected_behavior": "Produces a faction profile with identity, philosophy, history, leadership, headquarters, reputation tiers (with names, thresholds, rewards, and unlocks), faction-specific quest hooks, inter-faction relationship dynamics, and gameplay integration notes. The faction fits consistently within the established lore and creates interesting narrative tension.",
+    "rubric": [
+      "Faction backstory is consistent with the Sundering and existing timeline",
+      "At least 5 reputation tiers with named ranks, thresholds, and distinct rewards",
+      "Inter-faction tensions with Meridian Compact, Ashen Choir, and Free Drift Collective are specific and narratively interesting",
+      "Faction-specific quest hooks are tied to reputation thresholds",
+      "Rewards are flagged for economy-designer review and include both tangible items and narrative unlocks"
+    ]
+  },
+  {
+    "id": "narrative-world-history",
+    "description": "Write an in-world historical account of a major event with unresolved mysteries",
+    "input": "Using the timeline and lore notes in @lore-bible-stub.md, write a detailed in-world historical account of the Quiet Year (2203-2204). The account should be written as a compilation from multiple sources — official Meridian Compact records, survivor testimonies, and Ashen Choir annotations. Include at least two unresolved mysteries that could seed future quests, and ensure the account does not definitively answer what happened.",
+    "expected_behavior": "Produces a multi-source historical document written in-universe with distinct voices per source type. Maintains ambiguity around the core mystery while providing enough concrete detail to feel real. Unresolved threads are clearly seeded for quest hooks. Aligns with all established timeline events.",
+    "rubric": [
+      "Multiple source voices are distinct (official records vs. survivor accounts vs. Choir annotations)",
+      "Timeline is consistent with the master timeline in the lore bible",
+      "At least two unresolved mysteries are clearly seeded without being resolved",
+      "The account enriches the world without contradicting established lore",
+      "Tone shifts appropriately between source types while maintaining overall Infinite Voyage voice"
+    ]
+  },
+  {
+    "id": "narrative-environmental-storytelling",
+    "description": "Tell a story through props, visual cues, and spatial arrangement with zero dialogue",
+    "input": "Using the two locations described in @room-description.md, design the environmental storytelling for each room. For the Aethon lab: tell the story of what the crew was doing in their final moments before they vanished. For Zara's workshop: tell the story of a discovery Zara has made that she is trying to keep secret. Use only interactable objects, prop placement, visual details, and optional audio cues — no dialogue, no text logs, no narration.",
+    "expected_behavior": "Produces a detailed environmental storytelling design for each location. Each prop and visual cue is described with its placement, visual state, and what it communicates to an observant player. The narrative is layered so casual players get the gist while attentive players piece together deeper meaning. Includes designer notes explaining the intended player reading.",
+    "rubric": [
+      "Story is told entirely through objects, placement, and visual/audio cues — no dialogue or readable text",
+      "Each location has a clear primary narrative readable by casual observation",
+      "Each location has a secondary, deeper narrative for attentive players",
+      "Props and cues are specific and placeable by a level designer (not vague)",
+      "Designer notes explain intended player interpretation for each key element"
+    ]
+  },
+  {
+    "id": "narrative-npc-schedule",
+    "description": "Design a daily routine for a recurring NPC with time-based dialogue and behaviors",
+    "input": "Using the character profile in @npc-zara-profile.md, design Zara's complete daily schedule for a standard station day (24-hour cycle). Include her locations, activities, interruptibility, and time-specific dialogue variations. The schedule should reflect her personality (obsessive, spacer-born habits) and change based on two quest states: before and after she discovers the Void Tide pattern. Include at least one hidden schedule event that only triggers under specific conditions.",
+    "expected_behavior": "Produces a time-blocked daily schedule with location, activity, interruptibility level, and dialogue samples for each block. Includes a variant schedule for the post-discovery quest state showing behavioral changes. Contains at least one hidden/conditional event. Schedule reflects character personality and spacer-born cultural details.",
+    "rubric": [
+      "Complete 24-hour schedule with specific time blocks, locations, and activities",
+      "Dialogue samples per time block reflect Zara's established voice and current activity",
+      "Schedule changes meaningfully between pre-discovery and post-discovery quest states",
+      "At least one hidden schedule event with specific trigger conditions",
+      "Interruptibility levels are defined and affect how Zara responds to the player at each time block"
+    ]
+  },
+  {
+    "id": "narrative-consistency-check",
+    "description": "Check a new lore entry against existing entries for contradictions and inconsistencies",
+    "input": "Review the draft codex entry 'The Pale Reach' (Entry 4) in @existing-lore-entries.md against the three existing published entries and the master timeline in @lore-bible-stub.md. Identify any factual contradictions, timeline inconsistencies, tone mismatches, or logical conflicts. For each issue found, provide the specific conflicting passages, explain the contradiction, and suggest a resolution that preserves both entries where possible.",
+    "expected_behavior": "Produces a structured consistency report identifying specific contradictions between the draft entry and existing lore. Each issue cites exact passages from both the draft and the conflicting source. Includes severity rating, explanation, and suggested resolution. Also flags potential issues that are ambiguous rather than definitively contradictory.",
+    "rubric": [
+      "Identifies the timeline discrepancy (Dross disappearance: 2227 in draft vs. 2229 in lore bible)",
+      "Cites specific passages from both the draft and conflicting sources for each issue",
+      "Distinguishes between hard contradictions and soft ambiguities",
+      "Suggested resolutions preserve both entries where possible rather than simply deleting content",
+      "Checks tone and vocabulary consistency against the lore bible style guide"
+    ]
   }
 ]

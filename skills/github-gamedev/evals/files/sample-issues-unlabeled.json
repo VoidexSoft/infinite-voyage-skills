@@ -1,0 +1,52 @@
+[
+  {
+    "number": 201,
+    "title": "Implement Void Engine overcharge state machine",
+    "body": "Create the core state machine for the Void Engine overcharge mechanic. When the player channels void energy beyond the safety threshold, the engine enters overcharge mode with increased power output but escalating risk of catastrophic failure.\n\n## Acceptance Criteria\n- [ ] Overcharge state activates when void energy exceeds 80% capacity\n- [ ] Power multiplier scales from 1.5x to 3.0x based on overcharge level\n- [ ] Failure probability increases exponentially past 90% capacity\n- [ ] State machine handles transitions: Normal -> Overcharge -> Critical -> Failure\n- [ ] Cooldown period enforced after overcharge ends\n\n## Depends On\n- #145 (Void Engine energy system)\n\n## Testing\n- Verify state transitions under rapid input changes\n- Verify failure probability math matches design spec"
+  },
+  {
+    "number": 202,
+    "title": "Create asteroid field parallax background layers",
+    "body": "Design and render three parallax background layers for the asteroid field biome. These layers scroll at different speeds to create depth illusion during ship traversal.\n\n## Specification\n- Layer 1 (far): Distant star clusters and faint nebula glow, 4096x2048\n- Layer 2 (mid): Medium asteroids with subtle rotation, 4096x2048\n- Layer 3 (near): Close asteroid silhouettes with dust particles, 4096x2048\n\n## Requirements\n- [ ] All layers tile seamlessly horizontally\n- [ ] Color palette matches Sector 7 art direction (cool blues, deep purples)\n- [ ] Optimized for mobile GPU (max 2 draw calls per layer)\n- [ ] Exported as compressed PNG with alpha channel"
+  },
+  {
+    "number": 203,
+    "title": "Compose engine room ambient soundscape",
+    "body": "Create a looping ambient soundscape for the ship engine room area. This plays whenever the player is in or near the engine room and should convey the hum and power of the Void Engine.\n\n## Specification\n- Duration: 90-second seamless loop\n- Mood: Deep mechanical hum, occasional energy crackle, rhythmic pulsing\n- Layers: Base drone (low freq), mid-frequency mechanical rhythm, high-frequency energy whispers\n- Format: 48kHz, 24-bit WAV, stereo\n- Loudness: -18 LUFS (ambient background level)\n\n## Reference\n- Similar to Alien: Isolation engine room ambience but more ethereal\n- Should blend with combat music when encounters start nearby"
+  },
+  {
+    "number": 204,
+    "title": "Verify shield regeneration timing across all difficulty levels",
+    "body": "Run comprehensive QA pass on shield regeneration rates across Easy, Normal, Hard, and Nightmare difficulty settings. Recent balance changes (#189) modified the base regeneration formula and we need to confirm values are correct in-game.\n\n## Test Matrix\n- [ ] Easy: 5 HP/sec base regen, 2s delay after damage\n- [ ] Normal: 3 HP/sec base regen, 3s delay after damage\n- [ ] Hard: 1.5 HP/sec base regen, 5s delay after damage\n- [ ] Nightmare: 0.5 HP/sec base regen, 8s delay after damage\n\n## Steps\n1. Load test scene with damage source\n2. Take shield damage, measure regen delay with frame timer\n3. Measure regen rate over 30-second window\n4. Repeat for each difficulty\n5. Test with shield upgrade modules installed\n\n## Expected\n- All values within 5% of design spec\n- No regen during active damage frames\n- Upgrade modules apply multiplicative bonus correctly"
+  },
+  {
+    "number": 205,
+    "title": "Write design spec for gravity well navigation hazard",
+    "body": "Define the complete design specification for the gravity well navigation hazard that appears in deep space sectors. This hazard should create interesting routing decisions on the star map and tactical challenges during real-time traversal.\n\n## Objective\nGravity wells pull ships off course and drain FTL fuel. Players must decide whether to navigate around (longer, safer) or punch through (shorter, risky).\n\n## Deliverables\n- [ ] Mechanics doc: pull strength formula, fuel drain rate, escape velocity threshold\n- [ ] Risk/reward matrix: fuel saved vs. hull damage probability by ship class\n- [ ] Integration notes for star map pathfinding algorithm\n- [ ] Suggested VFX and audio cues for proximity warning\n\n## Open Questions\n- Should gravity wells be visible on the star map before discovery?\n- Can ship upgrades provide gravity resistance?\n- How do gravity wells interact with the Void Engine Phase Shift ability?"
+  },
+  {
+    "number": 206,
+    "title": "Tune crew fatigue accumulation rates for 8-hour play sessions",
+    "body": "The crew fatigue system currently makes crew members exhausted within 2 hours of in-game time, which feels punishing in longer play sessions. Need to rebalance the fatigue curve so that strategic rest management is important without being frustrating.\n\n## Current Values\n- Base fatigue rate: 12 points/hour\n- Exhaustion threshold: 100 points\n- Rest recovery: 25 points/hour in quarters\n- Current time-to-exhaustion: ~2 hours (with no rest)\n\n## Proposed Targets\n- Time-to-exhaustion (no rest): 4-5 hours\n- Time-to-exhaustion (optimal rest rotation): 8+ hours\n- Fatigue should create meaningful crew rotation decisions\n- High-fatigue crew should have visible performance penalties (not cliff-edge)\n\n## Depends On\n- #105 (Crew morale decay system)\n- #106 (Crew skill progression backend)\n\n## Testing Plan\n- Run 8-hour simulation with 4 crew members, no rest\n- Run 8-hour simulation with optimal 2-crew rest rotation\n- Verify performance penalty curve is smooth, not step-function"
+  },
+  {
+    "number": 207,
+    "title": "Implement cargo bay inventory grid with drag-and-drop",
+    "body": "Build the cargo bay inventory screen where players manage collected resources, artifacts, and trade goods. The grid should support drag-and-drop for reorganizing items and transferring between cargo holds.\n\n## Acceptance Criteria\n- [ ] 8x6 grid per cargo hold, up to 3 holds unlockable\n- [ ] Items display icon, quantity, and rarity border color\n- [ ] Drag-and-drop within same hold and between holds\n- [ ] Right-click context menu: Use, Jettison, Inspect, Mark for Trade\n- [ ] Tooltip on hover shows item stats and flavor text\n- [ ] Grid highlights valid drop targets during drag\n- [ ] Keyboard navigation support (arrow keys + Enter to pick up/place)\n\n## Depends On\n- #122 (Ship upgrade UI panel)\n\n## Testing\n- Test with full inventory (144 items)\n- Test drag across hold boundaries\n- Test keyboard-only navigation flow"
+  },
+  {
+    "number": 208,
+    "title": "Create ion storm VFX with screen distortion",
+    "body": "Design a full-screen VFX treatment for ion storm encounters. When the ship enters an ion storm, the screen should convey dangerous electrical energy disrupting ship systems.\n\n## Specification\n- Screen-edge lightning arcs (particle system)\n- CRT-style scan line distortion (post-process shader)\n- Periodic bright flashes with screen shake\n- HUD flicker and static overlay\n- Color grade shift: normal palette -> desaturated with cyan/white highlights\n\n## Requirements\n- [ ] Particle system for lightning: 8-12 arcs, random timing\n- [ ] Post-process shader: configurable intensity (0.0 to 1.0)\n- [ ] Screen shake: amplitude tied to storm severity\n- [ ] Performance: < 1ms GPU cost on target hardware\n- [ ] Blends cleanly with existing post-process stack\n\n## Reference\n- FTL: Faster Than Light nebula effects (but more dramatic)\n- Dead Space RIG interference effects"
+  },
+  {
+    "number": 209,
+    "title": "Record and integrate alien hailing frequency SFX set",
+    "body": "Create a set of alien hailing frequency sound effects used when unknown ships attempt contact. Each alien faction should have a distinct audio signature that players learn to recognize.\n\n## Specification\n- 6 faction-specific hailing tones (one per major faction)\n- Duration: 3-5 seconds each, loopable\n- Style: Otherworldly, electronic, each faction distinct\n  - Vek'thari: Deep resonant harmonics, almost musical\n  - Crystalline Accord: Chime-like tinkling, high frequency\n  - Null Collective: Distorted static with buried voice patterns\n  - Solar Dominion: Military-style beep sequence, orderly\n  - Drift Nomads: Organic warbling, whale-song inspired\n  - Unknown/Hostile: Harsh dissonance, alarm-like\n- Format: 48kHz, 24-bit WAV\n- Loudness: -12 LUFS (notification level, above ambient)\n\n## Integration\n- Hook into diplomacy encounter trigger system\n- Faction tone plays before dialogue UI opens\n- Unknown faction plays generic tone until identified"
+  },
+  {
+    "number": 210,
+    "title": "Investigate and fix phantom crew assignment after loading saved game",
+    "body": "After loading a saved game, crew members sometimes appear assigned to stations they were not assigned to before saving. This causes confusion and can result in unmanned critical stations during combat.\n\n## Steps to Reproduce\n1. Assign crew: Alice -> Bridge, Bob -> Engineering, Carol -> Weapons\n2. Save game\n3. Reassign: Alice -> Engineering, Bob -> Bridge (do NOT save)\n4. Load the save from step 2\n5. Expected: Alice -> Bridge, Bob -> Engineering, Carol -> Weapons\n6. Actual: Alice -> Engineering (wrong!), Bob -> Bridge (wrong!), Carol -> Weapons\n\n## Environment\n- Build: commit abc123f\n- Platform: Windows 11, also confirmed on macOS\n- Reproducible: Always (100%)\n\n## Severity\n- High: affects gameplay correctness, can cause player frustration and unfair combat deaths\n\n## Root Cause Hypothesis\n- Crew assignment cache is not invalidated on save load; the in-memory assignment state from step 3 persists through the load operation"
+  }
+]

@@ -1,0 +1,177 @@
+{
+  "snapshot_date": "2026-02-20",
+  "sprint": "Sprint 6",
+  "sprint_start": "2026-02-09",
+  "sprint_end": "2026-02-23",
+  "columns": {
+    "Backlog": [
+      {
+        "number": 301,
+        "title": "Implement asteroid mining mini-game",
+        "labels": ["code", "p2-medium", "medium", "economy"],
+        "assignee": null,
+        "created_at": "2026-01-15",
+        "updated_at": "2026-01-15"
+      },
+      {
+        "number": 302,
+        "title": "Create trading post NPC portraits (8 variants)",
+        "labels": ["art", "p3-low", "medium", "narrative"],
+        "assignee": null,
+        "created_at": "2026-01-20",
+        "updated_at": "2026-01-20"
+      }
+    ],
+    "Sprint": [
+      {
+        "number": 303,
+        "title": "Design wormhole traversal cutscene storyboard",
+        "labels": ["design", "p1-high", "medium", "void-engine"],
+        "assignee": "frankie",
+        "created_at": "2026-02-09",
+        "updated_at": "2026-02-09",
+        "notes": "Assigned at sprint start but no activity since"
+      },
+      {
+        "number": 304,
+        "title": "Compose wormhole traversal music sting",
+        "labels": ["audio", "p1-high", "small", "void-engine"],
+        "assignee": "grace",
+        "created_at": "2026-02-09",
+        "updated_at": "2026-02-10",
+        "notes": "Blocked by #303 (storyboard not started)"
+      }
+    ],
+    "In Progress": [
+      {
+        "number": 305,
+        "title": "Implement nebula hazard damage-over-time system",
+        "labels": ["code", "p1-high", "medium", "void-engine"],
+        "assignee": "alice",
+        "created_at": "2026-02-02",
+        "updated_at": "2026-02-07",
+        "moved_to_in_progress": "2026-02-05",
+        "days_in_progress": 15,
+        "linked_pr": null,
+        "last_comment": "2026-02-07: Stuck on edge case with shield interaction",
+        "notes": "15 days in progress, no PR, last update 13 days ago"
+      },
+      {
+        "number": 306,
+        "title": "Create black hole gravitational lensing shader",
+        "labels": ["art", "p1-high", "large", "void-engine"],
+        "assignee": "bob",
+        "created_at": "2026-02-01",
+        "updated_at": "2026-02-08",
+        "moved_to_in_progress": "2026-02-03",
+        "days_in_progress": 17,
+        "linked_pr": "PR #87 (draft, 0 reviews, CI failing)",
+        "last_comment": "2026-02-08: Shader works on NVIDIA but broken on AMD, need help",
+        "notes": "17 days in progress, draft PR with failing CI, 12 days since last update"
+      },
+      {
+        "number": 307,
+        "title": "Implement crew injury and medbay recovery system",
+        "labels": ["code", "p0-critical", "large", "economy"],
+        "assignee": "charlie",
+        "created_at": "2026-02-03",
+        "updated_at": "2026-02-10",
+        "moved_to_in_progress": "2026-02-06",
+        "days_in_progress": 14,
+        "linked_pr": "PR #92 (open, 2 change requests, CI passing)",
+        "last_comment": "2026-02-10: Addressed first round of feedback, waiting on re-review",
+        "notes": "14 days in progress, PR has unresolved change requests, 10 days since update"
+      },
+      {
+        "number": 308,
+        "title": "QA pass: ship-to-ship combat balance across 4 ship classes",
+        "labels": ["qc", "p1-high", "large", "balance"],
+        "assignee": "diana",
+        "created_at": "2026-02-04",
+        "updated_at": "2026-02-09",
+        "moved_to_in_progress": "2026-02-07",
+        "days_in_progress": 13,
+        "linked_pr": null,
+        "last_comment": "2026-02-09: Frigate vs Cruiser matchup data collected, 2 more matchups to go",
+        "notes": "13 days for a QA pass, partial progress only, 11 days since last update"
+      },
+      {
+        "number": 309,
+        "title": "Record void rift ambient SFX loop",
+        "labels": ["audio", "p2-medium", "small", "void-engine"],
+        "assignee": "grace",
+        "created_at": "2026-02-06",
+        "updated_at": "2026-02-11",
+        "moved_to_in_progress": "2026-02-08",
+        "days_in_progress": 12,
+        "linked_pr": null,
+        "last_comment": "2026-02-11: Initial recordings done, needs processing and integration",
+        "notes": "12 days for a small audio task, should have been 1-2 days"
+      }
+    ],
+    "Review": [
+      {
+        "number": 310,
+        "title": "Implement star map fog-of-war reveal system",
+        "labels": ["code", "p1-high", "medium", "void-engine"],
+        "assignee": "alice",
+        "created_at": "2026-01-28",
+        "updated_at": "2026-02-12",
+        "moved_to_review": "2026-02-10",
+        "days_in_review": 10,
+        "linked_pr": "PR #85 (open, approved by 1/2 reviewers, CI passing)",
+        "last_comment": "2026-02-12: First reviewer approved, waiting on second reviewer (bob)",
+        "notes": "10 days in review, second reviewer has not responded"
+      },
+      {
+        "number": 311,
+        "title": "Balance pass: weapon damage scaling per tier",
+        "labels": ["balance", "p1-high", "medium", "economy"],
+        "assignee": "eve",
+        "created_at": "2026-02-01",
+        "updated_at": "2026-02-14",
+        "moved_to_review": "2026-02-12",
+        "days_in_review": 8,
+        "linked_pr": null,
+        "last_comment": "2026-02-14: Balance spreadsheet posted, awaiting design lead sign-off",
+        "notes": "8 days in review, waiting on design lead who has not responded"
+      }
+    ],
+    "Done": [
+      {
+        "number": 312,
+        "title": "Create crew skill tree UI wireframes",
+        "labels": ["design", "p1-high", "medium", "ui-menus"],
+        "assignee": "frankie",
+        "completed_at": "2026-02-11"
+      },
+      {
+        "number": 313,
+        "title": "Implement basic ship movement and rotation",
+        "labels": ["code", "p0-critical", "large", "void-engine"],
+        "assignee": "alice",
+        "completed_at": "2026-02-13"
+      },
+      {
+        "number": 314,
+        "title": "Record engine startup sequence SFX",
+        "labels": ["audio", "p1-high", "small", "void-engine"],
+        "assignee": "grace",
+        "completed_at": "2026-02-10"
+      }
+    ]
+  },
+  "summary": {
+    "total_issues": 14,
+    "backlog": 2,
+    "sprint": 2,
+    "in_progress": 5,
+    "review": 2,
+    "done": 3,
+    "blocked_count": 1,
+    "stale_in_progress": 5,
+    "stale_in_review": 2,
+    "avg_days_in_progress": 14.2,
+    "avg_days_in_review": 9.0
+  }
+}

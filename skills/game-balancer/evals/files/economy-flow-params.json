@@ -1,0 +1,89 @@
+{
+  "simulation": {
+    "duration_days": 30,
+    "time_step": "daily",
+    "player_profile": "median-engaged",
+    "play_hours_per_day": 2.5,
+    "starting_gold": 500,
+    "currency": "Stellarite"
+  },
+  "faucets": [
+    {
+      "source": "mission_rewards",
+      "rate_per_hour": 120,
+      "variance": 0.15,
+      "notes": "Average across story and side missions"
+    },
+    {
+      "source": "enemy_drops",
+      "rate_per_hour": 45,
+      "variance": 0.30,
+      "notes": "Random drops from combat encounters"
+    },
+    {
+      "source": "daily_login_bonus",
+      "rate_per_day": 75,
+      "variance": 0.0,
+      "notes": "Fixed daily bonus, no hourly dependency"
+    },
+    {
+      "source": "salvage_and_sell",
+      "rate_per_hour": 60,
+      "variance": 0.25,
+      "notes": "Selling unwanted loot and salvage materials"
+    },
+    {
+      "source": "trading_post_profit",
+      "rate_per_hour": 30,
+      "variance": 0.50,
+      "notes": "Player-to-NPC trade margins; high variance"
+    }
+  ],
+  "sinks": [
+    {
+      "source": "equipment_repairs",
+      "rate_per_hour": 35,
+      "variance": 0.10,
+      "notes": "Gear durability costs after combat"
+    },
+    {
+      "source": "consumable_purchases",
+      "rate_per_hour": 50,
+      "variance": 0.20,
+      "notes": "Health packs, shield cells, ammo"
+    },
+    {
+      "source": "gear_upgrades",
+      "rate_per_day": 200,
+      "variance": 0.40,
+      "notes": "Daily average spent on upgrading equipment"
+    },
+    {
+      "source": "ship_fuel",
+      "rate_per_hour": 20,
+      "variance": 0.05,
+      "notes": "Fuel cost for interstellar travel"
+    },
+    {
+      "source": "crafting_materials",
+      "rate_per_hour": 25,
+      "variance": 0.35,
+      "notes": "Purchased crafting components"
+    }
+  ],
+  "thresholds": {
+    "inflation_warning_gold": 15000,
+    "inflation_critical_gold": 25000,
+    "poverty_warning_gold": 100,
+    "poverty_critical_gold": 0,
+    "target_day30_balance": [3000, 8000],
+    "max_daily_net_gain": 800,
+    "max_daily_net_loss": -300
+  },
+  "milestone_costs": {
+    "tier2_ship_upgrade": 5000,
+    "tier2_gear_set": 3500,
+    "sector3_unlock": 2000,
+    "notes": "Player should be able to afford tier2 ship by day 20 and full gear set by day 25"
+  }
+}

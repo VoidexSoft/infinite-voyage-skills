@@ -1,0 +1,21 @@
+Item_ID,Item_Name,Item_Type,Rarity,Level_Require,Base_Damage,Base_Defense,Special_Effect,Price_Buy,Price_Sell,Drop_Rate,Drop_Source,Tradeable,Stackable,Max_Stack,Weight,Status
+item_plasma_001,Plasma Cutter,Weapon,Common,1,12,0,None,50,25,10%,enemy_grunt_001,Y,N,1,0.5,Ready
+item_vlance_002,Void Lance,Weapon,Rare,10,38,0,Pierce Shields 20%,800,400,5%,enemy_nebula_003,Y,N,1,2.0,Ready
+item_ghammer_003,Graviton Hammer,Weapon,Epic,15,55,0,Knockback,2000,1000,4%,boss_asteroid_001,N,N,1,8.5,Ready
+item_nblade_004,Nano Blade,Weapon,Uncommon,5,9,0,Double Strike,200,100,0%,craft_only,Y,N,1,0.3,Ready
+item_starweave_005,Starweave Suit,Armor,Common,1,0,5,None,75,38,12%,enemy_grunt_001,Y,N,1,3.0,Ready
+item_exoshell_006,Exo-Shell Mk II,Armor,Rare,12,0,18,Speed -10%,600,300,6%,enemy_sentinel_002,Y,N,1,12.0,Ready
+item_pcloak_007,Phantom Cloak,Armor,Epic,20,0,3,Dodge +15%,3000,1500,0%,craft_only,N,N,1,1.0,Ready
+item_repkit_008,Repair Nano-Kit,Consumable,Common,0,0,0,Heal 50 HP,25,12,15%,any_enemy,Y,Y,20,0.1,Ready
+item_shield_009,Shield Overcharge Cell,Consumable,Rare,8,0,0,Double Shield 3T,300,150,3%,enemy_drone_004,Y,Y,5,0.2,Ready
+item_starmap_010,Star Map Fragment,Misc,Legendary,0,0,0,Quest Key,0,0,0%,quest_void_gate,N,N,1,0.0,Ready
+BAD_ID_FORMAT,Broken Blaster,Weapon,Common,5,15,0,None,100,50,8%,enemy_grunt_001,Y,N,1,1.0,Ready
+item_neg_011,Negative Sword,Weapon,Rare,10,-25,0,None,500,250,5%,enemy_phantom_002,Y,N,1,2.0,Ready
+item_price_012,Overpriced Shield,Armor,Common,1,0,4,None,30,600,10%,enemy_grunt_001,Y,N,1,3.0,Ready
+item_stack_013,Glitched Grenade,Consumable,Uncommon,3,0,0,Explode AoE,80,40,7%,enemy_drone_004,Y,Y,-5,0.3,Ready
+item_rarity_014,Mystery Box,Misc,SuperLegendary,1,0,0,Random Reward,1000,500,1%,chest_random,Y,Y,10,0.5,WIP
+item_level_015,Endgame Cannon,Weapon,Epic,99,200,0,Mega Blast,50000,25000,0.5%,boss_final_001,N,N,1,15.0,Ready
+item_dup_016,Plasma Cutter,Weapon,Common,1,14,0,None,55,28,10%,enemy_grunt_001,Y,N,1,0.5,Ready
+item_drop_017,Lucky Charm,Misc,Rare,5,0,0,Luck +10%,200,100,150%,enemy_any,Y,Y,3,0.1,Ready
+item_weight_018,Featherlight Tank,Armor,Epic,25,0,30,None,5000,2500,2%,boss_nebula_002,Y,N,1,-2.0,Ready
+item_empty_019,,Armor,Rare,10,0,10,None,400,200,5%,enemy_sentinel_002,Y,N,1,4.0,Ready

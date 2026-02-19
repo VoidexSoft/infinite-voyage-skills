@@ -37,5 +37,70 @@
       "Applies tension/release principles",
       "Considers dropout risk at each step"
     ]
+  },
+  {
+    "id": "playtest-explorer-completionist",
+    "description": "Simulate Explorer and Completionist archetypes through a zone with hidden secrets and collectibles",
+    "input": "Simulate an Explorer and a Completionist going through the Shattered Relay zone in Sector 7-G. The zone has 4 critical path encounters, 5 hidden secrets (some chained — one secret's lore item unlocks a later secret), 6 lore collectibles (4 in a set, 2 standalone), and a boss with a secret alternate ending. Use the attached zone content map. What does each archetype find, miss, and feel? [file: zone-content-map.md]",
+    "expected_behavior": "Walks through the zone step-by-step as each archetype. Explorer prioritizes curiosity and off-path discovery, finding most secrets organically but potentially missing the timed Observation Lounge window (S3). Completionist systematically sweeps every area, tracks the lore set progress (5/8 through 8/8), and flags that completing the set requires finding items across multiple earlier zones. Both archetypes should discover the chained secret path (S2 Engineering Note -> S5 boss failsafe code). Report should flag: the 15-second window for S3 is punishing for both archetypes, the radiation HP check on S4 is a frustration risk, and the lore set dependency on earlier zones creates backtracking pressure for the Completionist.",
+    "rubric": [
+      "Each archetype follows distinct motivation patterns (curiosity vs. systematic coverage)",
+      "Secret discovery is narrated per-archetype with reasoning for what they find and miss",
+      "Chained secret dependency (S2 -> S5) is identified and analyzed",
+      "Lore collectible tracking and cross-zone set completion are addressed",
+      "Specific pain points are flagged with severity and fix recommendations"
+    ]
+  },
+  {
+    "id": "playtest-speedrunner",
+    "description": "Simulate Speedrunner archetype finding sequence breaks and skips in a quest flow",
+    "input": "Simulate a Speedrunner going through the 'Signal in the Static' Act 2 main quest. The quest has 12 steps, 2 decision points, level/fuel/combat gates, an optional alternate path through a ventilation shaft, and a boss with 3 phases. Use the attached quest flowchart. Find every possible sequence break, skip, and time save. What's the fastest possible completion route? [file: main-quest-flowchart.md]",
+    "expected_behavior": "Systematically analyzes every gate for bypass potential. Identifies: the vent shaft (S2) as a time-saving skip of the Atrium Puzzle (E2); the possibility of entering the boss arena with minimal wave defense engagement; whether the fuel gate at Step 2 can be circumvented; and whether decision points can be pre-loaded or skipped. Evaluates unskippable cutscenes (Steps 1, 3) as time losses. Calculates the optimal route with estimated time. Flags any unintended shortcuts like clipping through geometry at the reactor bypass or triggering boss dialogue early.",
+    "rubric": [
+      "Every gate and step is evaluated for skip potential",
+      "At least 3 specific sequence breaks or time saves are identified",
+      "An optimal speedrun route is proposed with estimated time",
+      "Unskippable content (cutscenes, mandatory dialogue) is flagged as friction",
+      "Recommendations distinguish between intended alternate paths and exploitable gaps"
+    ]
+  },
+  {
+    "id": "playtest-socializer",
+    "description": "Simulate Socializer archetype hitting bottlenecks in solo-gated content",
+    "input": "Simulate a Socializer going through the 'Signal in the Static' Act 2 main quest and the side quest 'The Cartographer's Gambit'. The Socializer plays primarily for shared experiences and co-op but must progress through these quests to unlock group content in Act 3. Identify every point where the Socializer is forced into solo play, where co-op would improve the experience, and where social features are missing. Use the attached quest flowchart and quest design doc. [file: main-quest-flowchart.md] [file: quest-design-doc.md]",
+    "expected_behavior": "Walks through both quests as a Socializer, noting: the wave defense (E3) would be ideal for co-op but is solo-only; the boss fight lacks any party mechanic; the Cartographer's Gambit decision point would benefit from crew vote or discussion; NPC Fen is a social proxy but not a real co-op partner. Flags that the Socializer's patience for mandatory solo content is low and extended solo sequences (especially the reactor bypass and boss fight) are dropout risks. Identifies missing social features: no way to share quest progress, no co-op boss option, no way to show off cosmetic rewards from secrets (S3 hologram). Recommends specific co-op hooks and social feature additions.",
+    "rubric": [
+      "Solo bottlenecks are identified with specific step references",
+      "Socializer motivation and patience thresholds are applied accurately",
+      "Missing social/co-op features are called out with concrete suggestions",
+      "Dropout risk points are identified and rated by severity",
+      "NPC companions are evaluated as social proxies (do they fill the co-op gap?)"
+    ]
+  },
+  {
+    "id": "playtest-quest-flow-test",
+    "description": "Run Quest Flow Test simulation type on a branching quest with multiple archetypes",
+    "input": "Run a Quest Flow Test on 'The Cartographer's Gambit' side quest. Simulate the Optimizer, Casual, and Explorer archetypes. The quest has 5 steps, 3 approach options for boarding (combat/tool/skill check), 3 final branches (sell/coalition/destroy) with different reward structures, and an NPC companion whose loyalty is affected by choices. Evaluate objective clarity, navigation, pacing, choice quality, and reward satisfaction for each archetype. [file: quest-design-doc.md]",
+    "expected_behavior": "Follows the Quest Flow Test format from the skill spec. For each archetype: Optimizer picks Branch A (sell, 750 credits — highest AC) or calculates whether the companion from Branch C has higher long-term value; Casual follows Fen's emotional cues toward Branch C but may pick Branch A for the simpler resolution; Explorer lingers at the Crew Memorial, tries all boarding approaches, and gravitates toward Branch C for narrative payoff. Reports on objective clarity (is it clear where to go at each step?), pacing (zero-gravity navigation may feel slow), choice quality (do all 3 branches feel meaningfully different?), and reward satisfaction (Branch C's zero-credit reward may frustrate the Casual). Flags the Charisma 16 check in Branch B as a hidden gate that punishes non-social builds.",
+    "rubric": [
+      "Each archetype's path through the quest is distinct and well-reasoned",
+      "All 5 Quest Flow Test dimensions are evaluated (clarity, navigation, pacing, choice, reward)",
+      "Branch reward asymmetry is analyzed (credits vs. companion vs. reputation)",
+      "Hidden skill checks and gating conditions are flagged as potential frustration",
+      "Recommendations address each archetype's pain points specifically"
+    ]
+  },
+  {
+    "id": "playtest-economy-flow-test",
+    "description": "Simulate economy across 3 archetypes over 20 hours of play",
+    "input": "Run an Economy Flow Test simulating the Optimizer, Casual, and Completionist over 20 hours of play in Infinite Voyage. Use the attached economy earning rates. Track currency accumulation, spending patterns, and milestone purchase timing for each archetype. At what hour does each archetype hit their first economic pain point? Are there any exploitable infinite loops? Does the Casual ever get stuck unable to afford a required purchase? [file: economy-earning-rates.md]",
+    "expected_behavior": "Simulates each archetype's economic behavior hour-by-hour or in meaningful time blocks. Optimizer finds the highest AC/hour activity (PvP arena at 600-1,000 AC/hour or bounty board hard at 600-800) and farms it; calculates whether the auction house tax creates a meaningful sink or if market flipping is still profitable. Casual earns ~463 AC/hour average and hits a pain point around hour 14-16 when the second ship upgrade (3,000 AC) is needed but funds are short due to essential spending drain. Completionist earns well early from one-time rewards but faces a currency drought around hours 12-15 as one-time content dries up and repeatable content pays only 30%. Flags: the Casual's essential spend (150-250 AC/hour) consumes 32-54% of income, which is near or above the 40% health target; the respec cost escalation punishes the Casual who experiments; and the Optimizer may find a crafting-selling loop that exceeds the 1,200 AC/hour exploit ceiling if material access is uncapped.",
+    "rubric": [
+      "Each archetype's income and spending is tracked across the 20-hour window",
+      "Specific pain points are identified with the hour they occur",
+      "Economy health targets from the doc are used as evaluation benchmarks",
+      "At least one potential exploit or imbalance is identified with math",
+      "Recommendations include specific tuning numbers (not just 'adjust prices')"
+    ]
   }
 ]

@@ -35,5 +35,70 @@
       "Includes mermaid diagram",
       "No dead-end states"
     ]
+  },
+  {
+    "id": "systems-implementation-spec",
+    "description": "Translate a completed mechanic spec into an engineering implementation handoff document",
+    "input": "Here is the completed mechanic spec for Void Tether (see file: evals/files/mechanic-spec-draft.md). Produce the engineering implementation spec so our programmers can build it. Include the data model, event definitions, required components, and dependency map.",
+    "expected_behavior": "Produces a structured implementation spec with: JSON data model defining the VoidTether ability entity and its parameters; a complete list of events emitted and consumed (on_anchor_placed, on_recall_start, on_tether_snapped, etc.) with payload schemas; a component breakdown (TetherAnchorComponent, VoidAoEComponent, DecayVisualController, etc.) with responsibilities; a dependency map showing which existing systems (combat, movement, VFX, stamina) must be integrated; and implementation priority ordering. Flags multiplayer sync concerns for the anchor position and warp.",
+    "rubric": [
+      "Includes JSON data model with all parameters from the mechanic spec",
+      "Defines events emitted and consumed with payload schemas",
+      "Lists required components with clear responsibilities",
+      "Maps dependencies to existing systems (combat, movement, VFX)",
+      "Identifies multiplayer synchronization requirements"
+    ]
+  },
+  {
+    "id": "systems-anti-pattern-detection",
+    "description": "Review a proposed game mechanic design and identify anti-patterns, then suggest a redesign",
+    "input": "A junior designer submitted this Stellar Overdrive system proposal (see file: evals/files/proposed-ability-design.md). Please review it for design anti-patterns, explain why each is problematic, and propose a redesigned version that preserves the core fantasy of a powerful combat super-state.",
+    "expected_behavior": "Identifies multiple anti-patterns including: Optimal Strategy (invincibility + 300% damage removes all decision-making during Overdrive); Snowball Mechanics (gauge never decays, carries between sessions, making strong players stronger); Power Creep (upgrade tree scales to absurd levels like persisting through death); Mandatory Unfun (bosses designed to require Overdrive create dependency on a single mechanic); Pay-to-Win (cash shop consumables that fill gauge create pay-for-power). Proposes redesign that preserves the power fantasy (e.g., reduced damage boost with vulnerability tradeoff, gauge decay, meaningful choices during the super-state, removal of cash shop power items).",
+    "rubric": [
+      "Identifies at least 4 distinct anti-patterns with specific references to the design",
+      "Explains why each anti-pattern is harmful to player experience",
+      "Proposes concrete redesign that preserves the core power fantasy",
+      "Addresses the pay-to-win economy concern",
+      "Considers multiplayer and PvP balance implications"
+    ]
+  },
+  {
+    "id": "systems-resource-management-pattern",
+    "description": "Apply the resource management mechanic pattern to design a stamina system for EVA (extravehicular activity) spacewalks",
+    "input": "We need an EVA Stamina system for spacewalk segments in Infinite Voyage. When players leave their ship for zero-G exploration of derelict stations or asteroid fields, they should manage suit resources that create tension and decision-making. Apply the resource management pattern from our mechanic patterns reference. The system should interact with our existing stamina, movement, and crafting systems.",
+    "expected_behavior": "Produces a full mechanic specification applying the resource management pattern. Defines 2-3 distinct EVA resources (e.g., Oxygen for survival timer, Thruster Fuel for movement, Suit Power for abilities/scanning). Specifies generation rates, storage capacities, consumption rates, and conversion options. Documents the core loop of EVA resource gathering and spending. Creates parameter tables with tunable values. Maps interactions with existing systems: stamina (ground stamina vs. EVA resources), movement (thruster fuel gates zero-G maneuvers), crafting (EVA consumables craftable at workbench), economy (fuel and oxygen purchasable). Identifies the risk-reward tension between exploring deeper vs. returning to safety.",
+    "rubric": [
+      "Defines 2-3 distinct EVA resource types with different acquisition and use cases",
+      "Includes parameter tables with generation rates, capacities, and consumption costs",
+      "Documents core loop following the resource management pattern structure",
+      "Maps interactions with existing stamina, movement, crafting, and economy systems",
+      "Identifies risk-reward tension and player decision points during EVA"
+    ]
+  },
+  {
+    "id": "systems-gdd-context-gather",
+    "description": "Demonstrate the first workflow step of gathering context from existing systems before designing a new mechanic",
+    "input": "I want to add a crew loyalty system where your ship crew members have relationship scores that affect their combat performance when they join you on missions. Before we design anything, walk me through what existing systems we need to review, what questions we need answered, and what constraints the current design imposes. Here is a summary of our current systems (see file: evals/files/existing-mechanics-summary.md).",
+    "expected_behavior": "Produces a structured context-gathering analysis that: identifies all existing systems the crew loyalty mechanic would touch (narrative/quest system for relationship triggers, combat for performance modifiers, progression for skill point interactions, ship systems for crew quarters, economy for gift-giving costs, multiplayer for co-op crew sharing); lists specific questions needing answers before design begins (How many crew members? Do they have classes? Can they die permanently? Do they overlap with the 4-player co-op system?); documents constraints from current systems (4 ability slots limit how crew buffs manifest, stamina system already governs combat pacing, attribute system already has Resolve for social); and flags potential conflicts (crew combat bonuses could conflict with PvP normalization, crew loyalty rewards could create mandatory unfun if grinding relationship scores). Does NOT produce a mechanic spec — this is strictly the pre-design context phase.",
+    "rubric": [
+      "Identifies at least 5 existing systems the new mechanic would interact with",
+      "Lists specific design questions that must be answered before proceeding",
+      "Documents constraints imposed by current system architecture",
+      "Flags potential conflicts and anti-pattern risks",
+      "Refrains from designing the mechanic — stays in context-gathering mode"
+    ]
+  },
+  {
+    "id": "systems-combo-mechanic",
+    "description": "Design a combo system for melee combat with states, timing windows, and escalation mechanics",
+    "input": "Design a melee combo system for Infinite Voyage that works with our existing combat (light attacks, heavy attacks, dodge, parry) and stamina system. Players should be able to chain attacks into combos that escalate in damage and visual flair, with timing windows that reward skilled play. Include a state machine, parameter tables, and interaction analysis with our current systems.",
+    "expected_behavior": "Produces a full mechanic specification for a melee combo system. Defines combo chains (e.g., Light-Light-Heavy for a launcher, Light-Heavy-Light for a sweep) with distinct effects per chain. Includes a detailed state machine with states for each combo step, timing windows between inputs, and branching paths based on input. Specifies escalation mechanics (combo counter with damage multiplier, visual effects scaling, potential finisher moves). Documents stamina interaction (combos cost stamina per hit but successful chains grant partial stamina refund or reduced cost). Includes parameter table with timing windows, damage multipliers per combo step, and stamina costs. Maps interactions with dodge (dodge-cancel out of combo), parry (parry-into-combo starter), stagger (combos build stagger faster), and status effects (combo finishers can apply elemental status). Identifies edge cases around input buffering, latency, and animation canceling.",
+    "rubric": [
+      "Defines multiple distinct combo chains with different tactical purposes",
+      "Includes state machine with timing windows and branching paths",
+      "Specifies escalation mechanics with damage multiplier and visual feedback",
+      "Documents stamina cost interaction with combo chains",
+      "Maps interactions with existing dodge, parry, stagger, and status effect systems"
+    ]
   }
 ]

@@ -1,0 +1,74 @@
+{
+  "project": "Infinite Voyage",
+  "version": "0.2.0",
+  "last_updated": "2026-01-25",
+  "sections": [
+    {
+      "id": "01-game-overview",
+      "title": "Game Overview & Vision",
+      "status": "complete",
+      "file": "01-game-overview.md",
+      "last_modified": "2026-01-20",
+      "word_count": 2400
+    },
+    {
+      "id": "02-core-gameplay",
+      "title": "Core Gameplay Loop",
+      "status": "complete",
+      "file": "02-core-gameplay.md",
+      "last_modified": "2026-01-22",
+      "word_count": 3800
+    },
+    {
+      "id": "03-mechanics-systems",
+      "title": "Mechanics & Systems",
+      "status": "in_progress",
+      "file": "03-mechanics-systems.md",
+      "last_modified": "2026-01-25",
+      "word_count": 3200,
+      "notes": "Combat system 80% complete, crew management not started"
+    },
+    {
+      "id": "06-economy-progression",
+      "title": "Economy & Progression",
+      "status": "draft",
+      "file": "06-economy-progression.md",
+      "last_modified": "2025-12-15",
+      "word_count": 1200,
+      "notes": "Currency names only, no rates or sinks defined"
+    },
+    {
+      "id": "08-art-style",
+      "title": "Art Direction & Style Guide",
+      "status": "in_progress",
+      "file": "08-art-style.md",
+      "last_modified": "2026-01-18",
+      "word_count": 2600
+    },
+    {
+      "id": "10-technical",
+      "title": "Technical Architecture",
+      "status": "draft",
+      "file": "10-technical.md",
+      "last_modified": "2026-01-10",
+      "word_count": 1500,
+      "notes": "Engine choice decided, networking TBD"
+    },
+    {
+      "id": "12-analytics",
+      "title": "Analytics & KPIs",
+      "status": "stub",
+      "file": "12-analytics.md",
+      "last_modified": "2025-12-20",
+      "word_count": 300,
+      "notes": "Placeholder with metric names only"
+    }
+  ],
+  "missing_sections": [
+    "04-narrative-worldbuilding",
+    "05-level-content",
+    "07-ui-ux",
+    "09-audio-design",
+    "11-monetization"
+  ]
+}

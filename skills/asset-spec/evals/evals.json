@@ -37,5 +37,70 @@
       "Technical format specified (sample rate, format, length)",
       "Adaptive audio behavior documented"
     ]
+  },
+  {
+    "id": "asset-ui-spec",
+    "description": "Create a UI art specification with icon dimensions, resolution variants, and interaction states",
+    "input": "Using the attached rough notes (files/ui-elements-rough-notes.md), create a formal UI art spec for the Infinite Voyage HUD ability icons. Cover all 6 navigator abilities, define exact pixel dimensions for each display context (HUD bar, skill tree, inventory, radial menu), specify resolution variants for 1080p/1440p/4K, document all visual states (default, cooldown, active, locked), and include colorblind-accessible design requirements. The style is clean sci-fi holographic for Unreal Engine 5 UMG widgets.",
+    "expected_behavior": "Produces a UI art spec with per-icon dimension tables across 4 display contexts, resolution scaling rules for 3 target resolutions, state definitions with visual treatment per state (default, cooldown overlay, active glow, locked desaturation), sprite sheet export settings, colorblind mode pattern overlays, and UMG widget integration notes including 9-slice padding and anchor rules.",
+    "rubric": [
+      "Icon dimensions specified per display context with exact pixel sizes",
+      "Resolution variants defined for 1080p, 1440p, and 4K with scaling rules",
+      "All interaction states documented with visual treatment (default, cooldown, active, locked)",
+      "Colorblind accessibility addressed with shape/pattern alternatives to color coding",
+      "Export format and sprite sheet layout specified for UMG integration"
+    ]
+  },
+  {
+    "id": "asset-animation-spec",
+    "description": "Create an animation specification with bone counts, naming conventions, frame budgets, and IK requirements",
+    "input": "Using the rig constraints in files/character-rig-requirements.md, write a full animation spec for the Voidborn Stalker (elite enemy). This is a four-armed insectoid with digitigrade legs, a tail stinger, and foldable wings. It needs combat animations (4-arm coordinated attacks, glide attack, tail strike), locomotion (erratic skittering, wall-climbing), and a death sequence with exoskeleton cracking. The rig must work on both PC/Console (90 bones) and Switch 2 (50 bones). Include IK chain definitions, bone naming per the IV_ convention, frame budgets within the 5,000 frame total, and blend tree structure for locomotion.",
+    "expected_behavior": "Produces an animation spec with complete bone hierarchy listing for 90-bone and 50-bone variants, IK chain definitions (feet, hands x4, tail), bone naming following IV_Stalker_ convention, itemized animation list with per-clip frame counts totaling under 5,000 frames, blend tree diagram for 8-directional locomotion, additive layer definitions for hit reactions, and Switch 2 fallback notes for reduced IK and cloth baking.",
+    "rubric": [
+      "Bone hierarchy defined for both PC/Console (90 bones) and Switch 2 (50 bones) with named chains",
+      "IK chain specifications for all limbs including quad-arm and tail setup",
+      "Animation list with per-clip frame counts respecting the 5,000 frame total budget",
+      "Bone naming follows IV_Stalker_ convention consistently",
+      "Platform-specific fallbacks documented for Switch 2 reduced rig"
+    ]
+  },
+  {
+    "id": "asset-voice-acting-spec",
+    "description": "Create a voice acting brief with character tone, line count, emotion tags, and delivery format",
+    "input": "Using the NPC dialogue lines in files/npc-dialogue-sample.md, produce a complete voice acting specification for Zara Qel'Thos (station merchant). Define the character voice profile (raspy, sing-song cadence, late-50s equivalent), create emotion tags for all 12 lines, specify recording technical requirements (48kHz/24-bit mono WAV), define the file naming convention with embedded emotion tags, plan the 2-hour session structure with line groupings by emotional intensity, and include direction notes for the 3-take-per-line requirement. Lines must work both clean and with a radio comm filter.",
+    "expected_behavior": "Produces a voice acting spec with detailed character voice profile, emotion tag taxonomy (e.g., playful, serious, shocked, pained), per-line direction table with context/tone/emphasis/duration, technical recording requirements, file naming convention using pattern VO_Zara_[Scene]_[Emotion]_[Take].wav, session schedule grouped by emotional register to manage vocal fatigue, radio filter compatibility notes, and approval criteria for performance and technical quality.",
+    "rubric": [
+      "Character voice profile detailed with tone, cadence, age, and reference comparisons",
+      "Emotion tags assigned to every line with per-line direction notes",
+      "Technical format specified (48kHz, 24-bit, mono WAV) with processing requirements",
+      "File naming convention includes scene, emotion tag, and take number",
+      "Session plan addresses line grouping, take count, and vocal fatigue management"
+    ]
+  },
+  {
+    "id": "asset-multiplatform-spec",
+    "description": "Create differentiated asset specs for PC versus mobile/handheld with LOD requirements",
+    "input": "Using the platform constraint tables in files/platform-constraints.md, create a multiplatform asset specification for the Navigator player character. Produce separate but linked spec sections for PC High (80K tris, 4K textures), Console (60K tris, 2K textures), and Switch 2 (18K tris, 512x512 textures). Define the full LOD chain per platform (LOD0 through LOD3 for PC, LOD0-LOD1 plus impostor for Switch 2), specify texture streaming budgets, bone count reduction per LOD level, and shader complexity tiers. Include a single-source authoring workflow where the PC High asset is the master and lower tiers are derived.",
+    "expected_behavior": "Produces a multiplatform spec with side-by-side budget tables for PC High, Console, and Switch 2, LOD chain definitions with distance thresholds and poly targets per level per platform, texture format and streaming pool allocations, bone reduction schedule per LOD, shader tier descriptions (full PBR vs simplified), Switch 2 impostor billboard spec, and a derivation pipeline describing how Console and Switch 2 assets are generated from the PC High master.",
+    "rubric": [
+      "Per-platform polygon and texture budgets match the constraint tables exactly",
+      "LOD chains fully defined with distance thresholds, poly counts, and texture mip levels per platform",
+      "Bone count reduction schedule specified per LOD level across platforms",
+      "Shader complexity tiers described for each platform including Switch 2 simplifications",
+      "Single-source authoring pipeline documented from PC High master to derived platform variants"
+    ]
+  },
+  {
+    "id": "asset-revision-workflow",
+    "description": "Revise an existing asset spec based on art director feedback and track all changes",
+    "input": "The art director has reviewed AssetSpec_Navigator_Character_v1 and provided 5 change requests (files/spec-feedback-notes.txt). Produce a revised v2 of the Navigator character spec that: (1) updates the silhouette to asymmetric shoulder armor and angular visor helmet, (2) shifts the color palette from steel gray to deep navy with orange accents, (3) redistributes texture budget by merging the backpack into the body atlas and adding a dedicated glove sheet, (4) adds a complete emissive map specification with runtime faction color tinting, and (5) adds a bone reduction table per LOD level. Mark every changed section with a [REVISED v2] tag and add a Revision History section at the bottom tracking all 5 changes with their status (Must Fix / Should Fix).",
+    "expected_behavior": "Produces a v2 spec document where all 5 change requests are addressed inline with [REVISED v2] markers, the silhouette section describes asymmetric armor and angular helmet, color palette uses navy/orange values with specific RGB codes, texture budget is reorganized with merged backpack atlas and dedicated glove texture, emissive map section is newly added with tint parameters, bone budget table appears per LOD level, and a Revision History section at the bottom lists each CR with status, description, and resolution.",
+    "rubric": [
+      "All 5 change requests addressed with specific content changes matching the feedback",
+      "Changed sections marked with [REVISED v2] tags for easy identification",
+      "Emissive map specification added with runtime tint color, pulse parameters, and gameplay rationale",
+      "Bone reduction table added per LOD level (120 > 65 > 32 bones)",
+      "Revision History section tracks each CR with status, reviewer, and resolution summary"
+    ]
   }
 ]

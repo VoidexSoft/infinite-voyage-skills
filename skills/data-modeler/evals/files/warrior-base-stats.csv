@@ -1,0 +1,11 @@
+stat_name,base_value_lv1,growth_type,growth_rate,unit,min_cap,max_cap,notes
+Hull_Points,120,linear,8,HP,120,500,Primary health pool for Vanguard class
+Shield_Points,40,linear,3,SP,40,160,Regenerating shield layer
+Attack_Power,18,linear,1.5,damage,18,75,Base melee/ranged damage modifier
+Defense_Rating,12,diminishing,1.2,armor,12,45,Damage reduction value (diminishing returns after lv20)
+Crit_Chance,5,logarithmic,0.4,%,5,18,Chance to deal 1.5x damage
+Dodge_Rate,4,logarithmic,0.3,%,4,12,Chance to fully avoid an attack
+Energy_Max,100,linear,2,energy,100,160,Resource pool for abilities
+Energy_Regen,8,flat,0,energy/turn,8,8,Energy recovered per turn (flat across levels)
+Movement_Speed,3,flat,0,tiles/turn,3,3,Base movement speed (unmodified by level)
+Initiative,10,linear,0.5,priority,10,25,Turn order priority value

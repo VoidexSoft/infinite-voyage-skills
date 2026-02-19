@@ -37,5 +37,57 @@
       "Dependencies section populated",
       "Open questions identified"
     ]
+  },
+  {
+    "id": "gdd-writer-full-document-plan",
+    "description": "Plan full document structure from GDD index before writing",
+    "input": "I have our complete GDD index (see gdd-index-complete.json with all 12 sections). Before we start writing the compiled document, create a full document plan that maps each index entry to its place in the final Word doc, identifies page-break points, estimates page counts, and flags sections that are still Concept-only so we know where placeholder pages are needed.",
+    "expected_behavior": "Produces a document plan that lists every section from the 12-chapter index in output order, assigns heading levels (H1/H2/H3), marks page-break boundaries between chapters, estimates per-section page counts, and highlights Concept-status sections as needing placeholder treatment. Includes front matter (cover, executive summary, TOC) and back matter (appendices, change log, approvals) in the plan.",
+    "rubric": [
+      "All 12 chapters and their subsections appear in the plan in correct order",
+      "Front matter (cover, executive summary, quick facts, TOC) and back matter (appendices, change log, approvals) are included",
+      "Page-break points are marked between major chapters",
+      "Concept-status sections are flagged as placeholders requiring special treatment",
+      "Estimated page counts are provided per section and as a document total"
+    ]
+  },
+  {
+    "id": "gdd-writer-version-iteration",
+    "description": "Produce v1.1 document with change log and revised-section markers",
+    "input": "We need to publish GDD v1.1. Using the change log (gdd-v1-changelog.md), produce the updated document. Every section that changed should have a visible \"REVISED in v1.1\" marker next to its heading. Include the full change log as an appendix and update the cover page version number and date.",
+    "expected_behavior": "Generates a v1.1 document where the cover page shows version 1.1 with the current date. Sections listed in the change log (2.3, 3.2, 3.4, 6.2, 6.4, 9.1, 9.2, 12.2) have a visible revision marker. New sections (9.1, 9.2) are marked as new additions. The change log appendix reproduces all changes with type, author, and details. Unchanged sections remain unmarked.",
+    "rubric": [
+      "Cover page version reads 1.1 with updated date",
+      "All 8 changed sections have a visible \"REVISED in v1.1\" marker adjacent to the heading",
+      "New sections (9.1, 9.2) are distinguished from revised sections with \"NEW in v1.1\" markers",
+      "Change log appendix lists every change with section number, type, author, and bullet-point details",
+      "Sections not in the change log remain clean with no revision markers"
+    ]
+  },
+  {
+    "id": "gdd-writer-appendix-glossary",
+    "description": "Generate glossary appendix from game-specific terms across all sections",
+    "input": "Here is a raw list of terms collected from every section of the Infinite Voyage GDD (see gdd-terms-list.md). Generate a formatted Glossary appendix. Each term should have a concise definition written for someone new to the project. Group terms by category and sort alphabetically within each group.",
+    "expected_behavior": "Produces a Glossary appendix with terms organized by category (World & Setting, Gameplay & Mechanics, Ship & Navigation, Economy & Resources, Narrative & Characters, Combat, Technical, Project Management). Each term has a 1-3 sentence definition that is accurate to Infinite Voyage's sci-fi setting and game mechanics. Terms are alphabetically sorted within their category. The appendix follows professional document formatting with clear headers.",
+    "rubric": [
+      "All terms from every category in the raw list are present in the glossary",
+      "Definitions are concise (1-3 sentences) and accurate to the Infinite Voyage setting and mechanics",
+      "Terms are grouped by category with clear section headers matching the source categories",
+      "Terms are alphabetically sorted within each category group",
+      "Formatting is professional with consistent style suitable for inclusion as a GDD appendix"
+    ]
+  },
+  {
+    "id": "gdd-writer-status-report",
+    "description": "Generate section status summary page with color-coded table",
+    "input": "Using the section status data (section-status-data.json), generate a one-page status summary dashboard for our weekly leads meeting. Show a table with section number, title, status (color-coded: green=Final, blue=Review, orange=Draft, red=Concept), owner, last updated date, and any notes. Include a summary bar at the top showing the count and percentage of sections in each status.",
+    "expected_behavior": "Produces a single-page status dashboard with a summary bar showing counts (e.g., Final: 9, Review: 14, Draft: 18, Concept: 17) and percentages. Below it, a table lists every section with color-coded status cells. The table is sorted by section number. Sections with notes display them in a final column. The page header identifies the document version (1.1) and snapshot date.",
+    "rubric": [
+      "Summary bar at the top shows accurate counts and percentages for each status category",
+      "Table includes all sections from the input data with correct number, title, status, owner, and date",
+      "Status cells are color-coded according to the legend (green, blue, orange, red)",
+      "Sections with non-empty notes display them visibly in the table",
+      "Page header shows document version 1.1 and snapshot date 2026-02-10"
+    ]
   }
 ]

@@ -1,0 +1,212 @@
+[
+  {
+    "number": 101,
+    "title": "Implement Stellar Cartography map renderer",
+    "estimate": "large",
+    "dependencies": [],
+    "labels": ["code", "p1-high", "void-engine"]
+  },
+  {
+    "number": 102,
+    "title": "Design star system generation algorithm",
+    "estimate": "medium",
+    "dependencies": [],
+    "labels": ["code", "p1-high", "void-engine"]
+  },
+  {
+    "number": 103,
+    "title": "Create procedural nebula shader",
+    "estimate": "medium",
+    "dependencies": [101],
+    "labels": ["art", "p1-high", "void-engine"]
+  },
+  {
+    "number": 104,
+    "title": "Implement FTL jump animation sequence",
+    "estimate": "medium",
+    "dependencies": [101],
+    "labels": ["art", "p1-high", "void-engine"]
+  },
+  {
+    "number": 105,
+    "title": "Design crew morale decay system",
+    "estimate": "medium",
+    "dependencies": [],
+    "labels": ["design", "p2-medium", "economy"]
+  },
+  {
+    "number": 106,
+    "title": "Implement crew skill progression backend",
+    "estimate": "large",
+    "dependencies": [105],
+    "labels": ["code", "p1-high", "economy"]
+  },
+  {
+    "number": 107,
+    "title": "Create crew portrait generator",
+    "estimate": "medium",
+    "dependencies": [],
+    "labels": ["art", "p2-medium", "ui-menus"]
+  },
+  {
+    "number": 108,
+    "title": "Compose ambient bridge music loop",
+    "estimate": "small",
+    "dependencies": [],
+    "labels": ["audio", "p2-medium", "narrative"]
+  },
+  {
+    "number": 109,
+    "title": "Record FTL jump SFX suite",
+    "estimate": "small",
+    "dependencies": [104],
+    "labels": ["audio", "p1-high", "void-engine"]
+  },
+  {
+    "number": 110,
+    "title": "Implement ship hull damage visual feedback",
+    "estimate": "medium",
+    "dependencies": [101],
+    "labels": ["code", "p1-high", "void-engine"]
+  },
+  {
+    "number": 111,
+    "title": "Design alien diplomacy dialogue tree",
+    "estimate": "large",
+    "dependencies": [],
+    "labels": ["design", "p1-high", "narrative"]
+  },
+  {
+    "number": 112,
+    "title": "Implement dialogue branching engine",
+    "estimate": "large",
+    "dependencies": [111],
+    "labels": ["code", "p0-critical", "narrative"]
+  },
+  {
+    "number": 113,
+    "title": "Create alien faction emblem sprites (6 factions)",
+    "estimate": "medium",
+    "dependencies": [111],
+    "labels": ["art", "p2-medium", "narrative"]
+  },
+  {
+    "number": 114,
+    "title": "QA pass: star map navigation edge cases",
+    "estimate": "medium",
+    "dependencies": [101, 102],
+    "labels": ["qc", "p1-high", "void-engine"]
+  },
+  {
+    "number": 115,
+    "title": "Balance pass: FTL fuel cost per jump distance",
+    "estimate": "small",
+    "dependencies": [101, 102],
+    "labels": ["balance", "p2-medium", "economy"]
+  },
+  {
+    "number": 116,
+    "title": "Implement resource scarcity events",
+    "estimate": "medium",
+    "dependencies": [105, 106],
+    "labels": ["code", "p1-high", "economy"]
+  },
+  {
+    "number": 117,
+    "title": "Create derelict ship tileset",
+    "estimate": "large",
+    "dependencies": [],
+    "labels": ["art", "p1-high", "level-design"]
+  },
+  {
+    "number": 118,
+    "title": "Design derelict ship encounter flow",
+    "estimate": "medium",
+    "dependencies": [117],
+    "labels": ["design", "p1-high", "level-design"]
+  },
+  {
+    "number": 119,
+    "title": "Implement boarding party combat prototype",
+    "estimate": "large",
+    "dependencies": [117, 118],
+    "labels": ["code", "p0-critical", "void-engine"]
+  },
+  {
+    "number": 120,
+    "title": "Record hull breach alarm SFX",
+    "estimate": "small",
+    "dependencies": [],
+    "labels": ["audio", "p2-medium", "void-engine"]
+  },
+  {
+    "number": 121,
+    "title": "QA pass: crew morale system integration",
+    "estimate": "medium",
+    "dependencies": [105, 106, 116],
+    "labels": ["qc", "p1-high", "economy"]
+  },
+  {
+    "number": 122,
+    "title": "Implement ship upgrade UI panel",
+    "estimate": "medium",
+    "dependencies": [],
+    "labels": ["code", "p1-high", "ui-menus"]
+  },
+  {
+    "number": 123,
+    "title": "Create ship upgrade icon set (12 modules)",
+    "estimate": "medium",
+    "dependencies": [122],
+    "labels": ["art", "p2-medium", "ui-menus"]
+  },
+  {
+    "number": 124,
+    "title": "Balance pass: crew skill XP curve",
+    "estimate": "small",
+    "dependencies": [106],
+    "labels": ["balance", "p2-medium", "economy"]
+  },
+  {
+    "number": 125,
+    "title": "Implement save/load for galaxy state",
+    "estimate": "large",
+    "dependencies": [101, 102],
+    "labels": ["code", "p0-critical", "infra"]
+  },
+  {
+    "number": 126,
+    "title": "Design tutorial sequence for star map controls",
+    "estimate": "small",
+    "dependencies": [101],
+    "labels": ["design", "p2-medium", "ui-hud"]
+  },
+  {
+    "number": 127,
+    "title": "Create space station docking VFX",
+    "estimate": "medium",
+    "dependencies": [],
+    "labels": ["art", "p2-medium", "void-engine"]
+  },
+  {
+    "number": 128,
+    "title": "Compose alien diplomacy tension theme",
+    "estimate": "medium",
+    "dependencies": [111],
+    "labels": ["audio", "p1-high", "narrative"]
+  },
+  {
+    "number": 129,
+    "title": "QA pass: dialogue branching completeness",
+    "estimate": "medium",
+    "dependencies": [111, 112],
+    "labels": ["qc", "p1-high", "narrative"]
+  },
+  {
+    "number": 130,
+    "title": "Implement real-time tactical pause overlay",
+    "estimate": "medium",
+    "dependencies": [119],
+    "labels": ["code", "p1-high", "ui-hud"]
+  }
+]

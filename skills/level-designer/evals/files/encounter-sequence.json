@@ -1,0 +1,108 @@
+{
+  "zone": "Frozen Relay Station Theta-7",
+  "zone_level_range": "22-26",
+  "total_estimated_playtime_minutes": 65,
+  "narrative_context": "An abandoned deep-space communications relay locked in a decaying orbit around an ice giant. The station's cryogenic systems have failed, creating alternating frozen and superheated sectors. The player is here to recover a signal fragment that may reveal the origin of the Void incursion.",
+  "encounters": [
+    {
+      "id": 1,
+      "name": "Airlock Breach",
+      "type": "combat",
+      "duration_minutes": 4,
+      "tension_rating": 5,
+      "description": "Three scavenger drones and one breacher bot attack as the player enters through the compromised airlock. Vacuum hazard in the entry corridor forces quick movement.",
+      "enemy_count": 4,
+      "mechanics": ["vacuum_exposure", "positional_awareness"]
+    },
+    {
+      "id": 2,
+      "name": "Frozen Corridor Traverse",
+      "type": "exploration",
+      "duration_minutes": 6,
+      "tension_rating": 2,
+      "description": "Player navigates through frozen corridors with environmental storytelling — dead crew, frozen logs, flickering emergency lights. Minor loot pickups. No enemies.",
+      "enemy_count": 0,
+      "mechanics": ["environmental_storytelling", "loot_discovery"]
+    },
+    {
+      "id": 3,
+      "name": "Generator Room Ambush",
+      "type": "combat",
+      "duration_minutes": 5,
+      "tension_rating": 7,
+      "description": "Six corrupted maintenance bots activate when the player tries to restore power. Electrical conduits on the floor deal periodic damage. Destroying the central power coupling ends the fight early but locks out an optional path later.",
+      "enemy_count": 6,
+      "mechanics": ["electrical_hazard", "environmental_choice", "wave_spawning"]
+    },
+    {
+      "id": 4,
+      "name": "Crew Quarters Salvage",
+      "type": "exploration",
+      "duration_minutes": 7,
+      "tension_rating": 3,
+      "description": "Safe exploration area with lore terminals, a crafting bench, and an optional locked storage room (requires Security Key Alpha found later). Atmosphere is eerie but non-threatening.",
+      "enemy_count": 0,
+      "mechanics": ["crafting_station", "locked_optional_area", "lore_terminals"]
+    },
+    {
+      "id": 5,
+      "name": "Thermal Vent Gauntlet",
+      "type": "combat",
+      "duration_minutes": 6,
+      "tension_rating": 8,
+      "description": "A long corridor with alternating thermal vents. Shielded sentry turrets force the player to time movement between vent blasts. Two elite scavengers patrol the far end.",
+      "enemy_count": 4,
+      "mechanics": ["timing_puzzle", "turret_avoidance", "heat_damage"]
+    },
+    {
+      "id": 6,
+      "name": "Comms Array Puzzle",
+      "type": "puzzle",
+      "duration_minutes": 5,
+      "tension_rating": 4,
+      "description": "The player must reroute power through a circuit puzzle to restore the communications array. Three terminals must be activated in the correct sequence. Audio logs provide hints.",
+      "enemy_count": 0,
+      "mechanics": ["sequence_puzzle", "audio_hint_system"]
+    },
+    {
+      "id": 7,
+      "name": "Cargo Bay Firefight",
+      "type": "combat",
+      "duration_minutes": 6,
+      "tension_rating": 7,
+      "description": "Open cargo bay with shipping containers providing cover. Eight scavenger troops with mixed ranged/melee composition. An optional explosive container chain can eliminate half the enemies if triggered strategically.",
+      "enemy_count": 8,
+      "mechanics": ["cover_system", "explosive_environment", "mixed_enemy_composition"]
+    },
+    {
+      "id": 8,
+      "name": "Observatory Rest Point",
+      "type": "exploration",
+      "duration_minutes": 4,
+      "tension_rating": 1,
+      "description": "A breathtaking observation deck overlooking the ice giant. Save point, full heal station, and a narrative moment — the player intercepts a Void signal that foreshadows the boss fight. Calm ambient music.",
+      "enemy_count": 0,
+      "mechanics": ["save_point", "narrative_foreshadowing", "full_heal"]
+    },
+    {
+      "id": 9,
+      "name": "Reactor Core Defense",
+      "type": "combat",
+      "duration_minutes": 8,
+      "tension_rating": 9,
+      "description": "The station's Void-corrupted reactor core spawns waves of crystalline constructs. The player must defend three coolant valves while fighting. If a valve is destroyed, the final boss gains a permanent damage buff. Mini-boss: Void Shard Golem (elite construct with ground-slam AoE).",
+      "enemy_count": 12,
+      "mechanics": ["defense_objective", "wave_survival", "mini_boss", "consequence_system"]
+    },
+    {
+      "id": 10,
+      "name": "Signal Chamber — Station Warden",
+      "type": "boss",
+      "duration_minutes": 14,
+      "tension_rating": 10,
+      "description": "The Station Warden is a Void-possessed AI that controls the relay's defense systems. Three-phase boss fight in the central signal chamber. Phase 1: dodge laser grid patterns. Phase 2: destroy shield generators while avoiding drone swarms. Phase 3: direct assault on the exposed AI core with enrage timer.",
+      "enemy_count": 1,
+      "mechanics": ["multi_phase_boss", "laser_grid_dodging", "shield_generator_destruction", "enrage_timer"]
+    }
+  ]
+}
