@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Update infinite-voyage-skills for Claude Code and/or OpenClaw.
+# Update game-design-studio skills for Claude Code and/or OpenClaw.
 # Run from any directory — auto-detects installed locations.
 # Usage: ./update.sh [--claude|--openclaw|--all]
 
 set -euo pipefail
 
 FLAG="${1:---all}"
-PLUGIN_NAME="infinite-voyage-skills"
+PLUGIN_NAME="game-design-studio"
 UPDATED=0
 
 update_git_clone() {
@@ -68,14 +68,30 @@ update_claude() {
 update_openclaw() {
   echo "=== OpenClaw ==="
 
-  # Workspace skills
+  # Workspace skills (clone in workspace/skills/)
   if [[ -d "./skills/$PLUGIN_NAME" ]]; then
     update_git_clone "./skills/$PLUGIN_NAME" "OpenClaw workspace skills"
   fi
 
-  # Local/managed skills
+  # Local/managed skills (clone in ~/.openclaw/skills/)
+  local found_local=false
   if [[ -d "$HOME/.openclaw/skills/$PLUGIN_NAME" ]]; then
     update_git_clone "$HOME/.openclaw/skills/$PLUGIN_NAME" "OpenClaw local skills"
+    found_local=true
+  fi
+
+  # Symlinked individual skills — trace back to git clone
+  if [[ "$found_local" == false ]]; then
+    local first_skill="$HOME/.openclaw/skills/systems-designer"
+    if [[ -L "$first_skill" ]]; then
+      local target
+      target="$(readlink -f "$first_skill")"
+      # Walk up from skills/<name>/ to the repo root
+      local repo_root="${target%/skills/*}"
+      if [[ -d "$repo_root/.git" ]]; then
+        update_git_clone "$repo_root" "OpenClaw local skills (via symlink)"
+      fi
+    fi
   fi
 
   echo ""
