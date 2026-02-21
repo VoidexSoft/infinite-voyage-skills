@@ -1,6 +1,6 @@
 # World Timeline
 
-The chronological history of the Infinite Voyage universe. This document serves as the authoritative reference for all historical events, ensuring consistency across quests, codex entries, dialogue, and environmental storytelling. Every piece of narrative content that references a date, an era, or a historical event must align with this timeline.
+The chronological history of the game universe. This document serves as the authoritative reference for all historical events, ensuring consistency across quests, codex entries, dialogue, and environmental storytelling. Every piece of narrative content that references a date, an era, or a historical event must align with this timeline.
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 name: pitch-deck
 description: >
-  Pitch presentation specialist for Infinite Voyage. Use this skill whenever the user needs to create professional
+  Pitch presentation specialist for game development. Use this skill whenever the user needs to create professional
   slide presentations for publishers, investors, milestone reviews, or team presentations. Handles: publisher pitch
   decks, investor presentations, milestone review decks, team presentations, game reveal decks, and funding pitches.
   Includes standard slide structures for game pitches (hook, vision, gameplay, market, team, ask), visual style

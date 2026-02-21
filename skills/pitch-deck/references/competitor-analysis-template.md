@@ -1,7 +1,7 @@
 # Competitor Analysis Template
 
 A structured framework for analyzing comparable titles in the RPG space. Use
-this template to build competitive intelligence for Infinite Voyage pitch decks
+this template to build competitive intelligence for pitch decks
 and design positioning. Five example RPG comparables are filled in below.
 
 ---

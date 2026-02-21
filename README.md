@@ -1,6 +1,6 @@
-# Infinite Voyage — Game Development Skills
+# Game Design Studio — Game Development Skills
 
-A modular skill set for AI-assisted game development on the **Infinite Voyage** project. These skills work with Claude (via Claude Code / Cowork) to provide specialized game design capabilities.
+A modular skill set for AI-assisted game development. These skills work with Claude (via Claude Code / Cowork) to provide specialized game design capabilities.
 
 ## Skills Overview
 

@@ -1,6 +1,6 @@
 # Balancing Methodology
 
-A step-by-step process for balancing game systems in Infinite Voyage. Follow this
+A step-by-step process for balancing game systems. Follow this
 workflow whenever tuning stats, abilities, items, enemies, or economy values.
 
 ---

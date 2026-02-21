@@ -1,4 +1,4 @@
-# Polygon Budget Guide — Infinite Voyage
+# Polygon Budget Guide
 
 This document defines triangle/polygon budgets for all asset types across target platforms.
 Use these budgets as hard limits when writing asset specifications. All counts are in
@@ -8,7 +8,7 @@ Use these budgets as hard limits when writing asset specifications. All counts a
 
 ## Platform Tiers
 
-Infinite Voyage targets three platform tiers. Each tier has different performance
+This guide targets three platform tiers. Each tier has different performance
 characteristics and memory constraints that directly affect polygon budgets.
 
 | Tier | Platforms | GPU Class | Target FPS | Max On-Screen Tris |
@@ -210,5 +210,5 @@ FULL SCENE:       300k-500k(High)  | 150k-250k(Med)  | 50k-100k(Low)
 
 ---
 
-*Last updated for Infinite Voyage production pipeline. Budgets subject to revision
+*Last updated for production pipeline. Budgets subject to revision
 based on profiling results during vertical slice and alpha milestones.*

@@ -1,6 +1,6 @@
 # Common RPG Stat Formulas
 
-A reference of proven stat formulas for Infinite Voyage. Each formula includes the
+A reference of proven stat formulas for game development. Each formula includes the
 mathematical definition, behavior characteristics, tuning parameters, and a Python
 implementation. Use these as building blocks when constructing balance spreadsheets.
 

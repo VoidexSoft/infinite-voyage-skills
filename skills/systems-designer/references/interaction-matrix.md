@@ -1,7 +1,7 @@
 # System Interaction Matrix
 
 A template and guide for analyzing how game systems interact with each other in
-Infinite Voyage. Use this to detect hidden dependencies, emergent behaviors, and
+game development. Use this to detect hidden dependencies, emergent behaviors, and
 potential exploit chains.
 
 ---

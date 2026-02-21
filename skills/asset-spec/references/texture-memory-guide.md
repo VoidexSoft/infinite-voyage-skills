@@ -1,4 +1,4 @@
-# Texture Memory Guide — Infinite Voyage
+# Texture Memory Guide
 
 This document provides texture resolution guidelines, memory footprint calculations,
 compression format comparisons, and VRAM budgets for all target platforms. Use this
@@ -295,5 +295,5 @@ ASTC 6x6:      1K = 455 KB  |  2K = 1.78 MB |  4K = 7.12 MB (Mobile standard)
 
 ---
 
-*Last updated for Infinite Voyage production pipeline. Budgets subject to adjustment
+*Last updated for production pipeline. Budgets subject to adjustment
 after VRAM profiling during alpha milestone.*

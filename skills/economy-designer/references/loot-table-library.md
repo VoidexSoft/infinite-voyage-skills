@@ -1,6 +1,6 @@
 # Loot Table Library
 
-A reference library of loot table patterns for Infinite Voyage. Contains reusable
+A reference library of loot table patterns. Contains reusable
 templates, rarity tier definitions, weighted distribution examples, pity systems,
 and seasonal loot mechanics.
 

@@ -1,6 +1,6 @@
 # Onboarding Design Patterns
 
-Reference guide for designing tutorial and onboarding experiences in Infinite Voyage.
+Reference guide for designing tutorial and onboarding experiences.
 Effective onboarding teaches the player how to play without breaking flow, overwhelming
 them with information, or removing their sense of agency. This document catalogs proven
 patterns, their trade-offs, and metrics for evaluating success.
@@ -93,7 +93,7 @@ freely and learn at their own pace.
 **Best for:** Games targeting hardcore audiences, creative/sandbox games, games with simple
 core mechanics but deep mastery.
 
-### Hybrid Tutorial (Recommended for Infinite Voyage)
+### Hybrid Tutorial (Recommended)
 
 Combine elements of all three approaches based on the mechanic's complexity and the player's
 progress.
@@ -210,9 +210,9 @@ Scripted  Guided    Suggested   Hinted    Minimal    None
 tutorial  prompts   objectives  at best   UI cues
 ```
 
-### Recommended Position for Infinite Voyage
+### Recommended Position
 
-Infinite Voyage should sit at **"Suggested"** by default, with player-adjustable settings
+Your game should sit at **"Suggested"** by default, with player-adjustable settings
 that shift toward either end.
 
 | Setting | Guidance Level | Description |
@@ -277,7 +277,7 @@ Measure onboarding effectiveness with these metrics.
 
 ---
 
-## 8. Onboarding Flow for Infinite Voyage
+## 8. Onboarding Flow
 
 ### Recommended Sequence (First 15 Minutes)
 

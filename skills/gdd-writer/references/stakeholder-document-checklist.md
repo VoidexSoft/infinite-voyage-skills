@@ -2,7 +2,7 @@
 
 Different stakeholders read the GDD for different reasons. This reference
 defines what each audience needs, how to create document variants, and the
-review and sign-off workflow for Infinite Voyage.
+review and sign-off workflow.
 
 ---
 

@@ -1,6 +1,6 @@
 # Character Profile Template
 
-A complete template for designing characters in Infinite Voyage. Every named NPC -- from major story figures to recurring merchants -- should have a profile document. The depth of the profile scales with the character's importance, but even minor characters benefit from having their core motivations defined.
+A complete template for designing characters. Every named NPC -- from major story figures to recurring merchants -- should have a profile document. The depth of the profile scales with the character's importance, but even minor characters benefit from having their core motivations defined.
 
 ---
 

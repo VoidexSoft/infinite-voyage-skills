@@ -1,7 +1,7 @@
 ---
 name: playtest-simulator
 description: >
-  Virtual playtesting simulator for Infinite Voyage. Use this skill whenever the user
+  Virtual playtesting simulator for game development. Use this skill whenever the user
   wants to test a design without real players, predict how different player types would
   experience content, find exploits or degenerate strategies, check pacing, or validate
   that a mechanic feels right before implementation. Also trigger on phrases like "what

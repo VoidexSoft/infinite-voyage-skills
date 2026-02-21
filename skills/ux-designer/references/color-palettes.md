@@ -1,6 +1,6 @@
 # Game UI Color Palette Guide
 
-Color reference for Infinite Voyage UI design. Covers thematic palettes, functional colors,
+Color reference for game UI design. Covers thematic palettes, functional colors,
 rarity systems, colorblind-safe alternatives, and contrast requirements. Every color decision
 must pair with a non-color indicator (icon, shape, text, or pattern) to remain accessible.
 
@@ -8,7 +8,7 @@ must pair with a non-color indicator (icon, shape, text, or pattern) to remain a
 
 ## 1. RPG / Fantasy Palettes
 
-### Dark Fantasy (Primary Theme for Infinite Voyage)
+### Dark Fantasy (Example Theme)
 
 A muted, atmospheric palette evoking ancient mystery and worn adventure.
 
@@ -183,7 +183,7 @@ In addition to color, each rarity tier uses a supplementary visual cue:
 
 ### WCAG Contrast Requirements
 
-| Text Type | Minimum Ratio (AA) | Enhanced Ratio (AAA) | Infinite Voyage Target |
+| Text Type | Minimum Ratio (AA) | Enhanced Ratio (AAA) | Recommended Target |
 |-----------|--------------------|--------------------|----------------------|
 | Body text (< 18px) | 4.5:1 | 7:1 | 7:1 |
 | Large text (>= 18px bold or >= 24px) | 3:1 | 4.5:1 | 4.5:1 |

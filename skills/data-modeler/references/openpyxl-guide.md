@@ -1,6 +1,6 @@
 # openpyxl Quick Reference for Game Data
 
-Practical openpyxl patterns for building and maintaining Infinite Voyage balance
+Practical openpyxl patterns for building and maintaining game balance
 spreadsheets. Every example is oriented toward game data tasks: stat tables, loot
 databases, economy models, and balance tracking.
 

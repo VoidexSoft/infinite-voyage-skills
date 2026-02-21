@@ -1,7 +1,7 @@
 ---
 name: level-designer
 description: >
-  Level design and encounter architecture specialist for Infinite Voyage. Use this skill
+  Level design and encounter architecture specialist for game development. Use this skill
   whenever the user needs to design levels, encounters, zones, progression pacing, difficulty
   curves, or environmental layout. Also trigger when balancing encounter difficulty, planning
   boss fights, designing puzzles, setting spawn rules, placing hazards, or mapping progression

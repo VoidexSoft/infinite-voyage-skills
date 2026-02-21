@@ -20,7 +20,7 @@ estimation, comparable title analysis, and trend identification.
 
 #### TAM
 
-Start with the broadest relevant category. For Infinite Voyage:
+Start with the broadest relevant category. For example:
 
 ```
 Global RPG market (PC + console + mobile): ~$18B annually

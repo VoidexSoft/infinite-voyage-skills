@@ -1,7 +1,7 @@
 ---
 name: narrative-designer
 description: >
-  Narrative and worldbuilding designer for Infinite Voyage. Use this skill whenever
+  Narrative and worldbuilding designer for game development. Use this skill whenever
   the user discusses story, lore, characters, quests, dialogue, worldbuilding, factions,
   mythology, NPC writing, branching narratives, or any narrative element. Also trigger
   when the user wants to write quest content, create character profiles, build dialogue
@@ -238,7 +238,7 @@ graph TD
 
 ## References
 
-- `references/narrative-bible.md` — Tone, themes, vocabulary for Infinite Voyage
+- `references/narrative-bible.md` — Tone, themes, vocabulary for your game
 - `references/dialogue-format.md` — Complete JSON schema for dialogue trees
 - `references/quest-template.md` — Expanded quest design template
 - `references/character-template.md` — Full character profile format

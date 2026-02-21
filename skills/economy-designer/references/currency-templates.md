@@ -1,6 +1,6 @@
 # Currency System Templates
 
-Reference library of currency system templates for Infinite Voyage. Use these as
+Reference library of currency system templates. Use these as
 starting points when designing new currency types or restructuring existing ones.
 
 ---

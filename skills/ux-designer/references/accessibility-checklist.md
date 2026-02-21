@@ -1,6 +1,6 @@
 # Comprehensive Accessibility Checklist
 
-Pre-ship validation checklist for Infinite Voyage. Every item must be verified before
+Pre-ship validation checklist. Every item must be verified before
 release. This checklist covers visual, audio, motor, and cognitive accessibility. Use it
 during design reviews, QA testing, and certification preparation.
 

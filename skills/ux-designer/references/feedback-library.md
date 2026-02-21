@@ -1,6 +1,6 @@
 # Player Feedback Patterns Library
 
-Catalog of feedback patterns for Infinite Voyage. Every player action should produce
+Catalog of feedback patterns for game development. Every player action should produce
 immediate, proportional, multi-sensory feedback. This library defines reusable patterns
 for visual, audio, and haptic feedback, along with intensity scaling rules and guidance on
 positive versus negative feedback loops.

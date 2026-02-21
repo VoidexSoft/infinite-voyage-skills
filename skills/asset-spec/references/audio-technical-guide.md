@@ -1,7 +1,7 @@
-# Audio Technical Guide — Infinite Voyage
+# Audio Technical Guide
 
 This document defines audio format specifications, loudness standards, memory budgets,
-and middleware configuration for all audio assets in Infinite Voyage. Use this guide
+and middleware configuration for all audio assets. Use this guide
 when writing audio asset specifications for SFX, music, voice acting, and ambience.
 
 ---
@@ -52,7 +52,7 @@ The build pipeline compresses source audio into platform-appropriate formats.
 
 | Sample Rate | Use Case | Notes |
 |-------------|----------|-------|
-| **48,000 Hz (48 kHz)** | Standard for all game audio | Broadcast/film standard; default for Infinite Voyage |
+| **48,000 Hz (48 kHz)** | Standard for all game audio | Broadcast/film standard; default for game projects |
 | **44,100 Hz (44.1 kHz)** | Acceptable alternate | CD standard; convert to 48 kHz in pipeline if needed |
 | **96,000 Hz (96 kHz)** | Recording / processing only | Downsample to 48 kHz for delivery |
 | **22,050 Hz** | Not recommended | Audible quality loss on modern hardware |
@@ -97,7 +97,7 @@ The build pipeline compresses source audio into platform-appropriate formats.
 
 ## Loudness Standards
 
-All audio in Infinite Voyage follows integrated loudness targeting for consistent
+All game audio follows integrated loudness targeting for consistent
 player experience. Loudness is measured in LUFS (Loudness Units relative to Full Scale).
 
 ### LUFS Targets by Category
@@ -217,7 +217,7 @@ Example allocation for 256 MB total audio RAM (Medium tier):
 
 ### FMOD Studio
 
-FMOD is the primary audio middleware for Infinite Voyage.
+FMOD is the recommended audio middleware.
 
 | Setting | Value | Notes |
 |---------|-------|-------|
@@ -328,5 +328,5 @@ Examples:
 
 ---
 
-*Last updated for Infinite Voyage production pipeline. Audio specifications are
+*Last updated for production pipeline. Audio specifications are
 mandatory for all audio deliverables. Middleware settings subject to version updates.*

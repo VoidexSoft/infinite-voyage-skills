@@ -1,6 +1,6 @@
 # Game Balance Metrics Glossary
 
-Definitions and formulas for all standard balance metrics used in Infinite Voyage.
+Definitions and formulas for all standard balance metrics.
 Organized by domain.
 
 ---

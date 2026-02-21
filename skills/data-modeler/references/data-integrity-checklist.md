@@ -1,6 +1,6 @@
 # Data Integrity Checklist
 
-Validation rules for all Infinite Voyage game data. Run this checklist before exporting
+Validation rules for all game data. Run this checklist before exporting
 data to the game engine, before balance review sessions, and after any bulk data changes.
 Each section maps to a specific data table or cross-table relationship.
 

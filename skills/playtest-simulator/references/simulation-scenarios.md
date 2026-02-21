@@ -1,6 +1,6 @@
 # Predefined Simulation Scenarios
 
-Ready-to-use scenario templates for virtual playtesting in Infinite Voyage. Each scenario
+Ready-to-use scenario templates for virtual playtesting. Each scenario
 defines the test objective, relevant archetypes, setup parameters, and evaluation criteria.
 Select the scenario that matches the design question you need to answer.
 

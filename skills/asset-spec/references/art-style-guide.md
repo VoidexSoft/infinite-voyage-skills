@@ -1,4 +1,4 @@
-# Art Style Guide — Infinite Voyage
+# Art Style Guide
 
 This document defines the visual identity of Infinite Voyage. Every asset created for
 the game must align with these guidelines to ensure a cohesive visual experience.
@@ -334,5 +334,5 @@ the object's history.
 
 ---
 
-*Last updated for Infinite Voyage pre-production. This guide is a living document
+*Last updated for pre-production. This guide is a living document
 and will be updated as the art direction evolves through vertical slice and alpha.*

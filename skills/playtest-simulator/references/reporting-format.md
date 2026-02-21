@@ -1,6 +1,6 @@
 # Playtest Report Format Template
 
-Standard format for all virtual playtest reports in Infinite Voyage. This template ensures
+Standard format for all virtual playtest reports. This template ensures
 consistent, actionable reports that design teams can quickly parse, prioritize, and act on.
 
 ---

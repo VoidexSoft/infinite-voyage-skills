@@ -1,7 +1,7 @@
 # Game Accessibility Standards Reference
 
 Comprehensive reference mapping industry accessibility standards to game-specific
-requirements. Use this document when designing or auditing UI for Infinite Voyage to ensure
+requirements. Use this document when designing or auditing game UI to ensure
 compliance with legal requirements and inclusive design best practices.
 
 ---
@@ -69,7 +69,7 @@ communication features (text chat, voice chat, online multiplayer).
 | Captioning | Real-time captions for voice chat (speech-to-text) |
 | Customization | Player can adjust communication UI independently of game UI |
 
-### Applicability to Infinite Voyage
+### Applicability to Game Development
 
 - If multiplayer features are added, CVAA compliance becomes mandatory in the US
 - Single-player subtitle and caption requirements are covered under general accessibility

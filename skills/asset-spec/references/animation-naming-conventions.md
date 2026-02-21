@@ -1,7 +1,7 @@
-# Animation Naming Conventions — Infinite Voyage
+# Animation Naming Conventions
 
 This document defines the standard naming conventions for all animation assets in
-Infinite Voyage. Consistent naming ensures animations integrate cleanly with state
+game development. Consistent naming ensures animations integrate cleanly with state
 machines, blend trees, and scripted events across the project.
 
 ---
@@ -327,7 +327,7 @@ Every locomotion animation must include:
 
 ## Example Animation List: RPG Warrior Character
 
-Complete animation list for the Warrior player character in Infinite Voyage.
+Complete animation list for the Warrior player character.
 
 ### Locomotion (18 clips)
 
@@ -442,5 +442,5 @@ animations/
 
 ---
 
-*Last updated for Infinite Voyage production pipeline. Naming conventions are
+*Last updated for production pipeline. Naming conventions are
 mandatory for all animation deliverables.*

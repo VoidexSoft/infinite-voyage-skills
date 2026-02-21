@@ -1,6 +1,6 @@
 # State Machine Guide
 
-How to specify state-based game mechanics for Infinite Voyage. State machines
+How to specify state-based game mechanics for game development. State machines
 are the standard way to document any system where an entity transitions between
 distinct states based on events or conditions.
 

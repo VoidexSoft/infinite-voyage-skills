@@ -1,6 +1,6 @@
 # Game Typography Guide
 
-Reference for font selection, sizing, and readability across platforms for Infinite Voyage.
+Reference for font selection, sizing, and readability across platforms.
 Typography in games must balance aesthetic cohesion with legibility under diverse conditions:
 varying screen sizes, viewing distances, localization into dozens of languages, and
 accessibility requirements.
@@ -100,7 +100,7 @@ Mobile uses physical size targets because device DPIs vary widely.
 
 ### Font Selection Criteria
 
-When choosing fonts for Infinite Voyage:
+When choosing fonts for your game:
 
 1. **x-height** -- Prefer fonts with a tall x-height (the height of lowercase letters like
    "x" and "o"). Taller x-height improves readability at small sizes.
@@ -119,7 +119,7 @@ When choosing fonts for Infinite Voyage:
 
 ### Script Coverage Requirements
 
-Infinite Voyage must support at a minimum:
+Your game should support at a minimum:
 
 | Script | Languages | Font Requirement |
 |--------|-----------|-----------------|
@@ -244,7 +244,7 @@ expressive typography.
 |------|----------|-------|
 | Subpixel (ClearType/FreeType) | PC monitors with fixed pixel grid | Sharpest on LCD; artifacts on OLED |
 | Grayscale | Console/TV, rotated text, OLED screens | Slightly softer but no color fringing |
-| None (bitmap) | Pixel art games, retro aesthetics | Not recommended for Infinite Voyage |
+| None (bitmap) | Pixel art games, retro aesthetics | Not recommended for most games |
 
 ### Rendering Checklist
 

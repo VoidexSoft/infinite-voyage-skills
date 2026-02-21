@@ -1,7 +1,7 @@
 # Common Game UI Patterns
 
 Reference guide for recurring UI patterns in game design. Each pattern includes structure,
-best use cases, and trade-offs. Designed for Infinite Voyage but applicable across RPG and
+best use cases, and trade-offs. Designed for game development and applicable across RPG and
 action-adventure genres.
 
 ---

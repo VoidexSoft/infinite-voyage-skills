@@ -1,6 +1,6 @@
 # Balance Benchmark Targets
 
-Reference tables for game balance targets in Infinite Voyage. These benchmarks are derived
+Reference tables for game balance targets. These benchmarks are derived
 from established RPG design conventions and should be used as starting points, not rigid
 rules. Adjust based on playtesting results and the specific feel you want for the game.
 

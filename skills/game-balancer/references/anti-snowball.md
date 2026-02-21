@@ -1,6 +1,6 @@
 # Preventing Snowball Mechanics
 
-Strategies and techniques for preventing runaway advantages in Infinite Voyage.
+Strategies and techniques for preventing runaway advantages.
 When a player or system gets ahead, these patterns prevent the advantage from
 compounding into an unbeatable lead.
 

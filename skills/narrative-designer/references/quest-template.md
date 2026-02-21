@@ -1,6 +1,6 @@
 # Quest Design Template
 
-A comprehensive template for designing quests in Infinite Voyage. Every quest should be documented using this structure before entering production. The template ensures that narrative intent, gameplay requirements, branching logic, and integration points are all captured upfront.
+A comprehensive template for designing quests. Every quest should be documented using this structure before entering production. The template ensures that narrative intent, gameplay requirements, branching logic, and integration points are all captured upfront.
 
 ---
 

@@ -1,6 +1,6 @@
 # Input Device Reference
 
-Comprehensive reference for input devices supported by Infinite Voyage. Covers keyboard and
+Comprehensive reference for input devices for game development. Covers keyboard and
 mouse layouts, gamepad mappings for all major platforms, touch screen gestures, accessibility
 controllers, simultaneous input handling, and input priority rules.
 

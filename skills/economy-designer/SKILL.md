@@ -1,7 +1,7 @@
 ---
 name: economy-designer
 description: >
-  Virtual economy and progression system designer for Infinite Voyage. Use this skill
+  Virtual economy and progression system designer for game development. Use this skill
   whenever the user discusses currency design, loot tables, pricing models, monetization
   strategies, crafting costs, shop design, or economy balance. Trigger when analyzing
   sink/faucet balance, designing reward structures, modeling inflation, checking for

@@ -1,7 +1,7 @@
 # GDD Writing Style Guide
 
 Standards for clear, professional, and unambiguous game design documentation for
-Infinite Voyage and related projects.
+game development projects.
 
 ---
 

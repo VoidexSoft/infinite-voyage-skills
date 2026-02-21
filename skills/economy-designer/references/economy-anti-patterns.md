@@ -1,7 +1,7 @@
 # Economy Anti-Patterns
 
 A catalog of common game economy design mistakes, how to detect them early,
-and how to fix them once they have taken root. Written for Infinite Voyage but
+and how to fix them once they have taken root. Written for game development but
 applicable to any game with a virtual economy.
 
 ---

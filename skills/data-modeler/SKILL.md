@@ -1,7 +1,7 @@
 ---
 name: data-modeler
 description: >
-  Game data specialist for Infinite Voyage. Use this skill whenever the user needs to build game balance spreadsheets,
+  Game data specialist for game development. Use this skill whenever the user needs to build game balance spreadsheets,
   stat progression tables, loot drop tables, economy models, ability comparison matrices, item databases, or content
   checklists. Trigger when designing character progression, itemization systems, economy balancing, drop rate distributions,
   or game content tracking. Keywords: stat progression, loot tables, economy, balance spreadsheet, item database, ability

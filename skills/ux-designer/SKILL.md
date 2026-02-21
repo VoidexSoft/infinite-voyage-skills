@@ -1,7 +1,7 @@
 ---
 name: ux-designer
 description: >
-  UX/UI design specialist for Infinite Voyage. Use this skill whenever the user needs to design
+  UX/UI design specialist for game development. Use this skill whenever the user needs to design
   player interfaces, information architecture, interaction flows, onboarding experiences, accessibility
   systems, or user feedback. Trigger when designing menus, HUDs, control schemes, tutorial sequences,
   visual/audio feedback, screen layouts, or addressing player confusion about UI. Keywords that should

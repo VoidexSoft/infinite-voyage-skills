@@ -1,8 +1,8 @@
-# Infinite Voyage — Game Development Skill & Agent Architecture
+# Game Design Studio — Skill & Agent Architecture
 
 ## Executive Summary
 
-A modular skill set designed for daily game development work on the **Infinite Voyage** project. The architecture splits game design into specialized disciplines, adds balancing/analytics capabilities, and integrates with your GitHub workflow. Each skill follows the Claude Code skill framework (SKILL.md + scripts + references) and can be used standalone or composed into multi-agent workflows.
+A modular skill set designed for daily game development work. The architecture splits game design into specialized disciplines, adds balancing/analytics capabilities, and integrates with your GitHub workflow. Each skill follows the Claude Code skill framework (SKILL.md + scripts + references) and can be used standalone or composed into multi-agent workflows.
 
 ---
 

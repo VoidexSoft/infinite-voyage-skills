@@ -1,6 +1,6 @@
 # Dialogue Format Reference
 
-The complete specification for dialogue data in Infinite Voyage. All dialogue trees must conform to this schema so they can be imported by the dialogue engine, tested in automated pipelines, and localized for international releases.
+The complete specification for dialogue data. All dialogue trees must conform to this schema so they can be imported by the dialogue engine, tested in automated pipelines, and localized for international releases.
 
 ---
 

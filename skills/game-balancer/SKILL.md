@@ -1,7 +1,7 @@
 ---
 name: game-balancer
 description: >
-  Numerical game balance analyst and simulator for Infinite Voyage. Use this skill
+  Numerical game balance analyst and simulator for game development. Use this skill
   whenever the user needs to balance stats, abilities, items, enemies, or economy
   values. Also trigger when running simulations, checking fairness, tuning difficulty,
   or analyzing any game numbers. Keywords that should trigger this skill include:

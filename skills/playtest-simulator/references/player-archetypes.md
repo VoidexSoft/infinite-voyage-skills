@@ -1,6 +1,6 @@
 # Player Archetype Profiles
 
-Detailed behavioral profiles for virtual playtesting in Infinite Voyage. Each archetype
+Detailed behavioral profiles for virtual playtesting. Each archetype
 represents a statistically significant player segment observed across RPG audiences. Use
 these profiles to simulate realistic player behavior during playtest scenarios.
 

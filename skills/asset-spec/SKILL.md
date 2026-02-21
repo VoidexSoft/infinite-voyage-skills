@@ -1,7 +1,7 @@
 ---
 name: asset-spec
 description: >
-  Asset requirements specialist for Infinite Voyage. Use this skill whenever the user needs to create detailed
+  Asset requirements specialist for game development. Use this skill whenever the user needs to create detailed
   specifications for artists and audio designers. Handles: character art specs, environment art specs, UI art specs,
   animation specs, SFX specs, music specs, voice acting specs. Includes templates for each asset type with fields for
   style reference, dimensions, file format, technical constraints, art direction, priority, and dependencies. Trigger

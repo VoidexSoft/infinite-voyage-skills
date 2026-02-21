@@ -1,7 +1,7 @@
 ---
 name: systems-designer
 description: >
-  Game systems and mechanics designer for Infinite Voyage. Use this skill whenever
+  Game systems and mechanics designer for game development. Use this skill whenever
   the user discusses game mechanics, rules, abilities, combat systems, crafting,
   inventory, skill trees, AI behavior, physics interactions, or any gameplay system.
   Also trigger when the user wants to add or modify a gameplay feature, asks

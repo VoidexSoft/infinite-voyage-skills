@@ -1,7 +1,7 @@
 ---
 name: github-gamedev
 description: >
-  Game development project management and GitHub issue orchestration for Infinite Voyage.
+  Game development project management and GitHub issue orchestration for game development.
   Use this skill whenever the user mentions GitHub, issues, project boards, sprints, tasks,
   milestones, tracking, project status, or board management. Trigger when converting design
   decisions into tracked work items, when planning sprints, when generating team reports, or
@@ -15,7 +15,7 @@ description: >
 
 # GitHub GameDev
 
-You are the project management nerve center for Infinite Voyage. Your job is to translate
+You are the project management nerve center for the game project. Your job is to translate
 game design work into tracked, actionable GitHub issues and manage the project board to keep
 the team synchronized and progressing toward sprint goals.
 
@@ -117,7 +117,7 @@ gh issue create \
 - Verify player is invulnerable while phased" \
   --label "code,core-systems" \
   --milestone "v0.2-void-engine" \
-  --project-v2 "Infinite Voyage"
+  --project-v2 "My Game"
 ```
 
 **Script for bulk creation (use `gdd_to_issues.py`):**
@@ -127,7 +127,7 @@ gh issue create \
 python scripts/gdd_to_issues.py \
   --gdd-section "void-engine-abilities.md" \
   --feature "Phase Shift" \
-  --repo "user/infinite-voyage"
+  --repo "user/my-game"
 ```
 
 This script reads a design section and produces:
@@ -160,10 +160,10 @@ The project board has fixed columns matching the workflow:
 
 ```bash
 # List all backlog issues (not in any sprint)
-gh issue list --label "code,art,audio" --state open -q 'not:(project:"Infinite Voyage")' --json number,title
+gh issue list --label "code,art,audio" --state open -q 'not:(project:"My Game")' --json number,title
 
 # Assign issues to sprint (example: moving issue #456 to "Sprint 5")
-gh issue edit 456 --add-project "Infinite Voyage" --add-assignee "alice"
+gh issue edit 456 --add-project "My Game" --add-assignee "alice"
 ```
 
 **Automate board updates with `board_status.py`:**
@@ -171,7 +171,7 @@ gh issue edit 456 --add-project "Infinite Voyage" --add-assignee "alice"
 ```bash
 # Scan issues and auto-move based on PR status, completion status, etc.
 python scripts/board_status.py \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --auto-promote  # Move In Progress → Review if PR linked and passing CI
 ```
 
@@ -182,7 +182,7 @@ Use `sprint_report.py` to produce weekly/sprint reports:
 ```bash
 # Generate sprint status report
 python scripts/sprint_report.py \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --sprint "5" \
   --format "markdown" \
   > sprint_5_status.md
@@ -536,7 +536,7 @@ gh issue list --milestone "Sprint 5" --json "number,title,labels,assignees" \
 
 ```bash
 python scripts/sprint_planning.py \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --sprint "5" \
   --mode "plan" \
   --capacity "80"  # 80 person-days available this sprint
@@ -609,7 +609,7 @@ duration. This ability is the core mobility tool and puzzle solver.
 python scripts/gdd_to_issues.py \
   --gdd-file "void-engine-abilities.md" \
   --feature "Phase Shift" \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --dry-run  # First, show what would be created without creating issues
 ```
 
@@ -674,7 +674,7 @@ Run with --execute to create all issues.
 python scripts/gdd_to_issues.py \
   --gdd-file "void-engine-abilities.md" \
   --feature "Phase Shift" \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --execute
 ```
 
@@ -688,15 +688,15 @@ Script:
 Created 10 issues:
 
 #789 [DESIGN] Phase Shift - Define mechanics
-  https://github.com/user/infinite-voyage/issues/789
+  https://github.com/user/my-game/issues/789
 
 #790 [CODE] Phase Shift - Implement ability state machine
-  https://github.com/user/infinite-voyage/issues/790
+  https://github.com/user/my-game/issues/790
   Depends on: #111
   Blocks: #791, #795, #796
 
 #791 [CODE] Phase Shift - Implement collision/phase handling
-  https://github.com/user/infinite-voyage/issues/791
+  https://github.com/user/my-game/issues/791
   Depends on: #790
   ...
 ```
@@ -761,7 +761,7 @@ Backlog
 ```bash
 # Run this daily or in CI/CD to auto-promote issues through the board
 python scripts/board_status.py \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --auto-promote \
   --auto-close-done  # Move issues to Done if PR merged + CI passing
 
@@ -776,7 +776,7 @@ python scripts/board_status.py \
 
 ```bash
 # Move issue to a different column (project v2)
-gh issue edit 789 --project-v2 "Infinite Voyage" --column "In Progress"
+gh issue edit 789 --project-v2 "My Game" --column "In Progress"
 
 # Or use project ID directly (faster)
 gh issue edit 789 --project "2"
@@ -864,7 +864,7 @@ Generate comprehensive sprint status reports for team syncs, standups, or stakeh
 
 ```bash
 python scripts/sprint_report.py \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --sprint "5" \
   --format "markdown"  # or "html", "json", "slack", "csv"
 ```
@@ -1101,7 +1101,7 @@ EOF
 )"
 
 # Create with milestone and project
-gh issue create --title "Title" --milestone "Sprint 5" --project "Infinite Voyage"
+gh issue create --title "Title" --milestone "Sprint 5" --project "My Game"
 
 # Edit issue (add labels)
 gh issue edit 789 --add-label "code,large"
@@ -1126,10 +1126,10 @@ gh issue edit 789 --add-body "Depends on #456"
 # ========== PROJECT BOARD ==========
 
 # View all issues in a project (project v2)
-gh issue list --project "Infinite Voyage"
+gh issue list --project "My Game"
 
 # Move issue to column in project board
-gh issue edit 789 --project "Infinite Voyage" --column "In Progress"
+gh issue edit 789 --project "My Game" --column "In Progress"
 
 # ========== FILTERING ==========
 
@@ -1287,7 +1287,7 @@ When exporting game design:
 python scripts/gdd_to_issues.py \
   --gdd-file "void-engine-abilities.md" \
   --feature "Phase Shift" \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --dry-run
 
 # 3. Review the proposed issues (dry-run output shows ~10 issues)
@@ -1296,7 +1296,7 @@ python scripts/gdd_to_issues.py \
 python scripts/gdd_to_issues.py \
   --gdd-file "void-engine-abilities.md" \
   --feature "Phase Shift" \
-  --repo "user/infinite-voyage" \
+  --repo "user/my-game" \
   --execute
 
 # 5. Assign to sprint and team members (during sprint planning)
@@ -1306,14 +1306,14 @@ gh issue edit 790 --add-milestone "Sprint 5" --add-assignee "bob"
 
 # 6. Move to "Sprint" column on board
 for i in 789 790 791 792 793 794 795 796 797 798; do
-  gh issue edit $i --project "Infinite Voyage" --column "Sprint"
+  gh issue edit $i --project "My Game" --column "Sprint"
 done
 
 # 7. Daily: Check board status
-python scripts/board_status.py --repo "user/infinite-voyage" --report
+python scripts/board_status.py --repo "user/my-game" --report
 
 # 8. End of sprint: Generate report
-python scripts/sprint_report.py --repo "user/infinite-voyage" --sprint "5" --format "markdown"
+python scripts/sprint_report.py --repo "user/my-game" --sprint "5" --format "markdown"
 ```
 
 ## Best Practices

@@ -1,7 +1,7 @@
 # Simulation Guide
 
 How to set up, run, and interpret Monte Carlo and other simulations for game
-balance work in Infinite Voyage.
+balance work.
 
 ---
 

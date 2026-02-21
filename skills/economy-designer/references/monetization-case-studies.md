@@ -1,7 +1,7 @@
 # Monetization Case Studies
 
 Analysis of game monetization models, strategies, and ethical principles.
-Use these case studies as reference when designing Infinite Voyage's monetization
+Use these case studies as reference when designing your game's monetization
 system or evaluating proposed changes.
 
 ---
@@ -61,7 +61,7 @@ Annual (6 seasons): $899,100 - $1,498,500
 - **Negative risk**: FOMO pressure if seasonal items never return. Mitigate by bringing items back after 2 seasons at reduced availability.
 - **Negative risk**: If progression requires excessive daily play, it feels like a job. Target 60% completion with 4 sessions per week.
 
-### Design Rules for Infinite Voyage
+### Design Rules for Your Game
 
 1. Battle pass must never contain stat-boosting items on the premium track.
 2. Free track must feel worthwhile on its own, not just a teaser.
@@ -111,7 +111,7 @@ Annual: $480,000 - $960,000
 - **Negative risk**: Revenue per user is lower than aggressive monetization models.
 - **Negative risk**: Requires high-quality art production to sustain interest.
 
-### Design Rules for Infinite Voyage
+### Design Rules for Your Game
 
 1. Every cosmetic must be visually distinct and high quality. Low-effort recolors erode trust.
 2. Price anchoring: Always have a few premium items ($15-20) to make mid-range items ($5-8) feel reasonable.
@@ -175,10 +175,10 @@ Annual: $324,000 - $864,000
 - **Negative**: Perceived as mobile-game monetization, carries stigma in PC/console markets.
 - **Negative**: Whales can gain progression advantage by buying unlimited energy.
 
-### Recommendation for Infinite Voyage
+### Recommendation
 
 **Do not implement an energy system for core gameplay.** Energy systems work for
-mobile games where short sessions are expected. For Infinite Voyage's target
+mobile games where short sessions are expected. For your game's target
 audience (PC/console RPG players), energy systems feel hostile.
 
 If session-limiting is needed for balance reasons, use **daily reward caps** instead:
@@ -187,7 +187,7 @@ respects player time without artificial gates.
 
 ---
 
-## Model 4: Hybrid Model (Recommended for Infinite Voyage)
+## Model 4: Hybrid Model (Recommended)
 
 ### How It Works
 
@@ -275,7 +275,7 @@ Year 3+:
 
 ## Ethical Monetization Principles
 
-These principles govern all monetization decisions in Infinite Voyage.
+These principles govern all monetization decisions.
 
 ### Principle 1: Transparency
 
@@ -288,7 +288,7 @@ Premium currency costs are displayed in both Stardust and approximate USD value.
 
 ### Principle 2: No Predatory Mechanics
 
-The following mechanics are permanently banned from Infinite Voyage:
+The following mechanics are permanently banned:
 
 | Mechanic | Why It Is Banned |
 |----------|-----------------|

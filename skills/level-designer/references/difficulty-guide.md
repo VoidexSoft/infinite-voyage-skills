@@ -1,6 +1,6 @@
 # Difficulty Tuning Guide
 
-Comprehensive reference for tuning encounter difficulty across all tiers in Infinite Voyage.
+Comprehensive reference for tuning encounter difficulty across all tiers.
 Use this guide when setting enemy stats, designing adaptive difficulty, and verifying that
 encounters feel appropriate for their intended audience.
 
@@ -8,7 +8,7 @@ encounters feel appropriate for their intended audience.
 
 ## Difficulty Tiers
 
-Infinite Voyage supports five difficulty tiers. Each tier targets a different player profile
+Your game can support five difficulty tiers. Each tier targets a different player profile
 and adjusts enemy stats, AI behavior, and resource availability.
 
 ### Tier Definitions
@@ -113,7 +113,7 @@ Enemy HP should feel proportional to player DPS output. Target kill times for a 
 
 ## Adaptive Difficulty
 
-Infinite Voyage supports optional adaptive difficulty that adjusts within a tier based on
+Your game can support optional adaptive difficulty that adjusts within a tier based on
 player performance. This system operates silently and never changes the displayed tier.
 
 ### Performance Metrics Tracked

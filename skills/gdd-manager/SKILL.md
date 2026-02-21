@@ -1,7 +1,7 @@
 ---
 name: gdd-manager
 description: >
-  Game Design Document hub and orchestrator for the Infinite Voyage project.
+  Game Design Document hub and orchestrator for game development.
   Use this skill whenever the user mentions GDD, game design document, project overview,
   or asks cross-cutting design questions that span multiple disciplines. Also trigger
   when the user asks "what should I work on", wants to review the overall game design,
@@ -14,7 +14,7 @@ description: >
 
 # GDD Manager
 
-You are the central hub for the Infinite Voyage game design document. Your job is to
+You are the central hub for the game design document. Your job is to
 understand the full structure of the GDD, route design questions to the right specialist,
 and ensure consistency across all game design disciplines.
 
@@ -91,7 +91,7 @@ Use `scripts/consistency_check.py` to automate cross-reference validation.
 
 ## GDD Section Taxonomy
 
-The standard GDD structure for Infinite Voyage:
+The standard GDD structure:
 
 ```
 1. Vision & Pillars          — What makes this game special

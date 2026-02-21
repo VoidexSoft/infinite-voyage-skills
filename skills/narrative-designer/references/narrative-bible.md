@@ -1,4 +1,4 @@
-# Narrative Bible -- Infinite Voyage
+# Narrative Bible
 
 The master narrative reference for all writers and designers working on Infinite Voyage. Every piece of narrative content -- dialogue, codex entries, quest text, environmental storytelling, UI copy -- must align with this document.
 

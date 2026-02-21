@@ -1,6 +1,6 @@
 # GDD Section Taxonomy
 
-The standard structure for the Infinite Voyage Game Design Document. Every GDD
+The standard structure for the Game Design Document. Every GDD
 section maps to one or more specialist skills. Use this schema when parsing,
 indexing, and validating the GDD.
 

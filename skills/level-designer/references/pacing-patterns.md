@@ -292,7 +292,7 @@ Problem: Anticlimactic. The most intense content comes before the player is inve
 
 ## Genre-Specific Pacing Notes
 
-### Action RPG (Infinite Voyage Default)
+### Action RPG (Default)
 
 - Favor 3:1 combat-to-rest ratio
 - Boss fights are the climactic peak of every zone arc

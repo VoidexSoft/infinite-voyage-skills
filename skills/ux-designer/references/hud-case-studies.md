@@ -55,7 +55,7 @@ remaining 92-95% is pure gameplay view.
 - Requires strong environmental design to compensate for missing HUD information
 - Less effective for complex RPGs with many stats and statuses to track
 
-### Lessons for Infinite Voyage
+### Key Lessons
 
 - Use a minimal HUD during exploration mode; expand it during combat
 - Environmental storytelling can replace HUD indicators (glowing paths, NPC reactions)
@@ -112,7 +112,7 @@ weapon to check status.
 - Does not scale well to complex RPGs with dozens of status effects
 - Reading holographic text at a distance (console/TV) can be challenging
 
-### Lessons for Infinite Voyage
+### Key Lessons
 
 - Consider diegetic elements for specific systems (e.g., a magical compass for navigation)
 - Do not make ALL UI diegetic in an RPG; the stat complexity is too high
@@ -167,7 +167,7 @@ often add even more custom elements (damage meters, threat meters, custom timers
 - Requires significant player investment to customize the layout
 - Can cause information overload and decision paralysis
 
-### Lessons for Infinite Voyage
+### Key Lessons
 
 - Provide a dense HUD mode for players who want detailed combat data
 - Default to a simpler layout; let advanced players add elements
@@ -179,7 +179,7 @@ often add even more custom elements (damage meters, threat meters, custom timers
 ## 4. Adaptive HUD Systems
 
 An adaptive HUD changes its display based on the player's current context. This is the
-recommended approach for Infinite Voyage.
+recommended approach.
 
 ### Context-Based Display Rules
 
@@ -216,7 +216,7 @@ recommended approach for Infinite Voyage.
 - Edge cases: what if the player is in combat but also in a dialogue?
 - Must provide a manual override for players who prefer a static HUD
 
-### Infinite Voyage Implementation
+### Implementation Approach
 
 ```
 Exploration Mode
@@ -295,9 +295,9 @@ Regardless of approach, certain placement conventions are standard across games.
 
 ---
 
-## 7. Recommended Approach for Infinite Voyage
+## 7. Recommended Approach
 
-Based on the case studies above, the recommended HUD strategy for Infinite Voyage is an
+Based on the case studies above, the recommended HUD strategy is an
 **adaptive HUD with manual override** that combines:
 
 1. **Minimal exploration mode** -- Inspired by Breath of the Wild. Show only health (if not

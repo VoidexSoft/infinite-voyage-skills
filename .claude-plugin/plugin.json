@@ -1,0 +1,21 @@
+{
+  "name": "game-design-studio",
+  "description": "13 specialized AI skills for game development — covering systems design, narrative, economy, level design, balancing, playtesting, project management, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "VoidexSoft"
+  },
+  "homepage": "https://github.com/VoidexSoft/game-design-studio",
+  "repository": "https://github.com/VoidexSoft/game-design-studio",
+  "keywords": [
+    "game-design",
+    "game-design-studio",
+    "gdd",
+    "systems-design",
+    "narrative",
+    "economy",
+    "level-design",
+    "game-balance",
+    "playtesting"
+  ]
+}

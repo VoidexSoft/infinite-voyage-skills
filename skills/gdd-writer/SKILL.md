@@ -1,7 +1,7 @@
 ---
 name: gdd-writer
 description: >
-  GDD compilation and formatting specialist for Infinite Voyage. Use this skill whenever the user needs to export
+  GDD compilation and formatting specialist for game development. Use this skill whenever the user needs to export
   game design document sections into a professional, formatted Word document. Handles: compiling GDD index into single
   document, adding table of contents, headers, page breaks, page numbers, section status indicators, version tracking,
   professional styling for stakeholder review. Trigger when exporting GDD for publisher review, stakeholder presentations,
